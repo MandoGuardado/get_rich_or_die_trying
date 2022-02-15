@@ -1,0 +1,32 @@
+{
+  "mando": {
+    "career": "KNOWLEDGE",
+    "intellect": "0",
+    "education": "false",
+    "strength": "5",
+    "health": "100",
+    "hasPrivilege": "false",
+    "isMarried": "false",
+    "partner": "null",
+    "children": "0",
+    "netWorth": "324143",
+    "name": "mando",
+    "creativity": "0",
+    "age": "33"
+  },
+  "johnny": {
+    "career": "DANGER",
+    "intellect": "0",
+    "education": "false",
+    "strength": "3",
+    "health": "95",
+    "hasPrivilege": "false",
+    "isMarried": "false",
+    "partner": "null",
+    "children": "0",
+    "netWorth": "524779",
+    "name": "johnny",
+    "creativity": "2",
+    "age": "33"
+  }
+}

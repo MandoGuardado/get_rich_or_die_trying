@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BackstoryController">
+   <top>
+      <ImageView fitHeight="65.0" fitWidth="415.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+         <Image url="@backStoryLogo.png" />
+      </ImageView>
+   </top>
+   <left>
+      <Button mnemonicParsing="false" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+   </left>
+   <right>
+      <Button fx:id="backstoryNext" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#backstoryNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+   </right>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+         <Label fx:id="backstoryLabel1" prefHeight="56.0" prefWidth="513.0" text="As a baby, the town elder comes to visit you and your parents. They look at you curiously and place 3 toys in front of you and beckons you to choose one. You notice that the elder smells weird as your crawl towards the items." textFill="#3b32e8" wrapText="true">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font>
+         </Label>
+         <ToggleButton fx:id="backstoryButton1" mnemonicParsing="false" onAction="#buttonPressed" text="action figure" textFill="#3030eb">
+            <toggleGroup>
+               <ToggleGroup fx:id="backstoryChoice" />
+            </toggleGroup>
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="backstoryButton2" mnemonicParsing="false" onAction="#buttonPressed" text="rocket ship" textFill="#3030eb" toggleGroup="$backstoryChoice">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font>
+         </ToggleButton>
+         <ToggleButton fx:id="backstoryButton3" mnemonicParsing="false" onAction="#buttonPressed" text="crayons" textFill="#3030eb" toggleGroup="$backstoryChoice">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font>
+         </ToggleButton>
+         <Button fx:id="backstorySubmit" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#BSSubmitPressed" style="-fx-background-color: black; -fx-border-color: #3030eb;" text="Submit Answer" textFill="#3030eb">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+         <Label fx:id="backstoryLabel2" text="Label" textFill="#3b32e8">
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font>
+         </Label>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

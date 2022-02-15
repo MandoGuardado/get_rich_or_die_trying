@@ -52,7 +52,7 @@ public class WriteFile {
             BufferedWriter write = new BufferedWriter(new FileWriter(fileName, false));
             write.write(content);
             write.close();
-            System.out.println("Your saved game has been updated.");
+            System.out.println("Game has been updated.");
         }
         catch(Exception e)
         {

@@ -1,0 +1,36 @@
+{
+  "mando": {
+    "name": "mando",
+    "netWorth": "2500",
+    "health": "50",
+    "age": "25",
+    "children": "1",
+    "strength": "2",
+    "intellect": "2",
+    "creativity": "3",
+    "education": "false",
+    "isMarried": "false",
+    "hasPrivilege": "false",
+    "career": "PASSION",
+    "partner": {
+      "name": "Tom",
+      "netWorth": "25000"
+    }
+  },
+  "danny": {
+    "name": "danny",
+    "netWorth": "2500",
+    "health": "50",
+    "age": "25",
+    "children": "1",
+    "strength": "2",
+    "intellect": "2",
+    "creativity": "3",
+    "education": "false",
+    "isMarried": "false",
+    "hasPrivilege": "false",
+    "career": "PASSION",
+    "partner":"null"
+  }
+}
+

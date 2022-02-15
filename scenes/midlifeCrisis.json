@@ -1,0 +1,48 @@
+{
+  "false": [
+    {
+      "prompt": "You're feeling a bit down and begin to assess all aspects of your life. From achievements, career, family, and character. You may be at the beginning of a major midlife crisis. Do you seek help or try to handle it yourself?",
+      "options": [
+        "seek help",
+        "handle it yourself"
+      ],
+      "outcomes": [
+        "The decision to seek profession help and to take medical leave from your job was for the best. Not only did you drastically improved you mental health but your overall health improved and your employer was very supportive." ,
+        "Unfortunately you mental health is not improving. You continue to try to handle it yourself but everything you do doesn't seem to work. You are hanging by a thread at work and feel like you will be fired soon. You go like this for two years."
+      ],
+      "effects": [
+        {
+          "health" : 25,
+          "money" : 10000
+        },
+        {
+          "money" : -10000,
+          "health" : -25
+        }
+      ]
+    }
+  ],
+  "true": [
+    {
+      "prompt": "The last time you encountered a midlife crisis the decision you made early on determined the duration of the crisis episode.\n Your are recognizing the tale tail signs of another episode and must now determine if you want to be proactive or reactive?",
+      "options": [
+        "proactive",
+        "reactive"
+      ],
+      "outcomes": [
+        "That's awesome! Being proactive not only saves you money but your health improved.",
+        "While you decided not to be proactive the latest crisis proved not to be so bad. You were able to handle it but it was a bit costly because of the days off you had to take and your overall health also took a hit."
+      ],
+      "effects": [
+        {
+          "money" : 5000,
+          "health" : 25
+        },
+        {
+          "health" :-10,
+          "money": -5000
+        }
+      ]
+    }
+  ]
+}

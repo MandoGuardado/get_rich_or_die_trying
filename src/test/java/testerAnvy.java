@@ -1,8 +1,7 @@
 import controller.Game;
 import models.Careers;
 import models.Person;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class testerAnvy {
 
@@ -12,7 +11,6 @@ public class testerAnvy {
     @Test
     public void intro() {
 //        System.out.println(Game.welcome());
-
     }
 
     @Test
@@ -39,7 +37,7 @@ public class testerAnvy {
         System.out.println(player.getPartner());
         player.addPartner(1);
         System.out.println(player.getPartner());
-        player.marryPartner(1);
+        player.marryPartner();
         player.isMarried();
         player.addDivorce();
         System.out.println(player.isMarried());

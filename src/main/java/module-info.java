@@ -13,4 +13,6 @@ module controller.get_rich_or_die_trying {
 
     opens controller to javafx.fxml;
     exports controller;
+    exports view;
+    opens view to javafx.fxml;
 }

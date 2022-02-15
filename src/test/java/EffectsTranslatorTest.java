@@ -2,7 +2,7 @@ import controller.EffectsTranslator;
 import models.Person;
 import models.Scene;
 import models.SceneContainer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class EffectsTranslatorTest {
 

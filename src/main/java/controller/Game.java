@@ -3,7 +3,6 @@ package controller;
 import models.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -14,7 +13,9 @@ public class Game {
 
     //Fields
     SceneContainer scenes;
-    Person player = new Person();
+    static Person player = new Person();
+    Map<String,Person> listPlayer;
+    private boolean doesPlayerExist = false;
     boolean isWindows = System.getProperty("os.name").contains("Windows");
 
     //constructors
@@ -25,29 +26,41 @@ public class Game {
     public void execute() {
         //creates a Map Filed for each external category file. Using Scene instances fill in various scenes(Scene Instances)
         scenes = new SceneContainer();
+        listPlayer = scenes.getUsers();
         //Prints Welcome ASCII art banner
         welcome();
         //Checks to see if there is a saved file to read in previous score.
-        checkSaveFile();
-        //Initializes Person instance with various prompts to obtain values.
-        //It also runs through the backstory sequence
-        getPlayerBasicData();
-        clearScreen();
-        //Begins cycle of the BackStory file
-        runSceneOneCareer(player);
+//        checkSaveFile();
+        String result = retrievePreviousSession();
+        System.out.println(result);
+
+        if (!doesPlayerExist) {
+            //Initializes Person instance with various prompts to obtain values.
+            //It also runs through the backstory sequence
+            getPlayerBasicData();
+            clearScreen();
+            //Runs through Career scene
+            runSceneOneCareer(player);
+        }
+
 
         while (shouldPlay()) {
             clearScreen();
-            //A random category is selected , available option: career, children, education, health, partner, privilege
-            Scene currentScene = scenes.getRandomScene(player);
+
+            //Checks to see if player is going through midlife crisis, it has already happened, if two are not true,
+            //then it continues with a random scene.
+            Scene currentScene = scenes.getNewScene(player);
+
             //prints out the ASCII art of the specific category of the random scene.
             System.out.println(currentScene.getArt());
             System.out.println("\n+++++++ 5 years later +++++++");
             //For every scene the user goes through age is increased by 5
-            player.addAge(5);
+            System.out.println(player.addAge(5));
+            System.out.println(player.getPlayerInformation());
             // handles the individual scene prompting, handling user response and returning index of response.
             int input = prompt(currentScene);
             clearScreen();
+            System.out.println(player.getPlayerInformation());
             // display outcome of scene based on user response.
             displayOutcome(input, currentScene);
             // applies effect based on user response
@@ -94,6 +107,7 @@ public class Game {
      * Method used to determine if user inputs any of the keywords 'help' or 'quit'
      * In addition, it used do capture other user input throughout the game.
      * Optional: if Selections Array is passed in then input can also be compared with these values.
+     *
      * @param selections a list of valid selections (Empty Array)
      * @return lower case version of user input
      */
@@ -107,7 +121,8 @@ public class Game {
                 this.helpMenu();
             //Scenario two: User types 'quit' (Case does not matter).
             if (userInput.equalsIgnoreCase("quit")) {
-                System.out.println("Quitting game");
+                scenes.saveUsers(player);
+                System.out.println("Quitting game.!");
                 System.exit(1);
                 return "";
             }
@@ -125,6 +140,26 @@ public class Game {
             for (String selection : selections)
                 System.out.println(selection);
         }
+    }
+
+    /**
+     * Method that looks for current users previous session using name as the key and returning a result message.
+     *
+     * @return String message that defines the result of the search.
+     */
+    public String retrievePreviousSession() {
+        String resultString;
+        System.out.println("Enter previous user name...:");
+        String playerSavedName = getInput();
+        if (listPlayer.containsKey(playerSavedName)) {
+            resultString = "\n\nPlayer Found! You will continue where you left off...";
+            player = listPlayer.get(playerSavedName);
+            //Sets the boolean variable to true, so that player can continue with previous session.
+            doesPlayerExist = true;
+        } else {
+            resultString = "\nPlayer name was not found! New player record will be created.";
+        }
+        return resultString;
     }
 
     /**
@@ -219,7 +254,7 @@ public class Game {
         System.out.printf("Your name is %s. You chose to %s college.", playerName, userWantsCollege ? "go to" : "skip");
 
         if (userWantsCollege)
-            player.addMoney(-100000);
+            player.adjustNetWorth(-100000);
 
         player.setName(playerName);
         player.setEducation(userWantsCollege);
@@ -228,9 +263,10 @@ public class Game {
     /**
      * Method used to read backstory.json (external file). Creates (Backstory class) object for each individual JSONObject and
      * insert them to a List<Backstory> type.
-     * @return ArrayList<type=Backstory>
+     *
+     * @return ArrayList<type = Backstory>
      */
-    private List<Backstory> getBackStoryScenes() {
+    static List<Backstory> getBackStoryScenes() {
         List<Backstory> backstories = new ArrayList<>();
         JSONArray fileData = readJsonArray("scenes/backstory.json");
         for (Object jsonBackstory : fileData) {
@@ -242,10 +278,11 @@ public class Game {
 
     /**
      * Method used to read external json files.
+     *
      * @param path String representation of path to desired file
      * @return JSONArray with data from external file.
      */
-    private JSONArray readJsonArray(String path) {
+    private static JSONArray readJsonArray(String path) {
         File file = new File(path);
         StringBuilder jsonString = new StringBuilder();
         try (Scanner reader = new Scanner(file)) {
@@ -262,6 +299,7 @@ public class Game {
     /**
      * Methods runs through the sequence of Backstory events (read from external file), based on response
      * from each backstory event, player's (Player Object) strength, intellect, or creativity field is updated.
+     *
      * @param backstories List datastructures holding Backstory instances.
      */
     private void processBackstories(List<Backstory> backstories) {
@@ -311,6 +349,7 @@ public class Game {
     /**
      * Method that run through the second phase of events. If player decided to go to college or not.
      * Different career option are presented
+     *
      * @param player Person instance.
      */
     private void runSceneOneCareer(Person player) {
@@ -348,6 +387,7 @@ public class Game {
     /**
      * Method used to cycle through a randomly selected scene and prompting user for selection
      * on various options and then returning index of chosen option.
+     *
      * @param currentScene Scene instance.
      * @return index of user selected option value.
      */
@@ -379,6 +419,7 @@ public class Game {
     /**
      * Method to convert Collection type parameter to Array format, using overloading to
      * call alternative method and passing in array format of options.
+     *
      * @param options A List <String> that is holding the options value of a Scene Instance.
      * @return options value from Scene options selection that user selected.
      */
@@ -389,7 +430,8 @@ public class Game {
 
     /**
      * Method to display Scent instance outcome based on users options selection.
-     * @param index Index value representing the options selected by user when answering currentScene prompt
+     *
+     * @param index        Index value representing the options selected by user when answering currentScene prompt
      * @param currentScene Scene instance.
      */
     private void displayOutcome(int index, Scene currentScene) {
@@ -398,8 +440,9 @@ public class Game {
     }
 
     /**
-     *Method that performs effects in Scene object based on options index response by user.
-     * @param index Index value of user input.
+     * Method that performs effects in Scene object based on options index response by user.
+     *
+     * @param index        Index value of user input.
      * @param currentScene Scene instance.
      */
     private void runEffect(int index, Scene currentScene) {
@@ -409,6 +452,7 @@ public class Game {
 
     /**
      * Method prints a 5-year summary of the player's (Person instance) fields.
+     *
      * @param salaryBreakdown net-worth breakdown(String)
      * @return 5-year Summary
      */
@@ -453,8 +497,9 @@ public class Game {
         }
 
         if (askToSave.equalsIgnoreCase("save")) {
-            WriteFile saveGame = new WriteFile("saveFile.txt", displaySceneSummary(""));
-            saveGame.save();
+//            WriteFile saveGame = new WriteFile("saveFile.txt", displaySceneSummary(""));
+            scenes.saveUsers(player);
+//            saveGame.save();
         }
     }
 
@@ -469,6 +514,7 @@ public class Game {
      * if user's (Person instance: health field) health value is less than ZERO then player looses
      * If user's netWorth field value is over 1 Million then player wins.
      * If none of these are true player can then go to another scene.
+     *
      * @return boolean to determine if user can continue to another scene.
      */
     private boolean shouldPlay() {
@@ -518,6 +564,9 @@ public class Game {
         }
     }
 
+    public static Person getPlayer() {
+        return player;
+    }
 }
 
 
