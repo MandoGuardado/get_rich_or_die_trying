@@ -8,66 +8,55 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1256.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuiController">
     <top>
-        <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@title.png" />
-         </image>
-        </ImageView>
+       <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true"
+                  BorderPane.alignment="CENTER">
+          <Image url="@title.png"/>
+       </ImageView>
     </top>
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="newGameButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToNewGameScene" text="New Game">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Button>
-            <Button fx:id="loadGameButton" mnemonicParsing="false" onAction="#switchToLoadGameScene" text="Load Game">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Button>
-         </children>
+         <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToNewGameScene"
+                 text="New Game">
+            <font>
+               <Font name="Arial" size="13.0"/>
+            </font>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#switchToLoadGameScene" text="Load Game">
+            <HBox.margin>
+               <Insets left="10.0"/>
+            </HBox.margin>
+            <font>
+               <Font name="Arial" size="13.0"/>
+            </font>
+         </Button>
       </HBox>
    </bottom>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="29.0" fitWidth="679.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@intro1.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="973.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@intro2.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </ImageView>
-            <ImageView fitHeight="27.0" fitWidth="1257.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@intro3.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="1257.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@intro4.png" />
-               </image>
-            </ImageView>
-         </children>
          <BorderPane.margin>
-            <Insets />
+            <Insets/>
          </BorderPane.margin>
+         <ImageView fitHeight="29.0" fitWidth="679.0" pickOnBounds="true" preserveRatio="true">
+            <VBox.margin>
+               <Insets bottom="5.0"/>
+            </VBox.margin>
+            <Image url="@intro1.png"/>
+         </ImageView>
+         <ImageView fitHeight="44.0" fitWidth="973.0" pickOnBounds="true" preserveRatio="true">
+            <VBox.margin>
+               <Insets bottom="5.0"/>
+            </VBox.margin>
+            <Image url="@intro2.png"/>
+         </ImageView>
+         <ImageView fitHeight="27.0" fitWidth="1257.0" pickOnBounds="true" preserveRatio="true">
+            <VBox.margin>
+               <Insets bottom="5.0"/>
+            </VBox.margin>
+            <Image url="@intro3.png"/>
+         </ImageView>
+         <ImageView fitHeight="26.0" fitWidth="1257.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@intro4.png"/>
+         </ImageView>
       </VBox>
    </center>
 </BorderPane>

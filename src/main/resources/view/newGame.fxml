@@ -15,54 +15,52 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuiController">
    <top>
-      <ImageView fitHeight="135.0" fitWidth="602.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@title.png" />
-         </image>
+      <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true"
+                 BorderPane.alignment="CENTER">
+         <Image url="@title.png"/>
       </ImageView>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: black;">
-               <children>
-                  <TextField fx:id="ngName" alignment="CENTER" onKeyReleased="#handleKeyReleased" promptText="Enter Your Name" style="-fx-border-color: #2fb1e1;">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font></TextField>
-               </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label alignment="TOP_CENTER" text="Choose Difficulty" textFill="#2fb1e1">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </Label>
-                  <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" selected="true" text="Middle Class (normal)" textFill="#2fb1e1">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="difficulty" />
-                     </toggleGroup>
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Working Class (hard)" textFill="#2fb1e1" toggleGroup="$difficulty">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font></RadioButton>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
+         <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: black;">
+            <TextField fx:id="ngName" alignment="CENTER" onKeyReleased="#handleKeyReleased"
+                       promptText="Enter Your Name" style="-fx-border-color: #2fb1e1;">
+               <font>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </TextField>
+         </HBox>
+         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+            <Label alignment="TOP_CENTER" text="Choose Difficulty" textFill="#2fb1e1">
+               <HBox.margin>
+                  <Insets right="10.0"/>
+               </HBox.margin>
+               <font>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </Label>
+            <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" selected="true" text="Middle Class (normal)"
+                         textFill="#2fb1e1">
+               <HBox.margin>
+                  <Insets right="10.0"/>
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="difficulty"/>
+               </toggleGroup>
+               <font>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="Working Class (hard)" textFill="#2fb1e1"
+                         toggleGroup="$difficulty">
+               <font>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </RadioButton>
+         </HBox>
       </VBox>
    </center>
    <left>

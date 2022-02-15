@@ -12,32 +12,33 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuiController">
    <top>
-      <ImageView fitHeight="150.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@title.png" />
-         </image>
+      <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true"
+                 BorderPane.alignment="CENTER">
+         <Image url="@title.png"/>
       </ImageView>
    </top>
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="543.0">
-               <children>
-                  <TextField fx:id="loadText" promptText="Enter Your Name" style="-fx-background-color: black; -fx-border-color: #2fb1e1;">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font></TextField>
-                  <Button fx:id="loadSubmitButton" alignment="CENTER" mnemonicParsing="false" onAction="#loadSubmitPressed" style="-fx-background-color: black; -fx-border-color: #2fb1e1;" text="Submit" textFill="#2fb1e1">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font></Button>
-               </children>
-            </HBox>
-            <Label fx:id="loadLabel" alignment="CENTER" prefHeight="17.0" prefWidth="527.0" text="Label" textFill="#2fb1e1">
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="543.0">
+            <TextField fx:id="loadText" promptText="Enter Your Name"
+                       style="-fx-background-color: black; -fx-border-color: #2fb1e1;">
                <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Label>
-         </children>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </TextField>
+            <Button fx:id="loadSubmitButton" alignment="CENTER" mnemonicParsing="false" onAction="#loadSubmitPressed"
+                    style="-fx-background-color: black; -fx-border-color: #2fb1e1;" text="Submit" textFill="#2fb1e1">
+               <font>
+                  <Font name="Arial" size="13.0"/>
+               </font>
+            </Button>
+         </HBox>
+         <Label fx:id="loadLabel" alignment="CENTER" prefHeight="17.0" prefWidth="527.0" text="Label"
+                textFill="#2fb1e1">
+            <font>
+               <Font name="Arial" size="13.0"/>
+            </font>
+         </Label>
       </VBox>
    </center>
    <right>
