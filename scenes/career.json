@@ -1,16 +1,16 @@
 {
   "danger": [
     {
-      "prompt": "While at work, you are performing maintenance on one of the generators. \nYou are pretty sure you can skip the maintenance since nobody has used the generator since the last maintenance a couple months ago.",
+      "prompt": "While at work, you are performing maintenance on one of the generators. You are pretty sure you can skip the maintenance since nobody has used the generator since the last maintenance a couple months ago.",
       "options": [
         "skip maintenance",
         "do quick visual inspection",
         "do maintenance"
       ],
       "outcomes": [
-        "You skip the maintenance. A couple weeks later your team turns on the generator and it immediately explodes, \nkilling one and injuring several others. You are near the blast radius and get hit by high-velocity shrapnel. \nManagement is then forced to pay out worker's compensation to the victims, including you.",
-        "You visually inspect the machine and notice scorch marks near the socket. You say to yourself, \n'This is above my pay grade.' and escalate to your manager. Your manager notices the machine is faulty and is happy you were so thorough. \nYou earn a small bonus.",
-        "You finish the maintenance. You turn on the generator for the final test and it explodes. \nYou are standing very close and receive several serious burns and shrapnel. Management is forced to pay out worker's compensation to you."
+        "You skip the maintenance. A couple weeks later your team turns on the generator and it immediately explodes, killing one and injuring several others. You are near the blast radius and get hit by high-velocity shrapnel. Management is then forced to pay out worker's compensation to the victims, including you.",
+        "You visually inspect the machine and notice scorch marks near the socket. You say to yourself, 'This is above my pay grade.' and escalate to your manager. Your manager notices the machine is faulty and is happy you were so thorough. You earn a small bonus.",
+        "You finish the maintenance. You turn on the generator for the final test and it explodes. You are standing very close and receive several serious burns and shrapnel. Management is forced to pay out worker's compensation to you."
       ],
       "effects": [
         {
@@ -28,15 +28,15 @@
       ]
     },
     {
-      "prompt": "You are making your way downtown, walking fast, the faces pass as you're home bound. \nYour boss calls you and asks you to take a higher position with the company. \nThe pay is a lot more, but it is extremely risky. What do you do? ",
+      "prompt": "You are making your way downtown, walking fast, the faces pass as you're home bound. Your boss calls you and asks you to take a higher position with the company. The pay is a lot more, but it is extremely risky. What do you do? ",
       "options": [
         "take job",
         "no thanks",
         "ask for time to think about it"
       ],
       "outcomes": [
-        "Three days into the new job, a tragedy occurs. You lose some limbs and are on life support. \nIt doesn't look good for you.",
-        "Your boss respects your decision but states he currently doesn't need anyone in your role. \nHe offers you a different position, but you take a pay cut.",
+        "Three days into the new job, a tragedy occurs. You lose some limbs and are on life support. It doesn't look good for you.",
+        "Your boss respects your decision but states he currently doesn't need anyone in your role. He offers you a different position, but you take a pay cut.",
         "Your boss fires you the next day. The company needs to go with someone who is decisive and willing to take risks."
       ],
       "effects": [
@@ -57,16 +57,16 @@
   ],
   "passion": [
     {
-      "prompt": "You are in your art studio, putting the finishing touches on your latest work. \nYou need to decide what to do with it when it's finished.",
+      "prompt": "You are in your art studio, putting the finishing touches on your latest work. You need to decide what to do with it when it's finished.",
       "options": [
         "sell it",
         "donate it",
         "keep it"
       ],
       "outcomes": [
-        "You take your finished piece to the gallery for sale. \nIt takes about five months before a local high-roller makes an offer.",
-        "You donate your art to one of your favorite charities. \nOn your way back home, the charity owner calls you and requests several personal commissioned artworks.",
-        "You hang the art from the ceiling in your foyer. \nA few months later, an earthquake causes the art to fall right on your head. You'll need to go to the hospital to get this looked at."
+        "You take your finished piece to the gallery for sale. It takes about five months before a local high-roller makes an offer.",
+        "You donate your art to one of your favorite charities. On your way back home, the charity owner calls you and requests several personal commissioned artworks.",
+        "You hang the art from the ceiling in your foyer. A few months later, an earthquake causes the art to fall right on your head. You'll need to go to the hospital to get this looked at."
       ],
       "effects": [
         {
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "prompt": "You are teaching students your craft. They love it, you love it, \nbut the money is not enough to pay your bills. A student asks why won't you quit. Pick your response",
+      "prompt": "You are teaching students your craft. They love it, you love it, but the money is not enough to pay your bills. A student asks why won't you quit. Pick your response",
       "options": [
         "'I dunno, I'm lazy and this is better than nothing'. Your students look disappointed and only half show up next class.",
         "'Passion is more important than money'. Your student smiles and says they will recommend you to some friends",
@@ -111,16 +111,16 @@
   ],
   "knowledge": [
     {
-      "prompt": "One day while in the office, you are heading to the restroom. \nYou round a corner and bump into the new secretary, Anne. \nShe drops the notepad and coffee mug she was holding onto the carpet, spilling coffee everywhere.",
+      "prompt": "One day while in the office, you are heading to the restroom. You round a corner and bump into the new secretary, Anne. \nShe drops the notepad and coffee mug she was holding onto the carpet, spilling coffee everywhere.",
       "options": [
         "ignore her",
         "help her",
         "scold her"
       ],
       "outcomes": [
-        "'A case of the Mondays, huh?', you say to Anne. She glares and you continue to the restroom. \nOn your way back to your desk, you find a credit card in the coffee stain. Anne must not have realized she dropped it.",
-        "You bend to help Anne pick up her items. She thanks you for your help and asks if you want to get lunch. \nYou become great friends with her and her family. You find out her father owns the company and your friendly relationship with him gets you a promotion.",
-        "'You better watch where you're going new girl, you're on thin ice!' \nAnne's eyes begin to water and she runs to the HR office. You are suspended without pay for 2 weeks. "
+        "'A case of the Mondays, huh?', you say to Anne. She glares and you continue to the restroom. On your way back to your desk, you find a credit card in the coffee stain. Anne must not have realized she dropped it.",
+        "You bend to help Anne pick up her items. She thanks you for your help and asks if you want to get lunch. You become great friends with her and her family. You find out her father owns the company and your friendly relationship with him gets you a promotion.",
+        "'You better watch where you're going new girl, you're on thin ice!' Anne's eyes begin to water and she runs to the HR office. You are suspended without pay for 2 weeks. "
       ],
       "effects": [
         {
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "prompt": "Its time to clock in! You make amazing money, but you are miserable at your job. \nYou work from home and as you sit in front of your desk, you contemplate leaving. You sign in to your Zoom meeting.",
+      "prompt": "Its time to clock in! You make amazing money, but you are miserable at your job. You work from home and as you sit in front of your desk, you contemplate leaving. You sign in to your Zoom meeting.",
       "options": [
         "scream I QUIT",
         "start meeting a usual",
@@ -144,7 +144,7 @@
       "outcomes": [
         "You have gone viral. Your video has garnered national attention. You now have endorsements and are working for yourself",
         "Your boss gives you a shout out. They are so happy to have you. You smile on the outside, but on the inside, its the opposite effect",
-        "You mention that your morale has been pretty low lately. Other team members inspired by your courage, also speak up in agreement. \n Your boss plans a week long paid retreat for your team"
+        "You mention that your morale has been pretty low lately. Other team members inspired by your courage, also speak up in agreement. Your boss plans a week long paid retreat for your team"
       ],
       "effects": [
         {

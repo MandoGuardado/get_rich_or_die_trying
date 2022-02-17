@@ -1,15 +1,15 @@
 {
   "true": [
     {
-      "prompt": "Your child is having night terrors and keeps crying throughout the night. \nYou are exhausted and have a big meeting tomorrow. What do you do?",
+      "prompt": "Your child is having night terrors and keeps crying throughout the night. You are exhausted and have a big meeting tomorrow. What do you do?",
       "options": [
         "let her cry",
         "soothe her",
         "hire an overnight nanny"
       ],
       "outcomes": [
-        "You decide to let her cry but concerned neighbors call the cops. \nThey understand but all the ruckus makes it hard for you to fall back asleep. \nYou oversleep your alarm missing your meeting.",
-        "You go to your baby and pick her up from the crib. \nYou sigh knowing you will do terribly in your meeting tomorrow and it will affect your job performance.",
+        "You decide to let her cry but concerned neighbors call the cops. They understand but all the ruckus makes it hard for you to fall back asleep. You oversleep your alarm missing your meeting.",
+        "You go to your baby and pick her up from the crib. You sigh knowing you will do terribly in your meeting tomorrow and it will affect your job performance.",
         "The nanny arrives in time for you to get a good night's sleep "
       ],
       "effects": [
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "prompt": "Your child is struggling in math class and you want to help, but you are not very good at math. \nYou need to decide what's the best way to help your child.",
+      "prompt": "Your child is struggling in math class and you want to help, but you are not very good at math. You need to decide what's the best way to help your child.",
       "options": [
         "hire tutor",
         "learn math",
@@ -36,8 +36,8 @@
       ],
       "outcomes": [
         "The tutor you hired turned out to be a fraud. Great. Now you wasted money AND your child is still not good at math.",
-        "When did children start learning advanced calculus in junior high school?? You spend weeks studying to save a bit of money. \nYour child scores a B+ on her next exam. 'Not bad', you think to yourself.",
-        "Your kid buries themself in study. They earn a D on their next exam. \nYou feel bad that their hard work didn't pay off but at least you saved some cash."
+        "When did children start learning advanced calculus in junior high school?? You spend weeks studying to save a bit of money. Your child scores a B+ on her next exam. 'Not bad', you think to yourself.",
+        "Your kid buries themself in study. They earn a D on their next exam. You feel bad that their hard work didn't pay off but at least you saved some cash."
       ],
       "effects": [
         {
@@ -56,7 +56,7 @@
   ],
   "false": [
     {
-      "prompt": "You have been enjoying your child-free life. But recently, you've been thinking of adding a little one into your life. \nYou know it was drastically change your current lifestyle. What do you do? ",
+      "prompt": "You have been enjoying your child-free life. But recently, you've been thinking of adding a little one into your life. You know it was drastically change your current lifestyle. What do you do? ",
       "options": [
         "get baby",
         "foster child",
@@ -85,16 +85,16 @@
       ]
     },
     {
-      "prompt": "Your sister has died. In her will, your sister requested that her young daughter live with you \nbecause your sister thinks you would make a good role model. The lawyer hands you the legal forms to sign.",
+      "prompt": "Your sister has died. In her will, your sister requested that her young daughter live with you because your sister thinks you would make a good role model. The lawyer hands you the legal forms to sign.",
       "options": [
         "sign forms",
         "shred forms",
         "pass niece off to your mom"
       ],
       "outcomes": [
-        "You will raise the child as your own in honor of your sister. You return the signed forms to the lawyer and he says, \n'Your sister also wanted to pass along a substantial sum of money to ensure the welfare of her daughter'",
-        "You already have too many commitments and your sister never asked if this was okay with you. \n'I'm sorry', you say. 'I am just not in the right place for this now...'",
-        "You have too much on your plate but your mom, a retiree, has free time for child rearing. \nYour mother takes in her grandchild but is horrified you won't honor your sister's wishes. She wants nothing to do with you now. You are heartbroken"
+        "You will raise the child as your own in honor of your sister. You return the signed forms to the lawyer and he says, 'Your sister also wanted to pass along a substantial sum of money to ensure the welfare of her daughter'",
+        "You already have too many commitments and your sister never asked if this was okay with you. 'I'm sorry', you say. 'I am just not in the right place for this now...'",
+        "You have too much on your plate but your mom, a retiree, has free time for child rearing. Your mother takes in her grandchild but is horrified you won't honor your sister's wishes. She wants nothing to do with you now. You are heartbroken"
       ],
       "effects": [
         {

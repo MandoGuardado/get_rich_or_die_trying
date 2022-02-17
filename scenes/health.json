@@ -8,9 +8,9 @@
         "get a second opinion"
       ],
       "outcomes": [
-        "Congrats, you were just scammed! The 18-year old doctor from Florida has reappeared after getting off from his 2017 fraud charges. \nYou were his first victim. Your blood is VERY regular.",
-        "You decline but start to wonder if the rare genome was a good or bad thing. You start to notice more frequent headaches... \nMaybe you're getting sick after all",
-        "You get a second opinion and your blood is remarkably..normal. However you have an in-demand type for plasma donations. \nYou start donating regularly for some extra cash."
+        "Congrats, you were just scammed! The 18-year old doctor from Florida has reappeared after getting off from his 2017 fraud charges. You were his first victim. Your blood is VERY regular.",
+        "You decline but start to wonder if the rare genome was a good or bad thing. You start to notice more frequent headaches... Maybe you're getting sick after all",
+        "You get a second opinion and your blood is remarkably..normal. However you have an in-demand type for plasma donations. You start donating regularly for some extra cash."
       ],
       "effects": [
         {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "prompt": "You are living a relatively healthy life. That is why you are surprised when, at your yearly physical, the doctor says you have high cholesterol. \nHe offers you an expensive experimental treatment to lower cholesterol using nanomachines. Alternatively you can just try to eat healthier and exercise more.",
+      "prompt": "You are living a relatively healthy life. That is why you are surprised when, at your yearly physical, the doctor says you have high cholesterol. He offers you an expensive experimental treatment to lower cholesterol using nanomachines. Alternatively you can just try to eat healthier and exercise more.",
       "options": [
         "take treatment",
         "live healthier",
@@ -63,8 +63,8 @@
       ],
       "outcomes": [
         "As you were leaping, you leaped into a pile of money. Its your lucky day.",
-        "You go on tour in your 60s and tell children at the library how you dodged Covid. \nYou continue to take your vitamins and never catch the infamous bug.",
-        "You tell everyone and eventually the local news and national doctors catch on. Everyone is offering to interview or study you. \nYou make a lot of cash but stress really affects your overall health"
+        "You go on tour in your 60s and tell children at the library how you dodged Covid. You continue to take your vitamins and never catch the infamous bug.",
+        "You tell everyone and eventually the local news and national doctors catch on. Everyone is offering to interview or study you. You make a lot of cash but stress really affects your overall health"
       ],
       "effects": [
         {
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "prompt": "Your knees are starting to hurt basically all the time now and you can hear the bones rubbing together whenever you take the stairs in your home. \n'Is it time to move to a one-story house?', you ask yourself.",
+      "prompt": "Your knees are starting to hurt basically all the time now and you can hear the bones rubbing together whenever you take the stairs in your home. 'Is it time to move to a one-story house?', you ask yourself.",
       "options": [
         "move house",
         "stay here",
