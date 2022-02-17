@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="803.0" prefWidth="1032.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BackstoryController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BackstoryController">
    <children>
-      <BorderPane fx:id="collegePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;">
+      <BorderPane fx:id="collegePane" prefHeight="636.0" prefWidth="852.0" style="-fx-background-color: black;">
          <top>
             <ImageView fitHeight="313.0" fitWidth="526.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>

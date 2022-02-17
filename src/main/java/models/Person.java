@@ -361,9 +361,12 @@ public class Person {
 
 
     //Setter and Getters
+    public int getHealth(){
+        return this.health;
+    }
 
-    public int getHealth() {
-        return health;
+    public String getHealthString() {
+        return String.valueOf(health);
     }
 
     public Boolean getEducation() {
@@ -390,12 +393,20 @@ public class Person {
         return this.health;
     }
 
-    public int getAge() {
+    public int getAge(){
         return this.age;
     }
 
-    public int getChildren() {
+    public String getAgeString() {
+        return String.valueOf(this.age);
+    }
+
+    public int getChildren(){
         return this.children;
+    }
+
+    public String getChildrenString() {
+        return String.valueOf(this.children);
     }
 
     public int getStrength() {
