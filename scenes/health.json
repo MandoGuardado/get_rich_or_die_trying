@@ -4,16 +4,21 @@
       "prompt": "The doctor calls you to let you know that you have a rare genome in your blood. The doctors offers you 500k to do tests.",
       "options": [
         "offer your body",
-        "decline the offer"
+        "decline the offer",
+        "get a second opinion"
       ],
       "outcomes": [
         "Congrats, you were just scammed! The 18-year old doctor from Florida has reappeared after getting off from his 2017 fraud charges. You were his first victim. Your blood is VERY regular.",
-        "You continue with your monthly plasma donations"
+        "You decline but start to wonder if the rare genome was a good or bad thing. You start to notice more frequent headaches... Maybe you're getting sick after all",
+        "You get a second opinion and your blood is remarkably..normal. However you have an in-demand type for plasma donations. You start donating regularly for some extra cash."
       ],
       "effects": [
         {
           "money": -50000,
           "health": 10
+        },
+        {
+          "health": -10
         },
         {
           "money": 20000,
@@ -25,11 +30,13 @@
       "prompt": "You are living a relatively healthy life. That is why you are surprised when, at your yearly physical, the doctor says you have high cholesterol. He offers you an expensive experimental treatment to lower cholesterol using nanomachines. Alternatively you can just try to eat healthier and exercise more.",
       "options": [
         "take treatment",
-        "live healthier"
+        "live healthier",
+        "take health drink"
       ],
       "outcomes": [
         "You pay for the treatment. The nanomachines make quick work of your cholesterol and you notice that you have more energy now. Modern science is amazing!",
-        "You strive to live a healthier lifestyle... for about 2 weeks. Then you just kinda forget about the doctor's advice."
+        "You strive to live a healthier lifestyle... for about 2 weeks. Then you just kinda forget about the doctor's advice.",
+        "You see a cholesterol lowering drink at a health store and buy a case. Turns out the drink is packed with sugar. The cholesterol goes down but you gain 10lbs"
       ],
       "effects": [
         {
@@ -39,6 +46,9 @@
         {
           "money": 5000,
           "health": -20
+        },
+        {
+          "health": -15
         }
       ]
     }
@@ -48,11 +58,13 @@
       "prompt": "You are the only person who has never caught Covid",
       "options": [
         "leap for joy",
-        "keep info to yourself"
+        "keep info to yourself",
+        "tell everyone"
       ],
       "outcomes": [
         "As you were leaping, you leaped into a pile of money. Its your lucky day.",
-        "You go on tour in your 60s and tell children at the library how you dodged Covid.You continue to take your vitamins and never catch the infamous bug."
+        "You go on tour in your 60s and tell children at the library how you dodged Covid. You continue to take your vitamins and never catch the infamous bug.",
+        "You tell everyone and eventually the local news and national doctors catch on. Everyone is offering to interview or study you. You make a lot of cash but stress really affects your overall health"
       ],
       "effects": [
         {
@@ -62,6 +74,10 @@
         {
           "money": 10,
           "health": 25
+        },
+        {
+          "money": 100000,
+          "health": -15
         }
       ]
     },
@@ -69,20 +85,26 @@
       "prompt": "Your knees are starting to hurt basically all the time now and you can hear the bones rubbing together whenever you take the stairs in your home. 'Is it time to move to a one-story house?', you ask yourself.",
       "options": [
         "move house",
-        "stay here"
+        "stay here",
+        "renovate house"
       ],
       "outcomes": [
-        "You find a place without stairs, in a decent neighborhood, for a reasonable house. Getting older is annoying.",
-        "This is your home. You can't leave just because your knees hurt sometimes. Too many memories and besides, the mortgage is nearly paid off."
+        "You find a place without stairs, in a decent neighborhood. You were able to sell your old house to offset some cost. Getting older is annoying.",
+        "This is your home. You can't leave just because your knees hurt sometimes. Too many memories and besides, the mortgage is nearly paid off.",
+        "You hire a contractor to make your house more accessible. It probably cost more than selling but your comfort and memories are priceless"
       ],
       "effects": [
         {
-          "money": -150000,
+          "money": -50000,
           "health": 10
         },
         {
           "money": 30000,
           "health": -20
+        },
+        {
+          "money": -150000,
+          "health": 15
         }
       ]
     }

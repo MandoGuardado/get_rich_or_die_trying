@@ -4,11 +4,13 @@
       "prompt": "The chiropractor down the street from your house, loves you. You are basically keeping their office in business because this is your third visit for the month. You have been sleeping on an old futon with squeaky springs because you refuse to commit to your partner, Sam. It's time to make up your mind.",
       "options": [
         "marry sam",
+        "end things with sam",
         "make another appt"
       ],
       "outcomes": [
         "That back wasn't holding up eh? Smart Choice. Great News! You no longer pay a deductible to the chiropractor. However, you now have to go half on an extravagant wedding.",
-        "Sam became jealous and wanted revenge and blackmailed the chiropractor to never take you on as a client. You are officially single with a bad back. A friend has offered to rent their shed to you behind the house for a few weeks."
+        "Sam is heartbroken but understands. You part amicably and realize that while you love eachother you weren't a perfect match.",
+        "Sam notices you see the chiropractor way too often. She became jealous and blackmailed the chiropractor to never take you on as a client. Your friend has offered to sell you their old mattress."
       ],
       "effects": [
         {
@@ -17,9 +19,12 @@
           "marry": 1
         },
         {
-          "money": -3000,
-          "health": -15,
+          "health": 10,
           "breakup": 1
+        },
+        {
+          "money": -5000,
+          "health": -10
         }
       ]
     },
@@ -27,11 +32,13 @@
       "prompt": "You are ready to take a mature step in your relationship. You know that you can spend the rest of your life with Sam and you are extremely in love. There's one thing that bothers you. Sam doesn't like cilantro and forbids it from being in the house.",
       "options": [
         "propose",
-        "simmer on it"
+        "simmer on it",
+        "bring up cilantro again"
       ],
       "outcomes": [
         "'YESS, I accept!' Sam accepts and you both beam with joy. You are getting married and it's now time to prepare a big celebration.",
-        "The non-cilantro rule bothers you. You become distant. Sam notices your coldness. Your relationship is affected."
+        "The non-cilantro rule bothers you. You become distant. Sam notices your coldness. Your relationship is affected.",
+        "'I told you I'm allergic! You NEVER listen to me!', Sam shouts. She is having doubts about the relationship and wants to take a break. She feels bad so she pays for rent for the rest of the lease."
       ],
       "effects": [
         {
@@ -41,6 +48,11 @@
         {
           "money": -200000,
           "health": -10
+        },
+        {
+          "money": 10000,
+          "health": -5,
+          "breakup": 1
         }
       ]
     }
@@ -50,11 +62,13 @@
       "prompt": "You're at a NYE party and the countdown to midnight is approaching. You are feeling nervous because you have no partner to kiss. Suddenly, you lock eyes with a mysterious wide-eye stranger.  'OoOoOo I like,' you think. What do you do? ",
       "options": [
         "kiss them",
-        "stare longingly"
+        "stare longingly",
+        "ask for a kiss"
       ],
       "outcomes": [
         "Wow, what a magical kiss. The honeymoon stage begins. You cannot believe your luck. Sam is an incredible kisser who also enjoys anime like you. You ask them to be your partner and they accept.",
-        "You are too shy to approach the stranger. You are feeling self-conscious because you have been dancing all night and have pit stains. You quietly leave into the night...wondering if you will ever find romance. Sigh."
+        "You are too shy to approach the stranger. You are feeling self-conscious because you have been dancing all night and have pit stains. You quietly leave into the night...wondering if you will ever find romance. Sigh.",
+        "You stutter through asking them for a kiss. It takes the whole countdown to get the words out. The stranger looks embarrassed for you and plants a pity kiss on your cheek before walking away. Better luck next time"
       ],
       "effects": [
         {
@@ -64,6 +78,10 @@
         {
           "money": -10000,
           "health": -10
+        },
+        {
+          "money": 5000,
+          "health": -5
         }
       ]
     },
@@ -71,11 +89,13 @@
       "prompt": "It's an icy winter day and you are carefully walking so you don't slip. 'WABAMM!!' You are clumsy and fall anyways. As you struggle to pick yourself up from the floor, a pair of strong arms pulls you. 'Are you okay?' a beautiful stranger asks.",
       "options": [
         "ask them for coffee",
-        "blush and walk away"
+        "blush and walk away",
+        "say they're attractive"
       ],
       "outcomes": [
         "You enjoy a magical date and find out that you both love tapas and scary movies. Wow, this could really be something, you think. You are hopeful and decide to explore the relationship further.",
-        "You are not in a good place in your life to date. You need to work on yourself before you share your life with someone. You nod, 'Yes, I need to put myself first.'"
+        "You are not in a good place in your life to date. You need to work on yourself before you share your life with someone. You nod, 'Yes, I need to put myself first.' but you do feel a bit lonely",
+        "The stranger is taken aback by your forward approach but gives you their number. You call them and set up a late night rendezvous. It isn't love, but you get a night of fun, how invigorating!"
       ],
       "effects": [
         {
@@ -83,7 +103,10 @@
           "dating": 1
         },
         {
-          "health": 5
+          "health": -5
+        },
+        {
+          "health": 10
         }
       ]
     }
@@ -92,14 +115,20 @@
     {
       "prompt": "You go to your spouse, Sam, to build an addition onto your house. Sam tells you to wait until next year, but the time to build is now. You decide to go to the bank anyway and check your account. To your surprise, Sam has put all of the money into forex.",
       "options": [
+        "confront Sam",
         "divorce Sam",
         "rob a bank"
       ],
       "outcomes": [
+        "Sam apologizes for betraying your trust and pulls the funds. They take a huge hit on taxes from the early withdrawal. You can't afford to remodel now and things between you and Sam are tense... ",
         "Wrong choice ! Your partner is now a millionaire. Forex worked well for them. You officially need to see a cardiologist because of a broken heart. ",
         "Put your hands in the air-- the police caught you before you could pull out your gun. There was a grandmom at the bank who hit your knee with her cane.  Bail money is set to $10,000. You're scuffed."
       ],
       "effects": [
+        {
+          "money": -5000,
+          "health": -5
+        },
         {
           "money": -10000,
           "health": -10,
@@ -112,14 +141,16 @@
       ]
     },
     {
-      "prompt": "One day Sam comes home covered in blood. You are shocked and asks her what happened. 'I can't tell you but I need your help,' Sam says. What do you do?",
+      "prompt": "One day Sam comes home covered in blood. You are shocked and ask her what happened. 'I can't tell you but I need your help,' Sam says. What do you do?",
       "options": [
         "you can't handle this. divorce.",
-        "agree to help"
+        "reluctantly agree to help",
+        "enthusiastically help"
       ],
       "outcomes": [
         "As much as you love Sam, you are not willing to be a accomplice. You have your elderly parents to think about. Besides, you are too weak to dig any holes that may be required of you.",
-        "Sam tells you to dig a hole. Sam won't answer any of your questions. You sign and reluctantly grab the shovel as the rain pours down. You are now afraid of Sam."
+        "Sam tells you to dig a hole. Sam won't answer any of your questions. You sigh and reluctantly grab the shovel as the rain pours down. You are now afraid of Sam and they seem suspicious of you.",
+        "You help Sam dig a hole. This is nasty business but you know, Sam would never intentionally harm someone, they must have a good reason. Sam gets misty over your love and devotion. You get back and clean up then enjoy a night of passion with your love. Your relationship is stronger than ever"
       ],
       "effects": [
         {
@@ -129,7 +160,11 @@
         },
         {
           "money": -150000,
-          "health": -50
+          "health": -30
+        },
+        {
+          "money": -50000,
+          "health": 10
         }
       ]
     }
