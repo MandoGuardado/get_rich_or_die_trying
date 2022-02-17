@@ -24,10 +24,7 @@ import java.util.List;
 public class GuiController {
     private static Stage stage;
     private static Scene scene;
-    private Parent root;
-    private final Person player = new Person();
-    private final Game game = new Game();
-    private final EffectsTranslator effectsTranslator = new EffectsTranslator();
+    private static final Person player = new Person();
 
 
     @FXML
@@ -102,4 +99,12 @@ public class GuiController {
         newGameNext.setDisable(disableButton);
     }
 
+    @FXML
+    void quitPressed(ActionEvent event) {
+        System.exit(1);
+    }
+
+    public static Person getPlayer() {
+        return player;
+    }
 }
