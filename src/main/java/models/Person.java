@@ -1,6 +1,9 @@
 package models;
 
+import org.w3c.dom.ranges.Range;
+
 import java.text.NumberFormat;
+import java.time.temporal.ValueRange;
 import java.util.List;
 import java.util.Random;
 
@@ -220,9 +223,16 @@ public class Person {
      * @return String message indicating the career change.
      */
     public String changeCareer(int value) {
-        String oldCareer = career.name();
-        career = Careers.values()[value];
-        return String.format("Your career has changed from %s to %s", oldCareer, career.toString());
+        String msg = "Valid career not found, career has not changed";
+        ValueRange valueRange = ValueRange.of(0,2);
+        if (valueRange.isValidValue(value)){
+            String oldCareer = career.name();
+            career = Careers.values()[value];
+            return String.format("Your career has changed from %s to %s", oldCareer, career.toString());
+        } else{
+            return msg;
+        }
+
     }
 
     /**
