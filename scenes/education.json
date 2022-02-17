@@ -3,12 +3,14 @@
     {
       "prompt": "You are considering going back to college for an advanced degree. You visit a prospective university and meet with a guidance counselor. She says you will need some remedial math classes since they are a very selective university, but she can approve the application right now if you want.",
       "options": [
-        "get degree",
+        "go for it",
+        "try a different college",
         "no thanks"
       ],
       "outcomes": [
         "The extra math classes bring a ton of stress, but after a few years you finally finish your program and graduate. You are now extremely employable.",
-        "You decide to apply to a different university which does not require the remedial math classes. It was smooth sailing, and you are marginally more employable."
+        "You apply to a local college which does not require the remedial math classes. It was smooth sailing, and you are marginally more employable.",
+        "You decide to skip the schooling but as you're leaving the guidance counselor's office, you see an ad for karate class and decide to do that instead."
       ],
       "effects": [
         {
@@ -18,6 +20,10 @@
         {
           "health": 5,
           "money": 10000
+        },
+        {
+          "health": 10,
+          "money": -5000
         }
       ]
     },
