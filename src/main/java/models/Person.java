@@ -223,7 +223,7 @@ public class Person {
      * @return String message indicating the career change.
      */
     public String changeCareer(int value) {
-        String msg = "Valid career not found";
+        String msg = "Valid career not found, career has not changed";
         ValueRange valueRange = ValueRange.of(0,2);
         if (valueRange.isValidValue(value)){
             String oldCareer = career.name();
