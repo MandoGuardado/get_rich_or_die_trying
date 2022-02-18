@@ -208,7 +208,7 @@ public class Game {
 
         if (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")){
             getPlayer().setCurrentlyInvesting(true);
-            System.out.println("You said yes");
+            System.out.println("Great!\n");
             setUpInvestment();
             System.out.println(player.getCurrentInvestment().get("prompt"));
             String response = getInput("invest", "pass");
@@ -224,7 +224,7 @@ public class Game {
                     try {
                         investmentAmt = scanner.nextInt();
                         if (investmentAmt > getPlayer().getNetWorth()){
-                            System.out.println("You need to input an amount less than you net worth:");
+                            System.out.println("You cannot invest more than what you're worth:");
                             validInput = false;
 
                         }else{
@@ -235,7 +235,8 @@ public class Game {
                     catch(IllegalStateException | IllegalArgumentException  | NoSuchElementException  ex) {
                         System.out.println(ex.getLocalizedMessage());
                         validInput = false;
-                        System.out.println("Please enter a number:");
+                        System.out.println("Please valid value:");
+                        scanner.next();
                     }
 
                 } while(!validInput);
@@ -723,22 +724,6 @@ public class Game {
         } catch (IOException var3) {
             var3.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        for (int i = 0; i < 50 ; i++) {
-            System.out.println( random.nextInt(2));
-        }
-
-//        Game myGame = new Game();
-//
-//
-//        myGame.beginInvesting();
-//        myGame.handleInvestmentResult();
-//
-//        System.out.println();
-
     }
 
     public static Person getPlayer() {
