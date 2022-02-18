@@ -10,9 +10,23 @@ import javafx.scene.layout.BorderPane;
 import models.Scene;
 import models.SceneContainer;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
 public class MainstoryController {
     private SceneContainer sceneCont = new SceneContainer();
     private Scene currentScene;
+
+    @FXML
+    private Label effectLabel0;
+
+    @FXML
+    private Label effectLabel1;
+
+    @FXML
+    private Label effectLabel2;
 
     @FXML
     private Label fiveYearLabel;
@@ -93,7 +107,16 @@ public class MainstoryController {
         String resp = selected.getText();
         int index = currentScene.getOptions().indexOf(resp);
         mainLabel2.setText(currentScene.getOutcomes().get(index));
-        EffectsTranslator.doEffects(GuiController.getPlayer(),currentScene.getEffects().get(index));
+        List<String> effects = new ArrayList<>(currentScene.getEffects().get(index).keySet());
+        for (int i = 0; i<effects.size(); i++){
+            if (i == 0) {
+                effectLabel0.setText(EffectsTranslator.doEffects(GuiController.getPlayer(), effects.get(i), (Integer) currentScene.getEffects().get(index).get(effects.get(i))));
+            } else if (i == 1){
+                effectLabel1.setText(EffectsTranslator.doEffects(GuiController.getPlayer(), effects.get(i), (Integer) currentScene.getEffects().get(index).get(effects.get(i))));
+            } else {
+                effectLabel2.setText(EffectsTranslator.doEffects(GuiController.getPlayer(), effects.get(i), (Integer) currentScene.getEffects().get(index).get(effects.get(i))));
+            }
+        }
         nextButton.setDisable(false);
         selected.setSelected(false);
         mainButton1.setDisable(true);
@@ -106,46 +129,35 @@ public class MainstoryController {
         GuiController.getPlayer().addAge(5);
         GuiController.getPlayer().addSalary();
         currentScene = sceneCont.getNewScene(GuiController.getPlayer());
+        mainButton3.setVisible(true);
+        fiveYearLabel.setVisible(true);
+        mainLabel1.setText(currentScene.getPrompt());
+        mainButton1.setText(currentScene.getOptions().get(0));
+        mainButton2.setText(currentScene.getOptions().get(1));
+        statAge.setText(GuiController.getPlayer().getAgeString());
+        statChildren.setText(GuiController.getPlayer().getChildrenString());
+        statHealth.setText(GuiController.getPlayer().getHealthString());
+        statName.setText(GuiController.getPlayer().getName());
+        statPartner.setText(GuiController.getPlayer().getMarried().toString());
+        statWorth.setText((GuiController.getPlayer().getPrettyNetWorth()));
+        mainButton1.setDisable(false);
+        mainButton2.setDisable(false);
+        mainButton3.setDisable(false);
+        submitButton.setDisable(true);
+        nextButton.setDisable(true);
+        mainLabel2.setText("");
+        effectLabel0.setText("");
+        effectLabel1.setText("");
+        effectLabel2.setText("");
         if (GuiController.getPlayer().getNetWorth() >= 1000000 && GuiController.getPlayer().getHealth() > 0){
             GuiController.loadScene(event, "youwin");
         } else if (GuiController.getPlayer().getHealth() == 0) {
             GuiController.loadScene(event, "youlose");
         } else if ("midlifeCrisis".equals(currentScene.getCategory())){
-            fiveYearLabel.setVisible(true);
-            mainLabel1.setText(currentScene.getPrompt());
-            mainButton1.setText(currentScene.getOptions().get(0));
-            mainButton2.setText(currentScene.getOptions().get(1));
             mainButton3.setVisible(false);
-            statAge.setText(GuiController.getPlayer().getAgeString());
-            statChildren.setText(GuiController.getPlayer().getChildrenString());
-            statHealth.setText(GuiController.getPlayer().getHealthString());
-            statName.setText(GuiController.getPlayer().getName());
-            statPartner.setText(GuiController.getPlayer().getMarried().toString());
-            statWorth.setText((GuiController.getPlayer().getPrettyNetWorth()));
-            mainButton1.setDisable(false);
-            mainButton2.setDisable(false);
-            submitButton.setDisable(true);
-            nextButton.setDisable(true);
-            mainLabel2.setText("");
+
         } else {
-            mainButton3.setVisible(true);
-            fiveYearLabel.setVisible(true);
-            mainLabel1.setText(currentScene.getPrompt());
-            mainButton1.setText(currentScene.getOptions().get(0));
-            mainButton2.setText(currentScene.getOptions().get(1));
             mainButton3.setText(currentScene.getOptions().get(2));
-            statAge.setText(GuiController.getPlayer().getAgeString());
-            statChildren.setText(GuiController.getPlayer().getChildrenString());
-            statHealth.setText(GuiController.getPlayer().getHealthString());
-            statName.setText(GuiController.getPlayer().getName());
-            statPartner.setText(GuiController.getPlayer().getMarried().toString());
-            statWorth.setText((GuiController.getPlayer().getPrettyNetWorth()));
-            mainButton1.setDisable(false);
-            mainButton2.setDisable(false);
-            mainButton3.setDisable(false);
-            submitButton.setDisable(true);
-            nextButton.setDisable(true);
-            mainLabel2.setText("");
         }
 
     }
