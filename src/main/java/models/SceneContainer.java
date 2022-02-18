@@ -1,5 +1,6 @@
 package models;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -12,6 +13,7 @@ public class SceneContainer {
     private final List<Map<String, List<Scene>>> categories = new ArrayList<>();
     private  Map<String, List<Scene>> midLifCrisis;
     private Map<String, Person> users;
+    private List<JSONObject> investingScenes;
     private String dataBasePath = "userStorage.json";
 
     //Constructors
@@ -34,6 +36,7 @@ public class SceneContainer {
         categories.add(children);
         loadUsers(getDataBasePath());
         setMidLifCrisis(midLifeSceneHolder);
+        setInvestingScenes(loadInvestmentScenes());
 
     }
 
@@ -281,6 +284,42 @@ public class SceneContainer {
         return result;
     }
 
+    public List<JSONObject> loadInvestmentScenes() {
+        List<JSONObject> gamblingScenes = new ArrayList<>();
+        JSONArray gamblingObjectScenes = readJsonArray("scenes/gambling.json");
+        for (Object gamblingObject : gamblingObjectScenes) {
+            JSONObject JSONGamblingObject = (JSONObject) gamblingObject;
+            gamblingScenes.add(JSONGamblingObject);
+        }
+        return gamblingScenes;
+    }
+
+    /**
+     * Method used to read external json files.
+     *
+     * @param path String representation of path to desired file
+     * @return JSONArray with data from external file.
+     */
+    private static JSONArray readJsonArray(String path) {
+        File file = new File(path);
+        StringBuilder jsonString = new StringBuilder();
+        try (Scanner reader = new Scanner(file)) {
+            while (reader.hasNextLine())
+                jsonString.append(reader.nextLine());
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return new JSONArray(jsonString.toString());
+    }
+
+    public JSONObject getInvestmentScene(){
+        int randomInt = random.nextInt(getInvestingScenes().size());
+        return getInvestingScenes().get(randomInt);
+    }
+
+
     //Setter and Getters
     public Map<String, Person> getUsers() {
         return users;
@@ -300,5 +339,30 @@ public class SceneContainer {
 
     public void setMidLifCrisis(Map<String, List<Scene>> midLifCrisis) {
         this.midLifCrisis = midLifCrisis;
+    }
+
+    public List<JSONObject> getInvestingScenes() {
+        return investingScenes;
+    }
+
+    public void setInvestingScenes(List<JSONObject> investingScenes) {
+        this.investingScenes = investingScenes;
+    }
+
+    public static void main(String[] args) {
+        SceneContainer container = new SceneContainer();
+        List<JSONObject> scenes = container.loadInvestmentScenes();
+        JSONObject scene = scenes.get(0);
+        Random random = new Random();
+        for (int i = 0; i < 100; i++) {
+            System.out.println(random.nextInt(container.getInvestingScenes().size()));
+
+        }
+//        System.out.println(scene.get("prompt"));
+//        System.out.println(scene.get("invest"));
+//        System.out.println(scene.getJSONArray("pass").length());
+//        System.out.println(scene.getJSONArray("pass").get(0));
+//        System.out.println(scene.getJSONArray("outcomes").length());
+        System.out.println(container.getInvestmentScene());
     }
 }
