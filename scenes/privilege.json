@@ -4,11 +4,13 @@
       "prompt": "It's a warm summer afternoon. You are cruising down the road to meet your friends at the beach for a picnic. You are 20 minutes late so you speed up a little. Then BAMMM!!! A body flies up in the air and slams back onto the ground. What do you do?",
       "options": [
         "ignore her",
+        "call 911",
         "help her"
       ],
       "outcomes": [
         "You panic and continue driving. You know it was the wrong thing to do. You call your father. RING RING. 'Dad? It's me. I've made a mistake.' 'Don't worry, I will take care of it.'" ,
-        "'OMG! Are you okay??' The old lady you hit is groaning on the ground. 'I will call 911.'"
+        "You call 911 and a huge crowd forms while you wait. Witnesses say you were speeding so the cops arrest you. The local judge owes your dad a favor so you get off but not after spending a night in the clinker",
+        "'OMG! Are you okay??' The old lady you hit is groaning on the ground, disoriented. You help her into your car and take her to the hospital. Everyone assumes you saved the lady from a hit and run. Her family gives you a cash gift. It doesn't feel great but you're relieved you won't get in trouble."
       ],
       "effects": [
         {
@@ -18,23 +20,33 @@
         {
           "money" : -200000,
           "health" : -10
+        },
+        {
+          "money": 5000,
+          "health": -15
         }
       ]
     },
     {
       "prompt": "You have found yourself in some trouble. Your family doesn't want you to ruin their family's name. They offer to send you to a 'camp' to keep you out of trouble for a little.",
       "options": [
-        "take help",
+        "take help begrudgingly",
+        "take help seriously",
         "decline help"
       ],
       "outcomes": [
         "You find yourself in more trouble at the camp. You family has been getting you out of trouble all of your life, but they cant help with this one. " ,
-        "Your family decides to take away some of your trust fund since you dont want their help."
+        "You realize you haven't been your best self. You complete the camp and your family is so happy, you get access to your trust fund again",
+        "Your family decides to take away some of your trust fund since you don't want their help."
       ],
       "effects": [
         {
           "money" : -100000,
           "health" : -20
+        },
+        {
+          "money": 200000,
+          "health": 10
         },
         {
           "money" : -400000,
@@ -48,16 +60,22 @@
       "prompt": "As you are walking, you see a lottery ticket with a note attached, it reads 'It's your lucky day. You have until 5 pm to cash this ticket.' It is 4:58 pm.",
       "options": [
         "cash ticket",
+        "give to homeless",
         "ignore it"
       ],
       "outcomes": [
         "Life has been beating you up since birth. Any good thing that has happened to you has been because of your strength and will. That changed today. You won a lot of money, although you now have a sprained ankle from running",
+        "You drop the ticket in a homeless man's cup. Next day on the news, you see the same guy smiling with the winning ticket, $200,000. You slap yourself for your mistake but are happy to see a guy in need get a win. \nA few weeks later you get an envelope of cash with a note that says 'Thanks for changing my life'",
         "Played it safe and took a small raise. You should have cashed that ticket "
       ],
       "effects": [
         {
-          "money" : 55000,
+          "money" : 75000,
           "health" : -15
+        },
+        {
+          "money": 2000,
+          "health": 15
         },
         {
           "money" :725

@@ -1,8 +1,13 @@
 package models;
 
+
 import org.json.JSONObject;
 
+import org.w3c.dom.ranges.Range;
+
+
 import java.text.NumberFormat;
+import java.time.temporal.ValueRange;
 import java.util.List;
 import java.util.Random;
 
@@ -231,9 +236,16 @@ public class Person {
      * @return String message indicating the career change.
      */
     public String changeCareer(int value) {
-        String oldCareer = career.name();
-        career = Careers.values()[value];
-        return String.format("Your career has changed from %s to %s", oldCareer, career.toString());
+        String msg = "Valid career not found, career has not changed";
+        ValueRange valueRange = ValueRange.of(0,2);
+        if (valueRange.isValidValue(value)){
+            String oldCareer = career.name();
+            career = Careers.values()[value];
+            return String.format("Your career has changed from %s to %s", oldCareer, career.toString());
+        } else{
+            return msg;
+        }
+
     }
 
     /**
@@ -362,9 +374,12 @@ public class Person {
 
 
     //Setter and Getters
+    public int getHealth(){
+        return this.health;
+    }
 
-    public int getHealth() {
-        return health;
+    public String getHealthString() {
+        return String.valueOf(health);
     }
 
     public Boolean getEducation() {
@@ -391,12 +406,20 @@ public class Person {
         return this.health;
     }
 
-    public int getAge() {
+    public int getAge(){
         return this.age;
     }
 
-    public int getChildren() {
+    public String getAgeString() {
+        return String.valueOf(this.age);
+    }
+
+    public int getChildren(){
         return this.children;
+    }
+
+    public String getChildrenString() {
+        return String.valueOf(this.children);
     }
 
     public int getStrength() {

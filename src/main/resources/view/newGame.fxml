@@ -13,58 +13,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuiController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="967.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuiController">
    <top>
-      <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true"
-                 BorderPane.alignment="CENTER">
-         <Image url="@title.png"/>
+      <ImageView fitHeight="286.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <Image url="@title.png" />
       </ImageView>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: black;">
-            <TextField fx:id="ngName" alignment="CENTER" onKeyReleased="#handleKeyReleased"
-                       promptText="Enter Your Name" style="-fx-border-color: #2fb1e1;">
+            <TextField fx:id="ngName" alignment="CENTER" onKeyReleased="#handleKeyReleased" promptText="Enter Your Name" style="-fx-border-color: #2fb1e1;">
                <font>
-                  <Font name="Arial" size="13.0"/>
+                  <Font name="Arial" size="13.0" />
                </font>
             </TextField>
          </HBox>
          <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
             <VBox.margin>
-               <Insets top="10.0"/>
+               <Insets top="10.0" />
             </VBox.margin>
             <Label alignment="TOP_CENTER" text="Choose Difficulty" textFill="#2fb1e1">
                <HBox.margin>
-                  <Insets right="10.0"/>
+                  <Insets right="10.0" />
                </HBox.margin>
                <font>
-                  <Font name="Arial" size="13.0"/>
+                  <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" selected="true" text="Middle Class (normal)"
-                         textFill="#2fb1e1">
+            <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" selected="true" text="Middle Class (normal)" textFill="#2fb1e1">
                <HBox.margin>
-                  <Insets right="10.0"/>
+                  <Insets right="10.0" />
                </HBox.margin>
                <toggleGroup>
-                  <ToggleGroup fx:id="difficulty"/>
+                  <ToggleGroup fx:id="difficulty" />
                </toggleGroup>
                <font>
-                  <Font name="Arial" size="13.0"/>
+                  <Font name="Arial" size="13.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Working Class (hard)" textFill="#2fb1e1"
-                         toggleGroup="$difficulty">
+            <RadioButton mnemonicParsing="false" text="Working Class (hard)" textFill="#2fb1e1" toggleGroup="$difficulty">
                <font>
-                  <Font name="Arial" size="13.0"/>
+                  <Font name="Arial" size="13.0" />
                </font>
             </RadioButton>
          </HBox>
       </VBox>
    </center>
    <left>
-      <Button alignment="CENTER" mnemonicParsing="false" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Button>

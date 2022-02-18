@@ -7,11 +7,11 @@ import javafx.scene.layout.BorderPane;
 import models.Backstory;
 import models.BackstoryOption;
 import models.Careers;
-
 import java.util.List;
+import java.util.Map;
 
 import static controller.Game.getBackStoryScenes;
-import static controller.Game.getPlayer;
+
 
 public class BackstoryController {
     private final List<Backstory> backstories = getBackStoryScenes();
@@ -98,7 +98,7 @@ public class BackstoryController {
                 }
             }
         backstoryLabel2.setText(optionSelected.getOutcome());
-        EffectsTranslator.getAttribute(Game.getPlayer(), optionSelected.getAttribute());
+        EffectsTranslator.getAttribute(GuiController.getPlayer(), optionSelected.getAttribute());
         backstoryRound++;
         backstoryButton1.setDisable(true);
         backstoryButton2.setDisable(true);
@@ -112,7 +112,16 @@ public class BackstoryController {
     void CCNextPressed(ActionEvent event) {
         RadioButton selected = (RadioButton) collegeCareer.getSelectedToggle();
         String resp = selected.getText();
-        getPlayer().setCareer(Careers.valueOf(resp));
+        Map<Careers, List<String>> availCareers = Careers.getCollegeCareers();
+        topLoop:
+        for (Careers career : availCareers.keySet()) {
+            for (String specialty : availCareers.get(career)) {
+                if (resp.equalsIgnoreCase(specialty)) {
+                    GuiController.getPlayer().setCareer(career);
+                    break topLoop;
+                }
+            }
+        }
         GuiController.loadScene(event, "mainstory");
     }
 
@@ -120,7 +129,17 @@ public class BackstoryController {
     void NCNextPressed(ActionEvent event) {
         RadioButton selected = (RadioButton) nonCollegeCareer.getSelectedToggle();
         String resp = selected.getText();
-        getPlayer().setCareer(Careers.valueOf(resp));
+        Map<Careers, List<String>> availCareers = Careers.getNonCollegeCareers();
+        topLoop:
+        for (Careers career : availCareers.keySet()) {
+            for (String specialty : availCareers.get(career)) {
+                if (resp.equalsIgnoreCase(specialty)) {
+                    GuiController.getPlayer().setCareer(career);
+                    break topLoop;
+                }
+            }
+        }
+
         GuiController.loadScene(event, "mainstory");
     }
 
@@ -130,12 +149,12 @@ public class BackstoryController {
         String resp = selected.getText();
         collegePane.setVisible(false);
         if ("Yes".equals(resp)){
-            getPlayer().setEducation(true);
-            getPlayer().adjustNetWorth(-100000);
+            GuiController.getPlayer().setEducation(true);
+            GuiController.getPlayer().adjustNetWorth(-100000);
             careerPaneCollege.setVisible(true);
         } else {
             careerPaneNon.setVisible(true);
-            getPlayer().setEducation(false);
+            GuiController.getPlayer().setEducation(false);
         }
 
     }

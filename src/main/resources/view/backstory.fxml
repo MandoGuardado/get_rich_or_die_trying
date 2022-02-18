@@ -34,7 +34,7 @@
    </right>
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
-         <Label fx:id="backstoryLabel1" prefHeight="56.0" prefWidth="513.0" text="As a baby, the town elder comes to visit you and your parents. They look at you curiously and place 3 toys in front of you and beckons you to choose one. You notice that the elder smells weird as your crawl towards the items." textFill="#3b32e8" wrapText="true">
+         <Label fx:id="backstoryLabel1" prefWidth="550.0" text="As a baby, the town elder comes to visit you and your parents. They look at you curiously and place 3 toys in front of you and beckons you to choose one. You notice that the elder smells weird as your crawl towards the items." textFill="#3b32e8" wrapText="true">
             <VBox.margin>
                <Insets bottom="20.0" />
             </VBox.margin>
@@ -73,7 +73,7 @@
             <font>
                <Font name="Arial" size="13.0" />
             </font></Button>
-         <Label fx:id="backstoryLabel2" textFill="#3b32e8">
+         <Label fx:id="backstoryLabel2" prefWidth="550.0" textFill="#3b32e8">
             <VBox.margin>
                <Insets top="20.0" />
             </VBox.margin>
