@@ -155,7 +155,7 @@ public class MainstoryController {
             GuiController.loadScene(event, "youlose");
         } else if ("midlifeCrisis".equals(currentScene.getCategory())){
             mainButton3.setVisible(false);
-
+            GuiController.getPlayer().setMidLifeCrisis(true);
         } else {
             mainButton3.setText(currentScene.getOptions().get(2));
         }
