@@ -6,32 +6,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Backstory;
-import models.BackstoryOption;
 import models.Person;
+import models.SceneContainer;
 import view.GuiApp;
 
-import java.util.List;
+import java.util.Objects;
 
 public class GuiController {
-    private static Stage stage;
-    private static Scene scene;
-    private static final Person player = new Person();
+    private static Person player = new Person();
+    private static SceneContainer scenes = new SceneContainer();
+    private boolean doesPlayerExist = false;
 
 
     @FXML
     private Label loadLabel;
-
-    @FXML
-    private Button loadSubmitButton;
 
     @FXML
     private TextField loadText;
@@ -54,18 +44,30 @@ public class GuiController {
         player.setName(name);
         if (diff.toLowerCase().startsWith("w")){
             player.setPrivilege(false);
+            player.setNetWorth(player.getNetWorth() - 25000);
         }else {
             player.setPrivilege(true);
+            player.setNetWorth(player.getNetWorth() + 25000);
         }
         loadScene(event,"backstory");
     }
 
-
-
+    @FXML
+    void playAgainPressed(ActionEvent event) {
+        player = new Person();
+        loadScene(event,"newgame");
+    }
 
     @FXML
     void loadSubmitPressed(ActionEvent event) {
-
+        String resp = loadText.getText();
+        if (scenes.getUsers().containsKey(resp)){
+            loadLabel.setText("Player Found! You will continue where you left off...");
+            player = scenes.getUsers().get(resp);
+            doesPlayerExist = true;
+        }else {
+            loadLabel.setText("Player name was not found! New player record will be created.");
+        }
     }
 
 
@@ -81,9 +83,9 @@ public class GuiController {
 
     static void loadScene(ActionEvent event, String sceneChosen){
         try {
-            Parent root = FXMLLoader.load(GuiApp.class.getResource(sceneChosen+".fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root,1500, 1000);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(GuiApp.class.getResource(sceneChosen + ".fxml")));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 1500, 1000);
             stage.setScene(scene);
             stage.show();
 
@@ -106,5 +108,17 @@ public class GuiController {
 
     public static Person getPlayer() {
         return player;
+    }
+
+    public void loadNextPressed(ActionEvent event) {
+        if (doesPlayerExist){
+            loadScene(event, "mainstory");
+        } else {
+            loadScene(event, "newGame");
+        }
+    }
+
+    public static SceneContainer getScenes() {
+        return scenes;
     }
 }

@@ -169,6 +169,14 @@
             <BorderPane.margin>
                <Insets />
             </BorderPane.margin>
+            <Label fx:id="catLabel" text="Label" textFill="#3c1fbf">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
             <Label fx:id="fiveYearLabel" text="5 years later" textFill="#1b18c6" visible="false">
                <VBox.margin>
                   <Insets bottom="10.0" top="20.0" />
@@ -221,6 +229,24 @@
                </font>
             </Button>
             <Label fx:id="mainLabel2" alignment="CENTER" contentDisplay="CENTER" prefWidth="550.0" textFill="#3416b9" wrapText="true">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="effectLabel0" textFill="#1b18c6">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="effectLabel1" textFill="#1b18c6">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="effectLabel2" textFill="#1b18c6">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

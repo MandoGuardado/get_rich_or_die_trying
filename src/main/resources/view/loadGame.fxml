@@ -19,7 +19,7 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="543.0">
-            <TextField fx:id="loadText" promptText="Enter Your Name" style="-fx-background-color: black; -fx-border-color: #2fb1e1;">
+            <TextField fx:id="loadText" promptText="Enter Your Name" style="-fx-border-color: #2fb1e1;">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -38,7 +38,7 @@
       </VBox>
    </center>
    <right>
-      <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
+      <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#loadNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Button>
