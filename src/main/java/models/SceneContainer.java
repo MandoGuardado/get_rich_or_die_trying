@@ -2,7 +2,6 @@ package models;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -229,7 +228,7 @@ public class SceneContainer {
                 String playerString = new JSONObject()
                         .put("name", String.valueOf(player.getName()))
                         .put("netWorth", String.valueOf(player.getNetWorth()))
-                        .put("health", String.valueOf(player.getHealthPoints()))
+                        .put("health", String.valueOf(player.getHealth()))
                         .put("age", String.valueOf(player.getAge()))
                         .put("children", String.valueOf(player.getChildren()))
                         .put("strength", String.valueOf(player.getStrength()))
@@ -347,22 +346,5 @@ public class SceneContainer {
 
     public void setInvestingScenes(List<JSONObject> investingScenes) {
         this.investingScenes = investingScenes;
-    }
-
-    public static void main(String[] args) {
-        SceneContainer container = new SceneContainer();
-        List<JSONObject> scenes = container.loadInvestmentScenes();
-        JSONObject scene = scenes.get(0);
-        Random random = new Random();
-        for (int i = 0; i < 100; i++) {
-            System.out.println(random.nextInt(container.getInvestingScenes().size()));
-
-        }
-//        System.out.println(scene.get("prompt"));
-//        System.out.println(scene.get("invest"));
-//        System.out.println(scene.getJSONArray("pass").length());
-//        System.out.println(scene.getJSONArray("pass").get(0));
-//        System.out.println(scene.getJSONArray("outcomes").length());
-        System.out.println(container.getInvestmentScene());
     }
 }

@@ -208,7 +208,7 @@ public class Game {
 
         if (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")){
             getPlayer().setCurrentlyInvesting(true);
-            System.out.println("You said yes");
+            System.out.println("Great!\n");
             setUpInvestment();
             System.out.println(player.getCurrentInvestment().get("prompt"));
             String response = getInput("invest", "pass");
@@ -224,7 +224,7 @@ public class Game {
                     try {
                         investmentAmt = scanner.nextInt();
                         if (investmentAmt > getPlayer().getNetWorth()){
-                            System.out.println("You need to input an amount less than you net worth:");
+                            System.out.println("You cannot invest more than what you're worth:");
                             validInput = false;
 
                         }else{
@@ -235,7 +235,8 @@ public class Game {
                     catch(IllegalStateException | IllegalArgumentException  | NoSuchElementException  ex) {
                         System.out.println(ex.getLocalizedMessage());
                         validInput = false;
-                        System.out.println("Please enter a number:");
+                        System.out.println("Please valid value:");
+                        scanner.next();
                     }
 
                 } while(!validInput);
@@ -623,7 +624,7 @@ public class Game {
         System.out.println("Player: " + player.getName());
         System.out.println("Age: " + player.getAge());
         System.out.println("Net Worth: " + player.getPrettyNetWorth());
-        System.out.println("Health: " + player.getHealthPoints());
+        System.out.println("Health: " + player.getHealth());
         System.out.println("Children: " + player.getChildren());
         if (player.isMarried()) {
             System.out.println("Spouse: Sam");
@@ -679,8 +680,8 @@ public class Game {
      * @return boolean to determine if user can continue to another scene.
      */
     private boolean shouldPlay() {
-        if (player.getHealthPoints() <= 0) {
-            System.out.println("Game Over. You died because you ran out of health points: " + player.getHealthPoints());
+        if (player.getHealth() <= 0) {
+            System.out.println("Game Over. You died because you ran out of health points: " + player.getHealth());
             return false;
         }
 
@@ -724,24 +725,6 @@ public class Game {
             var3.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        for (int i = 0; i < 50 ; i++) {
-            System.out.println( random.nextInt(2));
-        }
-
-//        Game myGame = new Game();
-//
-//
-//        myGame.beginInvesting();
-//        myGame.handleInvestmentResult();
-//
-//        System.out.println();
-
-    }
-
-
     public static Person getPlayer() {
         return player;
     }
