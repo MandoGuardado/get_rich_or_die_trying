@@ -1,6 +1,10 @@
 package models;
 
+
+import org.json.JSONObject;
+
 import org.w3c.dom.ranges.Range;
+
 
 import java.text.NumberFormat;
 import java.time.temporal.ValueRange;
@@ -18,6 +22,9 @@ public class Person {
     private String name;
     private boolean midLifeCrisis;
     private boolean finishedInitialization;
+    private boolean isCurrentlyInvesting;
+    private JSONObject currentInvestment;
+    private int investmentAmount;
 
     //Constructors
     public Person() {
@@ -140,6 +147,12 @@ public class Person {
         int modifiedAmountToAdd = (int) (adjustmentAmount * randModifier);
         netWorth += modifiedAmountToAdd;
         return String.format("You have %s %s from your choice", (adjustmentAmount < 0 ? "lost" : "gained"), money.format(modifiedAmountToAdd));
+    }
+
+    public String adjustNetWorth(int adjustmentAmount, boolean lostInvestment ) {
+
+        netWorth += adjustmentAmount;
+        return String.format("You have %s %s from your investment", (lostInvestment ? "lost" : "gained"), money.format(adjustmentAmount));
     }
 
     /**
@@ -495,6 +508,30 @@ public class Person {
 
     public void setCreativity(int creativity) {
         this.creativity = creativity;
+    }
+
+    public JSONObject getCurrentInvestment() {
+        return currentInvestment;
+    }
+
+    public void setCurrentInvestment(JSONObject currentInvestment) {
+        this.currentInvestment = currentInvestment;
+    }
+
+    public boolean isCurrentlyInvesting() {
+        return isCurrentlyInvesting;
+    }
+
+    public void setCurrentlyInvesting(boolean currentlyInvesting) {
+        isCurrentlyInvesting = currentlyInvesting;
+    }
+
+    public int getInvestmentAmount() {
+        return investmentAmount;
+    }
+
+    public void setInvestmentAmount(int investmentAmount) {
+        this.investmentAmount = investmentAmount;
     }
 
     @Override

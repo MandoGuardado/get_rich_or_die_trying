@@ -17,6 +17,7 @@ public class Game {
     Map<String, Person> listPlayer;
     private boolean doesPlayerExist = false;
     boolean isWindows = System.getProperty("os.name").contains("Windows");
+    private String investmentDecision;
 
     //constructors
 
@@ -53,11 +54,18 @@ public class Game {
         getPlayer().setFinishedInitialization(true);
         while (shouldPlay()) {
             clearScreen();
+            Random random = new Random();
+            int randomInt = random.nextInt(2);
+            if (randomInt == 1 && getPlayer().isCurrentlyInvesting()){
+                System.out.println(Art.getArt("investing"));
+                handleInvestmentResult();
+                System.out.println("Press Enter to continue:");
+                getInput();
+            }
 
             //Checks to see if player is going through midlife crisis, it has already happened, if two are not true,
             //then it continues with a random scene.
             Scene currentScene = scenes.getNewScene(player);
-
             //prints out the ASCII art of the specific category of the random scene.
             System.out.println(currentScene.getArt());
             System.out.println("\n+++++++ 5 years later +++++++");
@@ -155,6 +163,27 @@ public class Game {
                 }
 
             }
+
+            if (userInput.equalsIgnoreCase("invest")){
+                if (getPlayer().isFinishedInitialization()){
+                    if (getPlayer().getNetWorth() > 0){
+                        if (!getPlayer().isCurrentlyInvesting()){
+                            beginInvesting();
+                            selections = new String[]{"invest"};
+                        }
+                        else {
+                            System.out.println("Your should wait until you hear back on your current investment. The best approach is to focus on one investment at a time.");
+                        }
+
+                    }
+                    else {
+                        System.out.println("You don't have any money to invest.");
+                    }
+                }else{
+                    System.out.println("You need to begin the game before you can invest.");
+                }
+            }
+
             //Scenario three: If no parameter value is passed in then input is simply returned.
             if (selections.length == 0)
                 return userInput;
@@ -169,6 +198,104 @@ public class Game {
             for (String selection : selections)
                 System.out.println(selection);
         }
+    }
+
+    public void beginInvesting() {
+        System.out.println("You have decided to gamble some of your hard earned money. Are you sure you want to invest? ");
+        System.out.println("Please select Yes(y) or No(n)");
+        String userInput = getInput("y", "yes", "n", "no");
+
+
+        if (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes")){
+            getPlayer().setCurrentlyInvesting(true);
+            System.out.println("You said yes");
+            setUpInvestment();
+            System.out.println(player.getCurrentInvestment().get("prompt"));
+            String response = getInput("invest", "pass");
+            setInvestmentDecision(response);
+            //handle the investment amount
+            Scanner scanner = new Scanner(System.in);
+            int investmentAmt = 0;
+            if (response.equalsIgnoreCase("invest")){
+                System.out.println("How much do you want to invest. Please keep in mind that you need invest only up to your current net worth. ");
+                boolean validInput;
+                do {
+                    validInput = true;
+                    try {
+                        investmentAmt = scanner.nextInt();
+                        if (investmentAmt > getPlayer().getNetWorth()){
+                            System.out.println("You need to input an amount less than you net worth:");
+                            validInput = false;
+
+                        }else{
+                            getPlayer().setInvestmentAmount(investmentAmt);
+                        }
+
+                    }
+                    catch(IllegalStateException | IllegalArgumentException  | NoSuchElementException  ex) {
+                        System.out.println(ex.getLocalizedMessage());
+                        validInput = false;
+                        System.out.println("Please enter a number:");
+                    }
+
+                } while(!validInput);
+
+            }
+            else {
+                System.out.println("Well see if you come to regret this decision later.");
+            }
+
+        }else {
+            System.out.println("Ok, no problem. You can continue on your quest to to become a Millionaire.");
+        }
+    }
+
+    private void setUpInvestment() {
+       getPlayer().setCurrentInvestment(scenes.getInvestmentScene());
+    }
+
+    private void handleInvestmentResult(){
+        Random random = new Random();
+        int randAns = -1;
+        if (getInvestmentDecision().equalsIgnoreCase("invest")){
+            System.out.println(getPlayer().getCurrentInvestment().get("invest"));
+
+            randAns= random.nextInt(getPlayer().getCurrentInvestment().getJSONArray("outcomes").length());
+            System.out.println(getPlayer().getCurrentInvestment().getJSONArray("outcomes").get(randAns));
+            adjustInvestmentAmount(randAns);
+        }
+        else{
+            randAns = random.nextInt(getPlayer().getCurrentInvestment().getJSONArray("pass").length());
+            System.out.println(getPlayer().getCurrentInvestment().getJSONArray("pass").get(randAns));
+
+        }
+        getPlayer().setCurrentlyInvesting(false);
+    }
+
+    private void adjustInvestmentAmount(int randAns) {
+        int playerInvestment = getPlayer().getInvestmentAmount();
+        int investmentResult = 0;
+        boolean lostInvestment = false;
+
+        if (randAns == 0){
+            investmentResult = playerInvestment;
+        }
+        else if(randAns == 1){
+            investmentResult = (int)(playerInvestment * 0.10);
+        }
+        else if(randAns == 2){
+            investmentResult =  Math.negateExact((int) (playerInvestment / 2));
+            lostInvestment = true;
+        }
+        else {
+            investmentResult = Math.negateExact(playerInvestment);
+            lostInvestment = true;
+        }
+        System.out.println(getPlayer().getPrettyNetWorth());
+        System.out.println(getPlayer().getInvestmentAmount());
+        System.out.println(getPlayer().adjustNetWorth(investmentResult, lostInvestment));
+        System.out.println(getPlayer().getPrettyNetWorth());
+
     }
 
     /**
@@ -427,7 +554,7 @@ public class Game {
         //array to use alternative getInput(varargs)
         String input = getInput(currentScene.getOptions());
         int selectedIndex = 0;
-        if ("reset".equalsIgnoreCase(input)) {
+        if ("reset".equalsIgnoreCase(input) || "invest".equalsIgnoreCase(input)) {
             selectedIndex = -1;
         } else {
             // currentScene.getOptions.indexOf(input) is case-sensitive and the user might not enter the correct case
@@ -474,8 +601,14 @@ public class Game {
      * @param currentScene Scene instance.
      */
     private void runEffect(int index, Scene currentScene) {
-        //Using static method to doEffects() to cycle throughout the effect field values in the Scene instance.
-        EffectsTranslator.doEffects(player, currentScene.getEffects().get(index));
+        Map<String, Object>  effects =  currentScene.getEffects().get(index);
+        for (String action : effects.keySet()) {
+            action = action.trim();
+            int value = (int) effects.get(action);
+            //Using static method to doEffects() to cycle throughout the effects field values in the Scene instance.
+            String effectResultString = EffectsTranslator.doEffects(player, action, value);
+            System.out.println(effectResultString);
+        }
     }
 
     /**
@@ -592,8 +725,32 @@ public class Game {
         }
     }
 
+    public static void main(String[] args) {
+        Random random = new Random();
+        for (int i = 0; i < 50 ; i++) {
+            System.out.println( random.nextInt(2));
+        }
+
+//        Game myGame = new Game();
+//
+//
+//        myGame.beginInvesting();
+//        myGame.handleInvestmentResult();
+//
+//        System.out.println();
+
+    }
+
     public static Person getPlayer() {
         return player;
+    }
+
+    public String getInvestmentDecision() {
+        return investmentDecision;
+    }
+
+    public void setInvestmentDecision(String investmentDecision) {
+        this.investmentDecision = investmentDecision;
     }
 }
 
