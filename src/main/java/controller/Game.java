@@ -624,7 +624,7 @@ public class Game {
         System.out.println("Player: " + player.getName());
         System.out.println("Age: " + player.getAge());
         System.out.println("Net Worth: " + player.getPrettyNetWorth());
-        System.out.println("Health: " + player.getHealthPoints());
+        System.out.println("Health: " + player.getHealth());
         System.out.println("Children: " + player.getChildren());
         if (player.isMarried()) {
             System.out.println("Spouse: Sam");
@@ -680,8 +680,8 @@ public class Game {
      * @return boolean to determine if user can continue to another scene.
      */
     private boolean shouldPlay() {
-        if (player.getHealthPoints() <= 0) {
-            System.out.println("Game Over. You died because you ran out of health points: " + player.getHealthPoints());
+        if (player.getHealth() <= 0) {
+            System.out.println("Game Over. You died because you ran out of health points: " + player.getHealth());
             return false;
         }
 
