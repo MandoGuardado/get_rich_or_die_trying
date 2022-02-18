@@ -14,8 +14,8 @@ public class Game {
     //Fields
     SceneContainer scenes;
     static Person player = new Person();
-    Map<String, Person> listPlayer;
-    private boolean doesPlayerExist = false;
+    static Map<String, Person> listPlayer;
+    private static boolean doesPlayerExist = false;
     boolean isWindows = System.getProperty("os.name").contains("Windows");
     private String investmentDecision;
 
@@ -303,15 +303,15 @@ public class Game {
      *
      * @return String message that defines the result of the search.
      */
-    public String retrievePreviousSession(String playerSavedName) {
+    public static String retrievePreviousSession(String playerSavedName) {
         String resultString;
         if (listPlayer.containsKey(playerSavedName)) {
-            resultString = "\n\nPlayer Found! You will continue where you left off...";
+            resultString = "Player Found! You will continue where you left off...";
             player = listPlayer.get(playerSavedName);
             //Sets the boolean variable to true, so that player can continue with previous session.
             doesPlayerExist = true;
         } else {
-            resultString = "\nPlayer name was not found! New player record will be created.";
+            resultString = "Player name was not found! New player record will be created.";
         }
         return resultString;
     }
@@ -740,6 +740,7 @@ public class Game {
 //        System.out.println();
 
     }
+
 
     public static Person getPlayer() {
         return player;

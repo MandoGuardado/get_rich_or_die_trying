@@ -8,15 +8,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import models.Scene;
-import models.SceneContainer;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 public class MainstoryController {
-    private SceneContainer sceneCont = new SceneContainer();
+
     private Scene currentScene;
 
     @FXML
@@ -80,8 +76,12 @@ public class MainstoryController {
     private Label statWorth;
 
     @FXML
+    private Label catLabel;
+
+    @FXML
     void introNextPressed(ActionEvent event) {
-        currentScene = sceneCont.getRandomScene(GuiController.getPlayer());
+        currentScene = GuiController.getScenes().getRandomScene(GuiController.getPlayer());
+        catLabel.setText(currentScene.getCategory().toUpperCase());
         mainLabel1.setText(currentScene.getPrompt());
         mainButton1.setText(currentScene.getOptions().get(0));
         mainButton2.setText(currentScene.getOptions().get(1));
@@ -128,7 +128,7 @@ public class MainstoryController {
     void mainNextPressed(ActionEvent event) {
         GuiController.getPlayer().addAge(5);
         GuiController.getPlayer().addSalary();
-        currentScene = sceneCont.getNewScene(GuiController.getPlayer());
+        currentScene = GuiController.getScenes().getNewScene(GuiController.getPlayer());
         mainButton3.setVisible(true);
         fiveYearLabel.setVisible(true);
         mainLabel1.setText(currentScene.getPrompt());
@@ -138,7 +138,7 @@ public class MainstoryController {
         statChildren.setText(GuiController.getPlayer().getChildrenString());
         statHealth.setText(GuiController.getPlayer().getHealthString());
         statName.setText(GuiController.getPlayer().getName());
-        statPartner.setText(GuiController.getPlayer().getMarried().toString());
+        statPartner.setText(GuiController.getPlayer().getPartner() == null ? "none" : GuiController.getPlayer().getPartner().getName());
         statWorth.setText((GuiController.getPlayer().getPrettyNetWorth()));
         mainButton1.setDisable(false);
         mainButton2.setDisable(false);
@@ -154,9 +154,11 @@ public class MainstoryController {
         } else if (GuiController.getPlayer().getHealth() == 0) {
             GuiController.loadScene(event, "youlose");
         } else if ("midlifeCrisis".equals(currentScene.getCategory())){
+            catLabel.setText("MID-LIFE CRISIS");
             mainButton3.setVisible(false);
             GuiController.getPlayer().setMidLifeCrisis(true);
         } else {
+            catLabel.setText(currentScene.getCategory().toUpperCase());
             mainButton3.setText(currentScene.getOptions().get(2));
         }
 
@@ -164,7 +166,8 @@ public class MainstoryController {
 
     @FXML
     void quitPressed(ActionEvent event) {
-
+        GuiController.getScenes().saveUsers(GuiController.getPlayer());
+        System.exit(1);
     }
 
 }

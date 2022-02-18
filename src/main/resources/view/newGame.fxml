@@ -63,12 +63,18 @@
       <Button alignment="CENTER" mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
          <font>
             <Font name="Arial" size="13.0" />
-         </font></Button>
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" />
+         </BorderPane.margin></Button>
    </left>
    <right>
       <Button fx:id="newGameNext" disable="true" mnemonicParsing="false" onAction="#newGameNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
          <font>
             <Font name="Arial" size="13.0" />
-         </font></Button>
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </BorderPane.margin></Button>
    </right>
 </BorderPane>
