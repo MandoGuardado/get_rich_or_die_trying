@@ -6,17 +6,14 @@ import java.util.Map;
 public class EffectsTranslator {
 
     /**
-     * No Return value method completes a player action based on effects in Scene instance.
-     * @param player Person instance
-     * @param effect Scene instance 'effects' field Map values.
+     * Method that completes player action based on effects in Scene instance.
+     * @param player Person instance that action will affect.
+     * @param action action that that will be completed.
+     * @param value value of the action being taken.
      */
-    public static void doEffects(Person player, Map<String, Object> effect) {
+    public static String doEffects(Person player, String action, int value) {
 
-        for (String action : effect.keySet()) {
             String message="";
-            action = action.trim();
-            int value = (int) effect.get(action);
-
             switch (action) {
                 case "money":
                     message = player.adjustNetWorth(value);
@@ -46,9 +43,7 @@ public class EffectsTranslator {
                     System.out.println("There is no valid action for the following effect: " + action + " with value " + value);
 
             }
-            System.out.println(message);
-        }
-
+            return message;
     }
 
     /**
