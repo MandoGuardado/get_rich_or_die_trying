@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import models.Person;
 import models.Scene;
 import java.util.ArrayList;
 import java.util.List;
@@ -168,6 +169,11 @@ public class MainstoryController {
     void quitPressed(ActionEvent event) {
         GuiController.getScenes().saveUsers(GuiController.getPlayer());
         System.exit(1);
+    }
+
+    @FXML
+    void resetPressed(ActionEvent event) {
+        GuiController.loadScene(event, "newGame");
     }
 
 }

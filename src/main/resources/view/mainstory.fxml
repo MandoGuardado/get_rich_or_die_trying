@@ -162,6 +162,16 @@
                   </BorderPane.margin>
                </Button>
             </right>
+            <center>
+               <Button mnemonicParsing="false" onAction="#resetPressed" text="Reset Game" BorderPane.alignment="CENTER">
+                  <font>
+                     <Font name="Arial" size="13.0" />
+                  </font>
+                  <BorderPane.margin>
+                     <Insets bottom="10.0" />
+                  </BorderPane.margin>
+               </Button>
+            </center>
          </BorderPane>
       </bottom>
       <center>

@@ -15,7 +15,7 @@ import view.GuiApp;
 import java.util.Objects;
 
 public class GuiController {
-    private static Person player = new Person();
+    private static Person player;
     private static SceneContainer scenes = new SceneContainer();
     private boolean doesPlayerExist = false;
 
@@ -38,6 +38,7 @@ public class GuiController {
 
     @FXML
     void newGameNextPressed(ActionEvent event) {
+        player = new Person();
         String name = ngName.getText();
         RadioButton selected = (RadioButton) difficulty.getSelectedToggle();
         String diff = selected.getText();
