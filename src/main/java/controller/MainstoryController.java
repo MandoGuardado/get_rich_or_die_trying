@@ -8,12 +8,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import models.Scene;
-import models.SceneContainer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainstoryController {
-    private SceneContainer sceneCont = new SceneContainer();
+
     private Scene currentScene;
 
     @FXML
@@ -81,7 +80,7 @@ public class MainstoryController {
 
     @FXML
     void introNextPressed(ActionEvent event) {
-        currentScene = sceneCont.getRandomScene(GuiController.getPlayer());
+        currentScene = GuiController.getScenes().getRandomScene(GuiController.getPlayer());
         catLabel.setText(currentScene.getCategory().toUpperCase());
         mainLabel1.setText(currentScene.getPrompt());
         mainButton1.setText(currentScene.getOptions().get(0));
@@ -129,7 +128,7 @@ public class MainstoryController {
     void mainNextPressed(ActionEvent event) {
         GuiController.getPlayer().addAge(5);
         GuiController.getPlayer().addSalary();
-        currentScene = sceneCont.getNewScene(GuiController.getPlayer());
+        currentScene = GuiController.getScenes().getNewScene(GuiController.getPlayer());
         mainButton3.setVisible(true);
         fiveYearLabel.setVisible(true);
         mainLabel1.setText(currentScene.getPrompt());
@@ -167,7 +166,8 @@ public class MainstoryController {
 
     @FXML
     void quitPressed(ActionEvent event) {
-
+        GuiController.getScenes().saveUsers(GuiController.getPlayer());
+        System.exit(1);
     }
 
 }
