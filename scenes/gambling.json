@@ -1,0 +1,30 @@
+[
+  {
+    "prompt" : "News outlets have been reporting that Amazon shares are expected to rise within the next few weeks. This you opportunity to make some money. Do you believe what the news is reporting and invest or do you keep your money in your savings account?",
+    "invest": "After several weeks of monitoring you investment you have discovered that ",
+    "pass": [
+      "Several weeks later you discovered that Amazon shares did in fact double and if you had invested your return value would have been substantial",
+      "Several weeks later you discover news reporting were not right about Amazon shares rising, they instead lost value. If you had invested then you would have lost a substantial amount of money."
+    ],
+    "outcomes": [
+      "You made the right choice in investing in Amazon and as a result have doubled your investment",
+      "News reporting were not so accurate and your investment only grew by a 10%",
+      "News reporting were not so accurate and you lost 50% of your investment",
+      "Unfortunately the reporting was incorrect and you lost your investment. "
+    ]
+  },
+  {
+    "prompt" : "While at a social gathering you meet a man that is discussing investment opportunities that promise huge returns, the only catch is that you mush pay money up front, Do you invest or pass on the opportunity?",
+    "invest": "After several weeks of monitoring your investment you have discovered that ",
+    "pass": [
+      "You later find that many of the other attendee that bought into the investment ended up seeing hugh returns. The man was investing in real estate. You end up regretting not investing. ",
+      "Several weeks later you learn from a friend that many of the other attendees are now in legal jeopardy because the investments were a scheme to avoid taxes. They might now end up owing money to the U.S. government. "
+    ],
+    "outcomes": [
+      "Placing your trust in this man paid off since you have nearly double your investment.",
+      "The investment was not at successful as the man was promoting it and your investment only grew by a 10%",
+      "This was probably one your worst investment an you ended loosing 50% of your investment",
+      "This investment was a total scam, you never hear from the man again.  "
+    ]
+  }
+]
