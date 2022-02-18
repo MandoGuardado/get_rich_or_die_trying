@@ -169,6 +169,14 @@
             <BorderPane.margin>
                <Insets />
             </BorderPane.margin>
+            <Label fx:id="catLabel" text="Label" textFill="#3c1fbf">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
             <Label fx:id="fiveYearLabel" text="5 years later" textFill="#1b18c6" visible="false">
                <VBox.margin>
                   <Insets bottom="10.0" top="20.0" />
