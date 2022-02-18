@@ -24,7 +24,7 @@ import java.util.List;
 public class GuiController {
     private static Stage stage;
     private static Scene scene;
-    private static final Person player = new Person();
+    private static Person player = new Person();
 
 
     @FXML
@@ -60,8 +60,11 @@ public class GuiController {
         loadScene(event,"backstory");
     }
 
-
-
+    @FXML
+    void playAgainPressed(ActionEvent event) {
+        player = new Person();
+        loadScene(event,"newgame");
+    }
 
     @FXML
     void loadSubmitPressed(ActionEvent event) {
@@ -106,5 +109,9 @@ public class GuiController {
 
     public static Person getPlayer() {
         return player;
+    }
+
+
+    public void loadNextPressed(ActionEvent event) {
     }
 }

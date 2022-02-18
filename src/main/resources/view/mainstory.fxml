@@ -224,6 +224,24 @@
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="effectLabel0" textFill="#1b18c6">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="effectLabel1" textFill="#1b18c6">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="effectLabel2" textFill="#1b18c6">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
             </Label>
          </VBox>
       </center>
