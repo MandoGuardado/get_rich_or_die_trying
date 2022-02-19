@@ -27,10 +27,11 @@ public class SceneContainer {
 
     /**
      * Method to add the different categories into List after reading from external file.
+     *
      * @return List of type Map with key: String, value: List<Scene>.
      */
-    private List<Map<String , List<Scene>>> loadCategories(){
-        List<Map<String , List<Scene>>> categoryHolder = new ArrayList<>();
+    private List<Map<String, List<Scene>>> loadCategories() {
+        List<Map<String, List<Scene>>> categoryHolder = new ArrayList<>();
         categoryHolder.add(loadScenes("career", "danger", "knowledge", "passion"));
         categoryHolder.add(loadScenes("education", "true", "false"));
         categoryHolder.add(loadScenes("partner", "married", "single", "partner"));
@@ -71,6 +72,7 @@ public class SceneContainer {
 
     /**
      * Method that reads external file that contains the investment scenes.
+     *
      * @return List the contains JSONObject's.
      */
     public List<JSONObject> loadInvestmentScenes() {
@@ -96,6 +98,9 @@ public class SceneContainer {
         boolean education, isMarried, hasPrivilege;
         Careers career;
         Person partner;
+        JSONObject currentInvestment;
+        boolean midLifeCrisis, finishedInitialization, isCurrentlyInvesting;
+        int investmentAmount;
         File userFile = new File(fileName);
         try {
             //If file does not exist then it will create it and if it already there then it will read from it.
@@ -115,10 +120,17 @@ public class SceneContainer {
                     isMarried = Boolean.parseBoolean(player.get("isMarried").toString());
                     hasPrivilege = Boolean.parseBoolean(player.get("hasPrivilege").toString());
                     career = Careers.valueOf(player.get("career").toString());
+                    midLifeCrisis = Boolean.parseBoolean(player.get("midLifeCrisis").toString());
+                    finishedInitialization = Boolean.parseBoolean(player.get("finishedInitialization").toString());
+                    isCurrentlyInvesting = Boolean.parseBoolean(player.get("isCurrentlyInvesting").toString());
+                    investmentAmount = Integer.parseInt(player.get("investmentAmount").toString());
+
+
+
+
                     //If players partner value is null then a new Person object is create that does not include partner parameter
                     if ("null".equals(player.get("partner").toString())) {
-                        userLoader.put(name, new Person(netWorth, health, age, children, strength, intellect, creativity, education, isMarried, hasPrivilege, career, name));
-
+                        partner = null;
                     }
                     //If partner does exist then a new Person instance is created with the partners name and netWorth as parameters.
                     else {
@@ -126,8 +138,15 @@ public class SceneContainer {
                         String partnerName = playersPartner.getString("name");
                         int partnerNetWorth = Integer.parseInt(playersPartner.getString("netWorth"));
                         partner = new Person(partnerName, partnerNetWorth);
-                        userLoader.put(name, new Person(netWorth, health, age, children, strength, intellect, creativity, education, isMarried, hasPrivilege, career, partner, name));
                     }
+                    if ("null".equals(player.get("currentInvestment").toString())){
+                        currentInvestment = null;
+                    }
+                    else {
+                        currentInvestment = player.getJSONObject("currentInvestment");
+                    }
+
+                    userLoader.put(name, new Person(netWorth, health, age, children, strength, intellect, creativity, education, isMarried, hasPrivilege, career, partner, name, currentInvestment, midLifeCrisis, finishedInitialization, isCurrentlyInvesting, investmentAmount));
                 }
 
             } else {
@@ -172,6 +191,10 @@ public class SceneContainer {
                             .put("name", String.valueOf(playersPartner.getName()))
                             .put("netWorth", String.valueOf(playersPartner.getNetWorth())).toString();
                 }
+                String currentInvestmentString = "null";
+                if (player.getCurrentInvestment() != null) {
+                    currentInvestmentString = player.getCurrentInvestment().toString();
+                }
 
 
                 String playerString = new JSONObject()
@@ -187,8 +210,12 @@ public class SceneContainer {
                         .put("isMarried", String.valueOf(player.isMarried()))
                         .put("hasPrivilege", String.valueOf(player.getHasPrivilege()))
                         .put("career", String.valueOf(player.getCareer()))
-                        .put("partner", partnerString).toString();
-
+                        .put("partner", partnerString)
+                        .put("midLifeCrisis", String.valueOf(player.isMidLifeCrisis()))
+                        .put("finishedInitialization", String.valueOf(player.isFinishedInitialization()))
+                        .put("isCurrentlyInvesting", String.valueOf(player.isCurrentlyInvesting()))
+                        .put("investmentAmount", String.valueOf(player.getInvestmentAmount()))
+                        .put("currentInvestment", currentInvestmentString).toString();
                 jsonObject.put(userKey, playerString);
             }
             result = jsonObject.toString().replace("\"{", "{").replace("\\", "").replace("}\",\"", "},\"").replace("}\"}", "}}");
@@ -305,6 +332,7 @@ public class SceneContainer {
 
     /**
      * Method that randomly selects an investment scene.
+     *
      * @return JSONObject the contains the investment scene details.
      */
     public JSONObject getInvestmentScene() {
