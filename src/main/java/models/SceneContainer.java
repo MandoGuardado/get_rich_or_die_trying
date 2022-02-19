@@ -2,6 +2,7 @@ package models;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -9,37 +10,36 @@ import java.util.*;
 public class SceneContainer {
     //Fields
     private final Random random = new Random();
-    private final List<Map<String, List<Scene>>> categories = new ArrayList<>();
-    private  Map<String, List<Scene>> midLifCrisis;
+    private List<Map<String, List<Scene>>> categories;
+    private Map<String, List<Scene>> midLifCrisis;
     private Map<String, Person> users;
     private List<JSONObject> investingScenes;
-    private String dataBasePath = "userStorage.json";
 
     //Constructors
     public SceneContainer() {
-        Map<String, List<Scene>> career = loadScenes("career", "danger", "knowledge", "passion");
-        Map<String, List<Scene>> education = loadScenes("education", "true", "false");
-        Map<String, List<Scene>> partner = loadScenes("partner", "married", "single", "partner");
-        Map<String, List<Scene>> privilege = loadScenes("privilege", "true", "false");
-        Map<String, List<Scene>> children = loadScenes("children", "true", "false");
-        Map<String, List<Scene>> health = loadScenes("health", "true", "false");
-        Map<String, List<Scene>> midLifeSceneHolder = loadScenes("midlifeCrisis", "true", "false");
-
-
-
-        categories.add(career);
-        categories.add(education);
-        categories.add(partner);
-        categories.add(privilege);
-        categories.add(health);
-        categories.add(children);
-        loadUsers(getDataBasePath());
-        setMidLifCrisis(midLifeSceneHolder);
+        setCategories(loadCategories());
+        setUsers(loadUsers(getDataBasePath()));
+        setMidLifCrisis(loadScenes("midlifeCrisis", "true", "false"));
         setInvestingScenes(loadInvestmentScenes());
-
     }
 
     //Business Methods
+
+    /**
+     * Method to add the different categories into List after reading from external file.
+     * @return List of type Map with key: String, value: List<Scene>.
+     */
+    private List<Map<String , List<Scene>>> loadCategories(){
+        List<Map<String , List<Scene>>> categoryHolder = new ArrayList<>();
+        categoryHolder.add(loadScenes("career", "danger", "knowledge", "passion"));
+        categoryHolder.add(loadScenes("education", "true", "false"));
+        categoryHolder.add(loadScenes("partner", "married", "single", "partner"));
+        categoryHolder.add(loadScenes("privilege", "true", "false"));
+        categoryHolder.add(loadScenes("children", "true", "false"));
+        categoryHolder.add(loadScenes("health", "true", "false"));
+
+        return categoryHolder;
+    }
 
     /**
      * @param category      Name of category (Using name of file as category name)
@@ -54,12 +54,11 @@ public class SceneContainer {
      *  }
      */
     private Map<String, List<Scene>> loadScenes(String category, String... subcategories) {
-        JSONObject fileData = readJsonObject("scenes/" + category + ".json");
+        JSONObject externalData = readJsonObject("scenes/" + category + ".json");
         Map<String, List<Scene>> tempMap = new HashMap<>();
-
         for (String subcategory : subcategories) {
             List<Scene> subCategoryScenes = new ArrayList<>();
-            for (Object sceneObject : fileData.getJSONArray(subcategory)) {
+            for (Object sceneObject : externalData.getJSONArray(subcategory)) {
                 JSONObject definitelyJson = (JSONObject) sceneObject;
                 Scene newScene = Scene.fromJson(definitelyJson); //calls method to create Scene Object
                 newScene.setCategory(category);
@@ -67,77 +66,27 @@ public class SceneContainer {
             }
             tempMap.put(subcategory, subCategoryScenes);
         }
-
         return tempMap;
     }
 
     /**
-     * Return JSONObject after reading an external .json file
-     *
-     * @param path Path of external file
-     * @return JSONObject which can then have values unpacked
+     * Method that reads external file that contains the investment scenes.
+     * @return List the contains JSONObject's.
      */
-    public static JSONObject readJsonObject(String path) {
-        File file = new File(path);
-        StringBuilder jsonString = new StringBuilder();
-        try (Scanner reader = new Scanner(file)) {
-            while (reader.hasNextLine())
-                jsonString.append(reader.nextLine());
-
-        } catch (Exception e) {
-            System.out.println("Error occurred while loading scenes: " + e);
+    public List<JSONObject> loadInvestmentScenes() {
+        List<JSONObject> gamblingScenes = new ArrayList<>();
+        JSONArray gamblingObjectScenes = readJsonArray("scenes/gambling.json");
+        for (Object gamblingObject : gamblingObjectScenes) {
+            JSONObject JSONGamblingObject = (JSONObject) gamblingObject;
+            gamblingScenes.add(JSONGamblingObject);
         }
-
-        return new JSONObject(jsonString.toString());
-    }
-
-    /**
-     * Returns a random Scene object based on random value
-     *
-     * @param player Using Person object to determine
-     * @return Scene object that was randomly selected.
-     */
-    public Scene getRandomScene(Person player) {
-
-        Scene sceneToUse;
-        int attemptsToRandomize = 0;
-        final int MAX_ATTEMPTS = 100;
-        do {
-            int categoryIndex = random.nextInt(categories.size()); // Get random number based on size of the categories field
-            Map<String, List<Scene>> category = categories.get(categoryIndex); // Get the category of scene to use
-            String subCategoryKey = player.getCategoryValue(categoryIndex); // Get the subcategory key (the value of the corresponding player variable)
-            List<Scene> subCategoryScenes = category.get(subCategoryKey); // Get the list of scenes based on the subCategoryKey
-            int sceneIndex = random.nextInt(subCategoryScenes.size()); // Get a random index based on the subcategory size
-            sceneToUse = subCategoryScenes.get(sceneIndex);
-            attemptsToRandomize++;
-
-            if (attemptsToRandomize > MAX_ATTEMPTS) {
-                //System.out.println("Exceeded max attempts; Unlocking all scenes");
-                setAllScenesToUnused(); // We have tried to get an unused scene too many times. Unlock them all, makes them all available
-            }
-
-        } while (sceneToUse.hasBeenUsed());
-
-        //System.out.println("Picked random scene after " + attemptsToRandomize + " attempts");
-
-        sceneToUse.setHasBeenUsed(true); // Need to set this to true to make sure it is not used
-        return sceneToUse;
-    }
-
-    /**
-     * Setts all Scene objects 'hasBeenUsed' field to false
-     */
-    private void setAllScenesToUnused() {
-        for (Map<String, List<Scene>> category : categories)
-            for (String subcategory : category.keySet())
-                for (Scene scene : category.get(subcategory))
-                    scene.setHasBeenUsed(false);
+        return gamblingScenes;
     }
 
     /**
      * Method will read external file containing previous users. If not file is found then new file is created.
      */
-    public void loadUsers(String fileName) {
+    public Map<String, Person> loadUsers(String fileName) {
         //name of file to store users.
 
         //Temporary Map to hold previous user when they are being read from external file.
@@ -181,8 +130,7 @@ public class SceneContainer {
                     }
                 }
 
-            }
-            else{
+            } else {
                 WriteFile userWriter = new WriteFile("userStorage.json", "{}");
                 userWriter.save();
             }
@@ -191,12 +139,13 @@ public class SceneContainer {
             e.printStackTrace();
         }
         //sets users field using userLoader variable
-        setUsers(userLoader);
+        return userLoader;
 
     }
 
     /**
      * Method used to save the users map field into external file as a Json object
+     *
      * @param person Current player object
      */
     public void saveUsers(Person person) {
@@ -209,10 +158,10 @@ public class SceneContainer {
             getUsers().put(person.getName(), person);
         }
         //If users Map filed is empty then external file is saved with default value
-        if (!getUsers().isEmpty()){
-            for (String userKey : users.keySet()) {
+        if (!getUsers().isEmpty()) {
+            for (String userKey : getUsers().keySet()) {
 
-                Person player = users.get(userKey);
+                Person player = getUsers().get(userKey);
 
                 Person playersPartner;
 
@@ -253,44 +202,24 @@ public class SceneContainer {
     }
 
     /**
-     * Method to get Midlife crisis scene
-     * @param key 'true' or 'false': If true player encounters midlife crisis for the first time. If false this is the second time.
-     * @return Scene object of true or false scene (scene is based on Person's midlifeCrisis field)
+     * Return JSONObject after reading an external .json file
+     *
+     * @param path Path of external file
+     * @return JSONObject which can then have values unpacked
      */
-    public Scene getMidLifeCrisisScene(String key){
-        return getMidLifCrisis().get(key).get(0);
-    }
+    public static JSONObject readJsonObject(String path) {
+        File file = new File(path);
+        StringBuilder jsonString = new StringBuilder();
+        try (Scanner reader = new Scanner(file)) {
+            while (reader.hasNextLine())
+                jsonString.append(reader.nextLine());
 
-    /**
-     * Method to retrive a midlife crisis scene or a random from other categories
-     * @param player Person object of the current player
-     * @return Scene object of the categories or midlife crisis scenes.
-     */
-    public Scene getNewScene(Person player){
-        Scene result;
-        int randomNumber = random.nextInt(3);
-        if (player.getAge() > 40 && player.isMidLifeCrisis() && randomNumber == 2){
-            result = getMidLifeCrisisScene("true");
-            player.setMidLifeCrisis(true);
+        } catch (Exception e) {
+            System.out.println("Error occurred while loading scenes: " + e);
         }
-        else if (player.getAge() > 40 && randomNumber == 2){
-            result = getMidLifeCrisisScene("false");
-        }
-        else {
-            //A random category is selected , available option: career, children, education, health, partner, privilege
-            result = getRandomScene(player);
-        }
-        return result;
-    }
 
-    public List<JSONObject> loadInvestmentScenes() {
-        List<JSONObject> gamblingScenes = new ArrayList<>();
-        JSONArray gamblingObjectScenes = readJsonArray("scenes/gambling.json");
-        for (Object gamblingObject : gamblingObjectScenes) {
-            JSONObject JSONGamblingObject = (JSONObject) gamblingObject;
-            gamblingScenes.add(JSONGamblingObject);
-        }
-        return gamblingScenes;
+
+        return new JSONObject(jsonString.toString());
     }
 
     /**
@@ -309,15 +238,89 @@ public class SceneContainer {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         return new JSONArray(jsonString.toString());
     }
 
-    public JSONObject getInvestmentScene(){
+    /**
+     * Method to retrive a midlife crisis scene or a random from other categories
+     *
+     * @param player Person object of the current player
+     * @return Scene object of the categories or midlife crisis scenes.
+     */
+    public Scene getNewScene(Person player) {
+        Scene result;
+        int randomNumber = random.nextInt(3);
+        if (player.getAge() > 40 && player.isMidLifeCrisis() && randomNumber == 2) {
+            result = getMidLifeCrisisScene("true");
+            player.setMidLifeCrisis(true);
+        } else {
+            //A random category is selected , available option: career, children, education, health, partner, privilege
+            result = getRandomScene(player);
+        }
+        return result;
+    }
+
+    /**
+     * Returns a random Scene object based on random value
+     *
+     * @param player Using Person object to determine
+     * @return Scene object that was randomly selected.
+     */
+    public Scene getRandomScene(Person player) {
+
+        Scene sceneToUse;
+        int attemptsToRandomize = 0;
+        final int MAX_ATTEMPTS = 100;
+        do {
+            int categoryIndex = random.nextInt(getCategories().size()); // Get random number based on size of the categories field
+            Map<String, List<Scene>> category = getCategories().get(categoryIndex); // Get the category of scene to use
+            String subCategoryKey = player.getCategoryValue(categoryIndex); // Get the subcategory key (the value of the corresponding player variable)
+            List<Scene> subCategoryScenes = category.get(subCategoryKey); // Get the list of scenes based on the subCategoryKey
+            int sceneIndex = random.nextInt(subCategoryScenes.size()); // Get a random index based on the subcategory size
+            sceneToUse = subCategoryScenes.get(sceneIndex);
+            attemptsToRandomize++;
+
+            if (attemptsToRandomize > MAX_ATTEMPTS) {
+                //System.out.println("Exceeded max attempts; Unlocking all scenes");
+                setAllScenesToUnused(); // We have tried to get an unused scene too many times. Unlock them all, makes them all available
+            }
+
+        } while (sceneToUse.hasBeenUsed());
+
+        //System.out.println("Picked random scene after " + attemptsToRandomize + " attempts");
+
+        sceneToUse.setHasBeenUsed(true); // Need to set this to true to make sure it is not used
+        return sceneToUse;
+    }
+
+    /**
+     * Method to get Midlife crisis scene
+     *
+     * @param key 'true' or 'false': If true player encounters midlife crisis for the first time. If false this is the second time.
+     * @return Scene object of true or false scene (scene is based on Person's midlifeCrisis field)
+     */
+    public Scene getMidLifeCrisisScene(String key) {
+        return getMidLifCrisis().get(key).get(0);
+    }
+
+    /**
+     * Method that randomly selects an investment scene.
+     * @return JSONObject the contains the investment scene details.
+     */
+    public JSONObject getInvestmentScene() {
         int randomInt = random.nextInt(getInvestingScenes().size());
         return getInvestingScenes().get(randomInt);
     }
 
+    /**
+     * Setts all Scene objects 'hasBeenUsed' field to false
+     */
+    private void setAllScenesToUnused() {
+        for (Map<String, List<Scene>> category : getCategories())
+            for (String subcategory : category.keySet())
+                for (Scene scene : category.get(subcategory))
+                    scene.setHasBeenUsed(false);
+    }
 
     //Setter and Getters
     public Map<String, Person> getUsers() {
@@ -329,7 +332,7 @@ public class SceneContainer {
     }
 
     public String getDataBasePath() {
-        return dataBasePath;
+        return "userStorage.json";
     }
 
     public Map<String, List<Scene>> getMidLifCrisis() {
@@ -346,5 +349,13 @@ public class SceneContainer {
 
     public void setInvestingScenes(List<JSONObject> investingScenes) {
         this.investingScenes = investingScenes;
+    }
+
+    public List<Map<String, List<Scene>>> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Map<String, List<Scene>>> categories) {
+        this.categories = categories;
     }
 }
