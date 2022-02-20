@@ -3,9 +3,9 @@
     {
       "prompt": "The chiropractor down the street from your house, loves you. You are basically keeping their office in business because this is your third visit for the month. You have been sleeping on an old futon with squeaky springs because you refuse to commit to your partner, Sam. It's time to make up your mind.",
       "options": [
-        "marry sam",
-        "end things with sam",
-        "make another appt"
+        "Marry Sam",
+        "End things with Sam",
+        "Make another appointment"
       ],
       "outcomes": [
         "That back wasn't holding up eh? Smart Choice. Great News! You no longer pay a deductible to the chiropractor. However, you now have to go half on an extravagant wedding.",
@@ -31,9 +31,9 @@
     {
       "prompt": "You are ready to take a mature step in your relationship. You know that you can spend the rest of your life with Sam and you are extremely in love. There's one thing that bothers you. Sam doesn't like cilantro and forbids it from being in the house.",
       "options": [
-        "propose",
-        "simmer on it",
-        "bring up cilantro again"
+        "Propose",
+        "Simmer on it",
+        "Bring up cilantro again"
       ],
       "outcomes": [
         "'YESS, I accept!' Sam accepts and you both beam with joy. You are getting married and it's now time to prepare a big celebration.",
@@ -61,9 +61,9 @@
     {
       "prompt": "You're at a NYE party and the countdown to midnight is approaching. You are feeling nervous because you have no partner to kiss. Suddenly, you lock eyes with a mysterious wide-eye stranger.  'OoOoOo I like,' you think. What do you do? ",
       "options": [
-        "kiss them",
-        "stare longingly",
-        "ask for a kiss"
+        "Kiss them",
+        "Stare longingly",
+        "Ask for a kiss"
       ],
       "outcomes": [
         "Wow, what a magical kiss. The honeymoon stage begins. You cannot believe your luck. Sam is an incredible kisser who also enjoys anime like you. You ask them to be your partner and they accept.",
@@ -88,9 +88,9 @@
     {
       "prompt": "It's an icy winter day and you are carefully walking so you don't slip. 'WABAMM!!' You are clumsy and fall anyways. As you struggle to pick yourself up from the floor, a pair of strong arms pulls you. 'Are you okay?' a beautiful stranger asks.",
       "options": [
-        "ask them for coffee",
-        "blush and walk away",
-        "say they're attractive"
+        "Ask them for coffee",
+        "Blush and walk away",
+        "Say they're attractive"
       ],
       "outcomes": [
         "You enjoy a magical date and find out that you both love tapas and scary movies. Wow, this could really be something, you think. You are hopeful and decide to explore the relationship further.",
@@ -115,9 +115,9 @@
     {
       "prompt": "You go to your spouse, Sam, to build an addition onto your house. Sam tells you to wait until next year, but the time to build is now. You decide to go to the bank anyway and check your account. To your surprise, Sam has put all of the money into forex.",
       "options": [
-        "confront Sam",
-        "divorce Sam",
-        "rob a bank"
+        "Confront Sam",
+        "Divorce Sam",
+        "Rob a bank"
       ],
       "outcomes": [
         "Sam apologizes for betraying your trust and pulls the funds. They take a huge hit on taxes from the early withdrawal. You can't afford to remodel now and things between you and Sam are tense... ",
@@ -143,9 +143,9 @@
     {
       "prompt": "One day Sam comes home covered in blood. You are shocked and ask her what happened. 'I can't tell you but I need your help,' Sam says. What do you do?",
       "options": [
-        "you can't handle this. divorce.",
-        "reluctantly agree to help",
-        "enthusiastically help"
+        "You can't handle this. Divorce.",
+        "Reluctantly agree to help",
+        "Enthusiastically help"
       ],
       "outcomes": [
         "As much as you love Sam, you are not willing to be a accomplice. You have your elderly parents to think about. Besides, you are too weak to dig any holes that may be required of you.",

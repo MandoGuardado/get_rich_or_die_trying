@@ -28,7 +28,7 @@
                <Insets bottom="10.0" left="10.0" />
             </BorderPane.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font>
          </Button>
       </left>
@@ -38,7 +38,7 @@
                <Insets bottom="10.0" right="10.0" />
             </BorderPane.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font>
          </Button>
       </right>
@@ -46,7 +46,7 @@
          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <Label prefHeight="70.0" prefWidth="494.0" text="You have finished setting up you character and are ready to start the game. From this point on, quiting will automatically save your game progress.  " textFill="#3b2abf" wrapText="true">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Label>
          </VBox>
@@ -65,12 +65,12 @@
          <VBox alignment="CENTER" prefHeight="227.0" prefWidth="152.0" BorderPane.alignment="CENTER">
             <Label text="Name" textFill="#3b2abf">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statName" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -78,12 +78,12 @@
             </Label>
             <Label text="Age:" textFill="#3c1fbf">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statAge" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -91,12 +91,12 @@
             </Label>
             <Label text="Net Worth:" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statWorth" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -104,12 +104,12 @@
             </Label>
             <Label text="Health:" textFill="#3531ab">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statHealth" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -117,12 +117,12 @@
             </Label>
             <Label text="Children:" textFill="#3620c3">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statChildren" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -130,12 +130,12 @@
             </Label>
             <Label text="Partner:" textFill="#3c24b2">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="statPartner" text="Label" textFill="#381dae">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
          </VBox>
@@ -145,7 +145,7 @@
             <left>
                <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
                   <font>
-                     <Font name="Arial" size="13.0" />
+                     <Font name="Arial" size="18.0" />
                   </font>
                   <BorderPane.margin>
                      <Insets bottom="10.0" left="10.0" />
@@ -155,7 +155,7 @@
             <right>
                <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#mainNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
                   <font>
-                     <Font name="Arial" size="13.0" />
+                     <Font name="Arial" size="18.0" />
                   </font>
                   <BorderPane.margin>
                      <Insets bottom="10.0" right="10.0" />
@@ -165,7 +165,7 @@
             <center>
                <Button mnemonicParsing="false" onAction="#resetPressed" text="Reset Game" BorderPane.alignment="CENTER">
                   <font>
-                     <Font name="Arial" size="13.0" />
+                     <Font name="Arial" size="18.0" />
                   </font>
                   <BorderPane.margin>
                      <Insets bottom="10.0" />
@@ -197,7 +197,7 @@
             </Label>
             <Label fx:id="mainLabel1" alignment="CENTER" contentDisplay="CENTER" prefWidth="550.0" text="Label" textFill="#1b18c6" wrapText="true">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -211,7 +211,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </ToggleButton>
             <ToggleButton fx:id="mainButton2" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mainButtonPressed" toggleGroup="$mainChoice">
@@ -219,7 +219,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </ToggleButton>
             <ToggleButton fx:id="mainButton3" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mainButtonPressed" toggleGroup="$mainChoice">
@@ -227,7 +227,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </ToggleButton>
             <Button fx:id="submitButton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#mainSubmitPressed" style="-fx-background-color: black; -fx-border-color: #1b18c6;" text="Submit Answer" textFill="#1b18c6">
@@ -235,12 +235,12 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Button>
             <Label fx:id="mainLabel2" alignment="CENTER" contentDisplay="CENTER" prefWidth="550.0" textFill="#3416b9" wrapText="true">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -248,17 +248,17 @@
             </Label>
             <Label fx:id="effectLabel0" textFill="#1b18c6">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="effectLabel1" textFill="#1b18c6">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
             <Label fx:id="effectLabel2" textFill="#1b18c6">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
          </VBox>

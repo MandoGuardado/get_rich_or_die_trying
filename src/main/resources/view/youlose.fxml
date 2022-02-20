@@ -21,7 +21,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" right="20.0" />
@@ -29,7 +29,7 @@
             </Button>
             <Button mnemonicParsing="false" onAction="#playAgainPressed" text="Play Again">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" />
