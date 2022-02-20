@@ -3,7 +3,9 @@ package models;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -223,7 +225,7 @@ public class SceneContainer {
 
         }
         //Creates new WriteFile object passing is name of external file and content being written
-        WriteFile userWriter = new WriteFile("userStorage.json", result);
+        SceneContainer.WriteFile userWriter = new SceneContainer.WriteFile("userStorage.json", result);
         //Save to external file.
         userWriter.save();
     }
@@ -385,5 +387,66 @@ public class SceneContainer {
 
     public void setCategories(List<Map<String, List<Scene>>> categories) {
         this.categories = categories;
+    }
+    // Static inner class to write files.
+    public static class WriteFile {
+        //Fields
+        String fileName;
+        String content;
+
+        //Constructors
+        public WriteFile(String fileName, String content)
+        {
+            this.fileName = fileName;
+            this.content = content;
+        }
+
+        //Business Methods
+
+        /*
+         * Saves Current players 5-year Summary if file already exits
+         */
+        public void saveFile()
+        {
+            try
+            {
+                BufferedWriter write = new BufferedWriter(new FileWriter(fileName, false));
+                write.write(content);
+                write.close();
+                System.out.println("Game has been updated.");
+            }
+            catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        /*
+         * Makes a check using createNewFile() method to see if abstract file path does not exist and
+         * uses existing file to update with new data by calling method saveFile()
+         * Saves players 5-year summary
+         */
+        public void save() {
+            File file = new File(fileName);
+            try
+            {
+                if(file.createNewFile())
+                {
+                    System.out.println("Your game has been saved .");
+                    FileWriter writeFile = new FileWriter(fileName);
+                    writeFile.write(content);
+                    writeFile.close();
+                }
+                else
+                {
+                    saveFile();
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println("Can't save new file");
+            }
+        }
+
     }
 }
