@@ -48,7 +48,7 @@ public class Game {
             getPlayerBasicData(playerName);
             clearScreen();
             //Runs through Career scene
-            runSceneOneCareer(player);
+            System.out.println( runSceneOneCareer(player));
         }
 
         getPlayer().setFinishedInitialization(true);
@@ -507,7 +507,7 @@ public class Game {
      *
      * @param player Person instance.
      */
-    private void runSceneOneCareer(Person player) {
+    private String runSceneOneCareer(Person player) {
         //Using hasEduction field in player (Player Object) to determine which Enum Map from Careers will be returned and assigned to available careers
         Map<Careers, List<String>> availCareers = player.hasEducation() ? Careers.getCollegeCareers() : Careers.getNonCollegeCareers();
         String collegeSummary = player.hasEducation() ? "Congratulations!\nYou finished college." : "You decided to skip the college route.";
@@ -534,8 +534,7 @@ public class Game {
                 }
             }
         }
-
-        System.out.println("\nYou chose a " + player.getCareer() + " job");
+        return "\nYou chose a " + player.getCareer().getCareerName() + " based job that is often described as: " + player.getCareer().getDescription();
     }
 
     /**
