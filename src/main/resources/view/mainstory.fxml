@@ -44,7 +44,7 @@
       </right>
       <center>
          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <Label prefHeight="70.0" prefWidth="494.0" text="You have finished setting up you character and are ready to start the game. From this point on, quiting will automatically save your game progress.  " textFill="#3b2abf" wrapText="true">
+            <Label text="You have finished setting up you character and are ready to start the game. From this point on, quiting will automatically save your game progress.  " textFill="#3b2abf" wrapText="true">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
