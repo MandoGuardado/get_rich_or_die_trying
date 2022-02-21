@@ -29,10 +29,10 @@ public class Game {
         scenes = new SceneContainer();
         listPlayer = scenes.getUsers();
         //Prints Welcome ASCII art banner
+        clearScreen();
         System.out.println(welcomeBanner());
         getInput();
         clearScreen();
-        System.out.println(Art.getArt("welcome"));
         System.out.println("Enter your Name: ");
         String playerName = getInput();
 
@@ -50,7 +50,7 @@ public class Game {
             getPlayerBasicData(playerName);
             clearScreen();
             //Runs through Career scene
-            System.out.println( runSceneOneCareer(player));
+            System.out.println(runSceneOneCareer(player));
         }
 
         getPlayer().setFinishedInitialization(true);
@@ -293,12 +293,12 @@ public class Game {
     public static String retrievePreviousSession(String playerSavedName) {
         String resultString;
         if (listPlayer.containsKey(playerSavedName)) {
-            resultString = "Player Found! You will continue where you left off...";
+            resultString = "\n\nPlayer Found! You will continue where you left off...\n";
             player = listPlayer.get(playerSavedName);
             //Sets the boolean variable to true, so that player can continue with previous session.
             doesPlayerExist = true;
         } else {
-            resultString = "Player name was not found! New player record will be created.";
+            resultString = "\n\nPlayer name was not found! New player record will be created.\n";
         }
         return resultString;
     }
@@ -423,7 +423,7 @@ public class Game {
             BackstoryOption selectedBackstoryOption = null;
             // checks the List of BackstoryOption instance to see if user response matches text field in instance.
             for (BackstoryOption option : backstory.getOptions()) {
-                if (option.getText().contains(resp)) {
+                if (option.getText().toLowerCase().contains(resp)) {
                     //if match is found then BackstoryOption instance is assigned to selectedBackstoryObject variable
                     selectedBackstoryOption = option;
                     break;
