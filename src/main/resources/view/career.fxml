@@ -32,7 +32,7 @@
                   <Insets bottom="10.0" left="10.0" />
                </BorderPane.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Button>
          </left>
@@ -42,7 +42,7 @@
                   <Insets bottom="10.0" right="10.0" />
                </BorderPane.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Button>
          </right>
@@ -51,7 +51,7 @@
                <children>
                   <Label text="Would you lke to attend college?" textFill="#3728bc">
                      <font>
-                        <Font name="Arial" size="13.0" />
+                        <Font name="Arial" size="24.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -61,12 +61,12 @@
                               <ToggleGroup fx:id="collegeSelected" />
                            </toggleGroup>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="No" textFill="#3728bc" toggleGroup="$collegeSelected">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                      </children>
@@ -89,7 +89,7 @@
          <left>
             <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" />
@@ -102,13 +102,21 @@
                   <Insets bottom="10.0" right="10.0" />
                </BorderPane.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Button>
          </right>
          <center>
             <VBox alignment="CENTER" prefHeight="478.0" prefWidth="650.0" BorderPane.alignment="CENTER">
                <children>
+                  <Label text="Select a career and click next" textFill="#2126ab">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
                   <GridPane alignment="CENTER" prefHeight="156.0" prefWidth="940.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -126,7 +134,7 @@
                      <children>
                         <RadioButton mnemonicParsing="false" selected="true" text="ANTARCTIC EXPLORER" textFill="#2126ab">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                            <toggleGroup>
                               <ToggleGroup fx:id="collegeCareer" />
@@ -134,42 +142,42 @@
                         </RadioButton>
                         <RadioButton layoutX="10.0" layoutY="28.0" mnemonicParsing="false" text="ASTRONAUT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton layoutX="221.0" layoutY="28.0" mnemonicParsing="false" text="FIGHTER PILOT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="PROFESSOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="ACCOUNTANT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="MUSEUM CURATOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="CHARITY WORKER" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="PHILOSOPHER" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="DOCTOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                      </children>
@@ -192,7 +200,7 @@
          <left>
             <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" />
@@ -205,13 +213,21 @@
                   <Insets bottom="10.0" right="10.0" />
                </BorderPane.margin>
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Button>
          </right>
          <center>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="BOTTOM_CENTER">
                <children>
+                  <Label text="Select a career and click next" textFill="#2126ab">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
                   <GridPane alignment="CENTER" prefHeight="173.0" prefWidth="667.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -229,7 +245,7 @@
                      <children>
                         <RadioButton mnemonicParsing="false" selected="true" text="UNDERWATER SEA WELDER" textFill="#2126ab">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                            <toggleGroup>
                               <ToggleGroup fx:id="nonCollegeCareer" />
@@ -237,42 +253,42 @@
                         </RadioButton>
                         <RadioButton layoutX="10.0" layoutY="28.0" mnemonicParsing="false" text="SOFTWARE ENGINEER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton layoutX="221.0" layoutY="28.0" mnemonicParsing="false" text="MARINE" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="DATA ENTRY" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="TREE CUTTER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="SCULPTOR" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="MUSICIAN" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="PERFORMER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                         <RadioButton mnemonicParsing="false" text="PLUMBER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </RadioButton>
                      </children>

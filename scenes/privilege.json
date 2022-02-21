@@ -3,9 +3,9 @@
     {
       "prompt": "It's a warm summer afternoon. You are cruising down the road to meet your friends at the beach for a picnic. You are 20 minutes late so you speed up a little. Then BAMMM!!! A body flies up in the air and slams back onto the ground. What do you do?",
       "options": [
-        "ignore her",
-        "call 911",
-        "help her"
+        "Ignore her",
+        "Call 911",
+        "Help her"
       ],
       "outcomes": [
         "You panic and continue driving. You know it was the wrong thing to do. You call your father. RING RING. 'Dad? It's me. I've made a mistake.' 'Don't worry, I will take care of it.'" ,
@@ -30,9 +30,9 @@
     {
       "prompt": "You have found yourself in some trouble. Your family doesn't want you to ruin their family's name. They offer to send you to a 'camp' to keep you out of trouble for a little.",
       "options": [
-        "take help begrudgingly",
-        "take help seriously",
-        "decline help"
+        "Take help begrudgingly",
+        "Take help seriously",
+        "Decline help"
       ],
       "outcomes": [
         "You find yourself in more trouble at the camp. You family has been getting you out of trouble all of your life, but they cant help with this one. " ,
@@ -59,9 +59,9 @@
     {
       "prompt": "As you are walking, you see a lottery ticket with a note attached, it reads 'It's your lucky day. You have until 5 pm to cash this ticket.' It is 4:58 pm.",
       "options": [
-        "cash ticket",
-        "give to homeless",
-        "ignore it"
+        "Cash ticket",
+        "Give to homeless",
+        "Ignore it"
       ],
       "outcomes": [
         "Life has been beating you up since birth. Any good thing that has happened to you has been because of your strength and will. That changed today. You won a lot of money, although you now have a sprained ankle from running",

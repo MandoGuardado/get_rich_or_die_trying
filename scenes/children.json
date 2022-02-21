@@ -3,9 +3,9 @@
     {
       "prompt": "Your child is having night terrors and keeps crying throughout the night. You are exhausted and have a big meeting tomorrow. What do you do?",
       "options": [
-        "let her cry",
-        "soothe her",
-        "hire an overnight nanny"
+        "Let her cry",
+        "Soothe her",
+        "Hire an overnight nanny"
       ],
       "outcomes": [
         "You decide to let her cry but concerned neighbors call the cops. They understand but all the ruckus makes it hard for you to fall back asleep. You oversleep your alarm missing your meeting.",
@@ -30,9 +30,9 @@
     {
       "prompt": "Your child is struggling in math class and you want to help, but you are not very good at math. You need to decide what's the best way to help your child.",
       "options": [
-        "hire tutor",
-        "learn math",
-        "encourage them to work harder"
+        "Hire tutor",
+        "Learn math",
+        "Encourage them to work harder"
       ],
       "outcomes": [
         "The tutor you hired turned out to be a fraud. Great. Now you wasted money AND your child is still not good at math.",
@@ -58,9 +58,9 @@
     {
       "prompt": "You have been enjoying your child-free life. But recently, you've been thinking of adding a little one into your life. You know it was drastically change your current lifestyle. What do you do? ",
       "options": [
-        "get baby",
-        "foster child",
-        "no baby"
+        "Get baby",
+        "Foster child",
+        "No baby"
       ],
       "outcomes": [
         "You are ecstatic about your decision to have a baby. You know it will affect your finances and health but it will make you happy. Cooo cooo baby. ",
@@ -87,9 +87,9 @@
     {
       "prompt": "Your sister has died. In her will, your sister requested that her young daughter live with you because your sister thinks you would make a good role model. The lawyer hands you the legal forms to sign.",
       "options": [
-        "sign forms",
-        "shred forms",
-        "pass niece off to your mom"
+        "Sign forms",
+        "Shred forms",
+        "Pass niece off to your mom"
       ],
       "outcomes": [
         "You will raise the child as your own in honor of your sister. You return the signed forms to the lawyer and he says, 'Your sister also wanted to pass along a substantial sum of money to ensure the welfare of her daughter'",

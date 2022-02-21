@@ -3,9 +3,9 @@
     {
       "prompt": "You are considering going back to college for an advanced degree. You visit a prospective university and meet with a guidance counselor. She says you will need some remedial math classes since they are a very selective university, but she can approve the application right now if you want.",
       "options": [
-        "go for it",
-        "try a different college",
-        "no thanks"
+        "Go for it",
+        "Try a different college",
+        "No thanks"
       ],
       "outcomes": [
         "The extra math classes bring a ton of stress, but after a few years you finally finish your program and graduate. You are now extremely employable.",
@@ -30,9 +30,9 @@
     {
       "prompt": "You are invited to teach a course at the University of Washington about your career. The dean wants you to inspire the undergraduates.",
       "options": [
-        "teach",
-        "offer to be a guest speaker",
-        "no thanks"
+        "Teach",
+        "Offer to be a guest speaker",
+        "No thanks"
       ],
       "outcomes": [
         "The pressure to teach the class is stressful and you are an awkward lecturer. The students don't like you and begin dropping your class. After a few semester, the dean comes to terms with their mistake and asks you to leave. Your career is in shambles.",
@@ -59,9 +59,9 @@
     {
       "prompt": "Recent developments in technology are starting to render your job obsolete. A coworker approaches you to ask if you want to join 'The Anti-Automation League'. You have heard about the AAL in the news lately but can't remember exactly why.",
       "options": [
-        "join league",
-        "do your research",
-        "decline invitation"
+        "Join league",
+        "Do your research",
+        "Decline invitation"
       ],
       "outcomes": [
         "You join the AAL and learn of plans to bomb a robotics company. You are assigned as the getaway driver. The event goes smoothly and the robotics company is completely destroyed. While escaping, you hit a hard pothole at high speeds and the truck explodes. One of your team must have left an explosive in the truck bed. When the ambulance arrives, you pretend to be an innocent victim of the explosion.",
@@ -85,9 +85,9 @@
     {
       "prompt": "You visit your local library and see a flyer for a free beginner's Spanish course. You have always wanted to learn a new language but haven't had the time.",
       "options": [
-        "take course",
-        "take flyer down",
-        "no thanks"
+        "Take course",
+        "Take flyer down",
+        "No thanks"
       ],
       "outcomes": [
         "With a new hobby, you are making new friends and have created a comfortable group of friends. Your stress levels go down. Life is good.",

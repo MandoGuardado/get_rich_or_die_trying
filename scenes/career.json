@@ -3,9 +3,9 @@
     {
       "prompt": "While at work, you are performing maintenance on one of the generators. You are pretty sure you can skip the maintenance since nobody has used the generator since the last maintenance a couple months ago.",
       "options": [
-        "skip maintenance",
-        "do quick visual inspection",
-        "do maintenance"
+        "Skip maintenance",
+        "Do quick visual inspection",
+        "Do maintenance"
       ],
       "outcomes": [
         "You skip the maintenance. A couple weeks later your team turns on the generator and it immediately explodes, killing one and injuring several others. You are near the blast radius and get hit by high-velocity shrapnel. Management is then forced to pay out worker's compensation to the victims, including you.",
@@ -30,9 +30,9 @@
     {
       "prompt": "You are making your way downtown, walking fast, the faces pass as you're home bound. Your boss calls you and asks you to take a higher position with the company. The pay is a lot more, but it is extremely risky. What do you do? ",
       "options": [
-        "take job",
-        "no thanks",
-        "ask for time to think about it"
+        "Take job",
+        "No thanks",
+        "Ask for time to think about it"
       ],
       "outcomes": [
         "Three days into the new job, a tragedy occurs. You lose some limbs and are on life support. It doesn't look good for you.",
@@ -59,9 +59,9 @@
     {
       "prompt": "You are in your art studio, putting the finishing touches on your latest work. You need to decide what to do with it when it's finished.",
       "options": [
-        "sell it",
-        "donate it",
-        "keep it"
+        "Sell it",
+        "Donate it",
+        "Keep it"
       ],
       "outcomes": [
         "You take your finished piece to the gallery for sale. It takes about five months before a local high-roller makes an offer.",
@@ -113,9 +113,9 @@
     {
       "prompt": "One day while in the office, you are heading to the restroom. You round a corner and bump into the new secretary, Anne. \nShe drops the notepad and coffee mug she was holding onto the carpet, spilling coffee everywhere.",
       "options": [
-        "ignore her",
-        "help her",
-        "scold her"
+        "Ignore her",
+        "Help her",
+        "Scold her"
       ],
       "outcomes": [
         "'A case of the Mondays, huh?', you say to Anne. She glares and you continue to the restroom. On your way back to your desk, you find a credit card in the coffee stain. Anne must not have realized she dropped it.",
@@ -137,8 +137,8 @@
     {
       "prompt": "Its time to clock in! You make amazing money, but you are miserable at your job. You work from home and as you sit in front of your desk, you contemplate leaving. You sign in to your Zoom meeting.",
       "options": [
-        "scream I QUIT",
-        "start meeting a usual",
+        "Scream I QUIT",
+        "Start meeting as usual",
         "Be honest about your feelings"
       ],
       "outcomes": [

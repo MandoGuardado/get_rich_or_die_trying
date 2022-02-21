@@ -56,7 +56,7 @@ public class GuiController {
     @FXML
     void playAgainPressed(ActionEvent event) {
         player = new Person();
-        loadScene(event,"newgame");
+        loadScene(event,"newGame");
     }
 
     @FXML

@@ -23,7 +23,7 @@
    <left>
       <Button mnemonicParsing="false" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="18.0" />
          </font>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" />
@@ -32,7 +32,7 @@
    <right>
       <Button fx:id="backstoryNext" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#backstoryNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="18.0" />
          </font>
          <BorderPane.margin>
             <Insets bottom="10.0" right="10.0" />
@@ -45,10 +45,10 @@
                <Insets bottom="20.0" />
             </VBox.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="24.0" />
             </font>
          </Label>
-         <ToggleButton fx:id="backstoryButton1" mnemonicParsing="false" onAction="#buttonPressed" text="action figure" textFill="#3030eb">
+         <ToggleButton fx:id="backstoryButton1" mnemonicParsing="false" onAction="#buttonPressed" text="Action figure" textFill="#3030eb">
             <toggleGroup>
                <ToggleGroup fx:id="backstoryChoice" />
             </toggleGroup>
@@ -56,35 +56,35 @@
                <Insets bottom="10.0" />
             </VBox.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font>
          </ToggleButton>
-         <ToggleButton fx:id="backstoryButton2" mnemonicParsing="false" onAction="#buttonPressed" text="rocket ship" textFill="#3030eb" toggleGroup="$backstoryChoice">
+         <ToggleButton fx:id="backstoryButton2" mnemonicParsing="false" onAction="#buttonPressed" text="Rocket ship" textFill="#3030eb" toggleGroup="$backstoryChoice">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font>
          </ToggleButton>
-         <ToggleButton fx:id="backstoryButton3" mnemonicParsing="false" onAction="#buttonPressed" text="crayons" textFill="#3030eb" toggleGroup="$backstoryChoice">
+         <ToggleButton fx:id="backstoryButton3" mnemonicParsing="false" onAction="#buttonPressed" text="Crayons" textFill="#3030eb" toggleGroup="$backstoryChoice">
             <VBox.margin>
                <Insets bottom="20.0" />
             </VBox.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font>
          </ToggleButton>
          <Button fx:id="backstorySubmit" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#BSSubmitPressed" style="-fx-background-color: black; -fx-border-color: #3030eb;" text="Submit Answer" textFill="#3030eb">
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="18.0" />
             </font></Button>
          <Label fx:id="backstoryLabel2" prefWidth="550.0" textFill="#3b32e8" wrapText="true">
             <VBox.margin>
                <Insets top="20.0" />
             </VBox.margin>
             <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="24.0" />
             </font>
          </Label>
          <BorderPane.margin>

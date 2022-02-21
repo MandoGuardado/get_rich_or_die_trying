@@ -3,9 +3,9 @@
     {
       "prompt": "The doctor calls you to let you know that you have a rare genome in your blood. The doctors offers you 500k to do tests.",
       "options": [
-        "offer your body",
-        "decline the offer",
-        "get a second opinion"
+        "Offer your body",
+        "Decline the offer",
+        "Get a second opinion"
       ],
       "outcomes": [
         "Congrats, you were just scammed! The 18-year old doctor from Florida has reappeared after getting off from his 2017 fraud charges. You were his first victim. Your blood is VERY regular.",
@@ -29,9 +29,9 @@
     {
       "prompt": "You are living a relatively healthy life. That is why you are surprised when, at your yearly physical, the doctor says you have high cholesterol. He offers you an expensive experimental treatment to lower cholesterol using nanomachines. Alternatively you can just try to eat healthier and exercise more.",
       "options": [
-        "take treatment",
-        "live healthier",
-        "take health drink"
+        "Take treatment",
+        "Live healthier",
+        "Take health drink"
       ],
       "outcomes": [
         "You pay for the treatment. The nanomachines make quick work of your cholesterol and you notice that you have more energy now. Modern science is amazing!",
@@ -57,9 +57,9 @@
     {
       "prompt": "You are the only person who has never caught Covid",
       "options": [
-        "leap for joy",
-        "keep info to yourself",
-        "tell everyone"
+        "Leap for joy",
+        "Keep info to yourself",
+        "Tell everyone"
       ],
       "outcomes": [
         "As you were leaping, you leaped into a pile of money. Its your lucky day.",
@@ -84,9 +84,9 @@
     {
       "prompt": "Your knees are starting to hurt basically all the time now and you can hear the bones rubbing together whenever you take the stairs in your home. 'Is it time to move to a one-story house?', you ask yourself.",
       "options": [
-        "move house",
-        "stay here",
-        "renovate house"
+        "Move house",
+        "Stay here",
+        "Renovate house"
       ],
       "outcomes": [
         "You find a place without stairs, in a decent neighborhood. You were able to sell your old house to offset some cost. Getting older is annoying.",
