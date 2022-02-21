@@ -38,8 +38,8 @@ public class SceneContainer {
         categoryHolder.add(loadScenes("education", "true", "false"));
         categoryHolder.add(loadScenes("partner", "married", "single", "partner"));
         categoryHolder.add(loadScenes("privilege", "true", "false"));
-        categoryHolder.add(loadScenes("children", "true", "false"));
         categoryHolder.add(loadScenes("health", "true", "false"));
+        categoryHolder.add(loadScenes("children", "true", "false"));
 
         return categoryHolder;
     }
