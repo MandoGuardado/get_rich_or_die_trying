@@ -29,8 +29,10 @@ public class Game {
         scenes = new SceneContainer();
         listPlayer = scenes.getUsers();
         //Prints Welcome ASCII art banner
-        welcome();
-        //Prompt user for name.
+        System.out.println(welcomeBanner());
+        getInput();
+        clearScreen();
+        System.out.println(Art.getArt("welcome"));
         System.out.println("Enter your Name: ");
         String playerName = getInput();
 
@@ -99,25 +101,9 @@ public class Game {
      *
      * @return Empty String
      */
-    private String welcome() {
-        String art = "\n" +
-                "  /$$$$$$              /$$           /$$$$$$$  /$$           /$$              /$$$$$$                  /$$$$$$$  /$$                 /$$$$$$$$                  /$$                    \n" +
-                " /$$__  $$            | $$          | $$__  $$|__/          | $$             /$$__  $$                | $$__  $$|__/                |__  $$__/                 |__/                    \n" +
-                "| $$  \\__/  /$$$$$$  /$$$$$$        | $$  \\ $$ /$$  /$$$$$$$| $$$$$$$       | $$  \\ $$  /$$$$$$       | $$  \\ $$ /$$  /$$$$$$          | $$  /$$$$$$  /$$   /$$ /$$ /$$$$$$$   /$$$$$$ \n" +
-                "| $$ /$$$$ /$$__  $$|_  $$_/        | $$$$$$$/| $$ /$$_____/| $$__  $$      | $$  | $$ /$$__  $$      | $$  | $$| $$ /$$__  $$         | $$ /$$__  $$| $$  | $$| $$| $$__  $$ /$$__  $$\n" +
-                "| $$|_  $$| $$$$$$$$  | $$          | $$__  $$| $$| $$      | $$  \\ $$      | $$  | $$| $$  \\__/      | $$  | $$| $$| $$$$$$$$         | $$| $$  \\__/| $$  | $$| $$| $$  \\ $$| $$  \\ $$\n" +
-                "| $$  \\ $$| $$_____/  | $$ /$$      | $$  \\ $$| $$| $$      | $$  | $$      | $$  | $$| $$            | $$  | $$| $$| $$_____/         | $$| $$      | $$  | $$| $$| $$  | $$| $$  | $$\n" +
-                "|  $$$$$$/|  $$$$$$$  |  $$$$/      | $$  | $$| $$|  $$$$$$$| $$  | $$      |  $$$$$$/| $$            | $$$$$$$/| $$|  $$$$$$$         | $$| $$      |  $$$$$$$| $$| $$  | $$|  $$$$$$$\n" +
-                " \\______/  \\_______/   \\___/        |__/  |__/|__/ \\_______/|__/  |__/       \\______/ |__/            |_______/ |__/ \\_______/         |__/|__/       \\____  $$|__/|__/  |__/ \\____  $$\n" +
-                "                                                                                                                                                      /$$  | $$               /$$  \\ $$\n" +
-                "                                                                                                                                                     |  $$$$$$/              |  $$$$$$/\n" +
-                "                                                                                                                                                      \\______/                \\______/ \n";
-        System.out.println(art);
-        System.out.println("Welcome to Get Rich Or Die Trying.\nAt a young age you realize that you want to be a millionaire.\nYour mission is to make $1 million before all your health points run out.\nEach choice you make will affect your net worth and health levels.");
-        System.out.println("\nPress any key to continue.");
-        getInput();
-        clearScreen();
-        return "";
+    private String welcomeBanner() {
+
+        return Art.getArt("welcome");
     }
 
     /**
