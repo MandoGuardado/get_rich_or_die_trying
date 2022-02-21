@@ -21,6 +21,7 @@ public class Backstory {
 
     /**
      * Returns a Backstory object after reading from parameter(JSONObject) value
+     *
      * @param json JSON object
      * @return BackStory(Class) Object contains a List of BackStoryOption(Class) options
      */
@@ -46,12 +47,13 @@ public class Backstory {
 
     /**
      * Return a List of the values in the List options field using the key 'text'
+     *
      * @return List of the value in the List options field
      * Ex: ['action figure', 'rocket ship', 'crayons']
      */
-    public List<String> getBackstoryOptionsText(){
+    public List<String> getBackstoryOptionsText() {
         List<String> optionsText = new ArrayList<>();
-        for(BackstoryOption o : options)
+        for (BackstoryOption o : options)
             optionsText.add(o.getText());
 
         return optionsText;
@@ -65,4 +67,5 @@ public class Backstory {
     public String getPrompt() {
         return prompt;
     }
+
 }

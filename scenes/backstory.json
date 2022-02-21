@@ -3,17 +3,17 @@
     "prompt": "As a baby, the town elder comes to visit you and your parents. They look at you curiously and place 3 toys in front of you and beckons you to choose one. You notice that the elder smells weird as your crawl towards the items.",
     "options": [
       {
-        "text": "action figure",
+        "text": "Action figure",
         "attribute": "strength",
-        "outcome": "You pick up the action figure and move around the limbs. 'Hehe,' you giggle. You like twisting and turning the body parts."
+        "outcome": "You pick up the action figure and move around the limbs. 'Teehee,' you giggle. You like twisting and turning the body parts."
       },
       {
-        "text": "rocket ship",
+        "text": "Rocket ship",
         "attribute": "intellect",
         "outcome": "You pick up the rocket ship and throw it up in the air. 'Weeheee,' you giggle."
       },
       {
-        "text": "crayons",
+        "text": "Crayons",
         "attribute": "creativity",
         "outcome": "You pick up the crayons and scribble on the walls. The colors are pretty. 'Hehe.'"
       }
@@ -23,17 +23,17 @@
     "prompt": "As a toddler, you are in the playground building a sandcastle when suddenly, two menacing feet stomped and destroy it. Shocked, you look up and it is the bully Rennie. How do you respond?",
     "options": [
       {
-        "text": "whack him",
+        "text": "Whack him",
         "attribute": "strength",
         "outcome": "'Whoomp!' Rennie falls to the ground. You smile. Your hand hurts but you are satisfied. This will teach him not to mess with you again."
       },
       {
-        "text": "lure him into the sand pit",
+        "text": "Lure him into the sand pit",
         "attribute": "intellect",
         "outcome": "Rennie is now in the pit. You smile and start pouring sand into the hole. Rennie claws to get out but he is too slow and the sand is burying him. The terror in Rennie's eyes tells you that he won't ruin your sandcastles again."
       },
       {
-        "text": "throw sand in his eyes",
+        "text": "Throw sand in his eyes",
         "attribute": "creativity",
         "outcome": "As Rennie screams and cries from the sand, you just feel annoyed. He has ruined your masterpiece...at least, he won't do this again."
       }
@@ -43,17 +43,17 @@
     "prompt": "As a child, you are in elementary school. You are walking home from school when a stranger pulls up in their car and tells you to get in. You get scared and start running towards the woods to lose him. He starts chasing you.",
     "options": [
       {
-        "text": "attack him with a branch",
+        "text": "Attack him with a branch",
         "attribute": "strength",
         "outcome": "The creepy man falls to the group clutching his chest. 'Argghh!!' You scream as you aggressively stab him with the branch in his stomach. As he lays on the ground squirming, you hit him in the head and run away."
       },
       {
-        "text": "hide at top of a tree",
+        "text": "Hide at top of a tree",
         "attribute": "intellect",
         "outcome": "You peer down from the tree and hold your breath. The man is looking around from the ground but he can't see you. He peers behind the bushes and is becoming frustrated. You throw a rock from the tree to distract him. He hears it and runs in that direction."
       },
       {
-        "text": "lead him to a patch of quicksand",
+        "text": "Lead him to a patch of quicksand",
         "attribute": "creativity",
         "outcome": "You are familiar with these woods and have led him to a dangerous part where there is quicksand. You run around it but the man runs into the patch. As he starts sinking, you smile. 'Goodbye creepy man,' you think and happily skip away."
       }
@@ -63,17 +63,17 @@
     "prompt": "As a pre-teen, you are on TikTok. You want to become famous. What kind of TikTok do you make?",
     "options": [
       {
-        "text": "squatting videos",
+        "text": "Squatting videos",
         "attribute": "strength",
         "outcome": "You are glad you can share with love of fitness with other people. It's important to squat in the right form so you can be safe."
       },
       {
-        "text": "pranks using physics",
+        "text": "Pranks using physics",
         "attribute": "intellect",
         "outcome": "You love making people laugh and you love physics."
       },
       {
-        "text": "twerking videos",
+        "text": "Twerking videos",
         "attribute": "creativity",
         "outcome": "You are raking up the views with your twerk moves. 'Hmmm, maybe I have a talent for this,' you think."
       }
@@ -83,17 +83,17 @@
     "prompt": "As a teen, you are hosting a party on a Saturday night while your parents are away. The party is lit AF. Suddenly, you hear a pounding at the door. 'Open up!! It's the police'. What do you do?",
     "options": [
       {
-        "text": "tell everyone to run into the woods",
+        "text": "Tell everyone to run into the woods",
         "attribute": "strength",
         "outcome": "All the teens run into the woods. You can feel the cop's flashlight from your back. As everyone starts dispersing in different direction, the cops get confused on who to follow. You begin sprinting because you're a natural athlete. 'Hehe,' you think."
       },
       {
-        "text": "tell them to come back with a warrant",
+        "text": "Tell them to come back with a warrant",
         "attribute": "intellect",
         "outcome": "There's no way they are coming in. 'I know my rights,' you assure everyone. Everyone nods and agree. 'I'm so smart,' you think."
       },
       {
-        "text": "put everyone in basement",
+        "text": "Put everyone in basement",
         "attribute": "creativity",
         "outcome": "You tell everyone to go to the basement and to be quiet. You open the door. 'Can I help you officer,' you ask. 'I am just practicing my DJ set.' The cops peer over my shoulder and see no one else in the house. They are skeptical but walk away. You sigh with relief."
       }

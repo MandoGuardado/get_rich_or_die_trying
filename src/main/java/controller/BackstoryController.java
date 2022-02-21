@@ -2,35 +2,46 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 import models.Backstory;
 import models.BackstoryOption;
-import models.Person;
-import view.GuiApp;
-
+import models.Careers;
 import java.util.List;
+import java.util.Map;
 
 import static controller.Game.getBackStoryScenes;
 
+
 public class BackstoryController {
-    private Person player;
     private final List<Backstory> backstories = getBackStoryScenes();
 
     public BackstoryController() {
 
     }
+    @FXML
+    private BorderPane careerPaneCollege;
+
+    @FXML
+    private BorderPane careerPaneNon;
+
+    @FXML
+    private BorderPane collegePane;
+
+    @FXML
+    private ToggleGroup collegeCareer;
+
+    @FXML
+    private ToggleGroup collegeSelected;
+
+    @FXML
+    private ToggleGroup nonCollegeCareer;
 
     @FXML
     private Label backstoryLabel1;
 
     @FXML
     private Label backstoryLabel2;
-
 
     @FXML
     private ToggleButton backstoryButton1;
@@ -87,13 +98,70 @@ public class BackstoryController {
                 }
             }
         backstoryLabel2.setText(optionSelected.getOutcome());
-        EffectsTranslator.getAttribute(Game.getPlayer(), optionSelected.getAttribute());
+        EffectsTranslator.getAttribute(GuiController.getPlayer(), optionSelected.getAttribute());
         backstoryRound++;
         backstoryButton1.setDisable(true);
         backstoryButton2.setDisable(true);
         backstoryButton3.setDisable(true);
         backstoryNext.setDisable(false);
+        selected.setSelected(false);
 
+    }
+
+    @FXML
+    void CCNextPressed(ActionEvent event) {
+        RadioButton selected = (RadioButton) collegeCareer.getSelectedToggle();
+        String resp = selected.getText();
+        Map<Careers, List<String>> availCareers = Careers.getCollegeCareers();
+        topLoop:
+        for (Careers career : availCareers.keySet()) {
+            for (String specialty : availCareers.get(career)) {
+                if (resp.equalsIgnoreCase(specialty)) {
+                    GuiController.getPlayer().setCareer(career);
+                    break topLoop;
+                }
+            }
+        }
+        GuiController.loadScene(event, "mainstory");
+    }
+
+    @FXML
+    void NCNextPressed(ActionEvent event) {
+        RadioButton selected = (RadioButton) nonCollegeCareer.getSelectedToggle();
+        String resp = selected.getText();
+        Map<Careers, List<String>> availCareers = Careers.getNonCollegeCareers();
+        topLoop:
+        for (Careers career : availCareers.keySet()) {
+            for (String specialty : availCareers.get(career)) {
+                if (resp.equalsIgnoreCase(specialty)) {
+                    GuiController.getPlayer().setCareer(career);
+                    break topLoop;
+                }
+            }
+        }
+
+        GuiController.loadScene(event, "mainstory");
+    }
+
+    @FXML
+    void collegeNextPressed(ActionEvent event) {
+        RadioButton selected = (RadioButton) collegeSelected.getSelectedToggle();
+        String resp = selected.getText();
+        collegePane.setVisible(false);
+        if ("Yes".equals(resp)){
+            GuiController.getPlayer().setEducation(true);
+            GuiController.getPlayer().adjustNetWorth(-100000);
+            careerPaneCollege.setVisible(true);
+        } else {
+            careerPaneNon.setVisible(true);
+            GuiController.getPlayer().setEducation(false);
+        }
+
+    }
+
+    @FXML
+    void quitPressed(ActionEvent event) {
+        System.exit(1);
     }
 
 

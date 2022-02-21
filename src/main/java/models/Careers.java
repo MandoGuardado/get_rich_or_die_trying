@@ -6,7 +6,17 @@ import java.util.Map;
 
 public enum Careers {
 
-    DANGER, KNOWLEDGE, PASSION;
+    DANGER("Dangerous", "These job fields usually come with some level of danger and can at times be low paying professions."),
+    KNOWLEDGE("Knowledge", "These job fields ofter require a College degree and are well paid but can be stressful environments."),
+    PASSION("Passionate", "These job fields are very satisfying but require a great deal of passion and dedication.");
+
+    private final String careerName;
+    private final String description;
+
+    Careers(String name, String description) {
+        this.careerName = name;
+        this.description = description;
+    }
 
     /*
      * Creates a field that holds a Map of college careers using Careers ENUM value as key and List<String> as value
@@ -35,6 +45,7 @@ public enum Careers {
             PASSION, 10000
     );
 
+
     //Getter and Setters
     public static Map<Careers, List<String>> getCollegeCareers() {
         return collegeCareers;
@@ -46,6 +57,20 @@ public enum Careers {
 
     public int getSalaryAmount() {
         return salaries.get(this);
+    }
+
+    public String getCareerName() {
+        return careerName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public static void main(String[] args) {
+//        Careers careers = Careers.valueOf("Danger");
+        System.out.println(Careers.valueOf("DANGER").getCareerName());
+
     }
 
 }

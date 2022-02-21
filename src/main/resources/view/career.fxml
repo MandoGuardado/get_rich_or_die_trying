@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BackstoryController">
+   <children>
+      <BorderPane fx:id="collegePane" prefHeight="636.0" prefWidth="852.0" style="-fx-background-color: black;">
+         <top>
+            <ImageView fitHeight="313.0" fitWidth="526.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@college.png" />
+               </image>
+            </ImageView>
+         </top>
+         <left>
+            <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" onAction="#collegeNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Would you lke to attend college?" textFill="#3728bc">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="151.0" selected="true" text="Yes" textFill="#3728bc">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="collegeSelected" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="No" textFill="#3728bc" toggleGroup="$collegeSelected">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="careerPaneCollege" prefHeight="492.0" prefWidth="666.0" style="-fx-background-color: black;" visible="false" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+         <top>
+            <ImageView fitHeight="150.0" fitWidth="549.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@careers.png" />
+               </image>
+            </ImageView>
+         </top>
+         <left>
+            <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" onAction="#CCNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="478.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Select a career and click next" textFill="#2126ab">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane alignment="CENTER" prefHeight="156.0" prefWidth="940.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="ANTARCTIC EXPLORER" textFill="#2126ab">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="collegeCareer" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="28.0" mnemonicParsing="false" text="ASTRONAUT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton layoutX="221.0" layoutY="28.0" mnemonicParsing="false" text="FIGHTER PILOT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="PROFESSOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="ACCOUNTANT" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="MUSEUM CURATOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="CHARITY WORKER" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="PHILOSOPHER" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="DOCTOR" textFill="#2126ab" toggleGroup="$collegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="100.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="careerPaneNon" layoutX="10.0" layoutY="10.0" prefHeight="492.0" prefWidth="666.0" style="-fx-background-color: black;" visible="false">
+         <top>
+            <ImageView fitHeight="150.0" fitWidth="549.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@careers.png" />
+               </image>
+            </ImageView>
+         </top>
+         <left>
+            <Button mnemonicParsing="false" onAction="#quitPressed" text="Quit" BorderPane.alignment="BOTTOM_LEFT">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" onAction="#NCNextPressed" text="Next" BorderPane.alignment="BOTTOM_RIGHT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="BOTTOM_CENTER">
+               <children>
+                  <Label text="Select a career and click next" textFill="#2126ab">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane alignment="CENTER" prefHeight="173.0" prefWidth="667.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="UNDERWATER SEA WELDER" textFill="#2126ab">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="nonCollegeCareer" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="10.0" layoutY="28.0" mnemonicParsing="false" text="SOFTWARE ENGINEER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton layoutX="221.0" layoutY="28.0" mnemonicParsing="false" text="MARINE" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="DATA ENTRY" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="TREE CUTTER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="SCULPTOR" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="MUSICIAN" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="PERFORMER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="PLUMBER" textFill="#2126ab" toggleGroup="$nonCollegeCareer" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="100.0" />
+                     </opaqueInsets>
+                  </GridPane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

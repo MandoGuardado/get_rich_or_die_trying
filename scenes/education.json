@@ -3,12 +3,14 @@
     {
       "prompt": "You are considering going back to college for an advanced degree. You visit a prospective university and meet with a guidance counselor. She says you will need some remedial math classes since they are a very selective university, but she can approve the application right now if you want.",
       "options": [
-        "get degree",
-        "no thanks"
+        "Go for it",
+        "Try a different college",
+        "No thanks"
       ],
       "outcomes": [
         "The extra math classes bring a ton of stress, but after a few years you finally finish your program and graduate. You are now extremely employable.",
-        "You decide to apply to a different university which does not require the remedial math classes. It was smooth sailing, and you are marginally more employable."
+        "You apply to a local college which does not require the remedial math classes. It was smooth sailing, and you are marginally more employable.",
+        "You decide to skip the schooling but as you're leaving the guidance counselor's office, you see an ad for karate class and decide to do that instead."
       ],
       "effects": [
         {
@@ -18,17 +20,23 @@
         {
           "health": 5,
           "money": 10000
+        },
+        {
+          "health": 10,
+          "money": -5000
         }
       ]
     },
     {
       "prompt": "You are invited to teach a course at the University of Washington about your career. The dean wants you to inspire the undergraduates.",
       "options": [
-        "teach",
-        "no thanks"
+        "Teach",
+        "Offer to be a guest speaker",
+        "No thanks"
       ],
       "outcomes": [
         "The pressure to teach the class is stressful and you are an awkward lecturer. The students don't like you and begin dropping your class. After a few semester, the dean comes to terms with their mistake and asks you to leave. Your career is in shambles.",
+        "You come in for a guest lecture at the end of the semester. The students are happy to have a break from the monotony and you get a small bonus for attending.",
         "You decide not to teach because you're enjoying your career and don't want to take the pay cut. As a result, you able to take a nice vacation to Hawaii. Life is good."
       ],
       "effects": [
@@ -38,7 +46,11 @@
         },
         {
           "health": 5,
-          "money": 20000
+          "money": 1000
+        },
+        {
+          "health": 15,
+          "money": 10000
         }
       ]
     }
@@ -47,12 +59,14 @@
     {
       "prompt": "Recent developments in technology are starting to render your job obsolete. A coworker approaches you to ask if you want to join 'The Anti-Automation League'. You have heard about the AAL in the news lately but can't remember exactly why.",
       "options": [
-        "join league",
-        "decline invitation"
+        "Join league",
+        "Do your research",
+        "Decline invitation"
       ],
       "outcomes": [
         "You join the AAL and learn of plans to bomb a robotics company. You are assigned as the getaway driver. The event goes smoothly and the robotics company is completely destroyed. While escaping, you hit a hard pothole at high speeds and the truck explodes. One of your team must have left an explosive in the truck bed. When the ambulance arrives, you pretend to be an innocent victim of the explosion.",
-        "You tell your coworker no thanks. A few weeks later, you see a news report that the AAL has bombed a robotics company. Your company's robotic workers are now at least three years delayed thanks to the AAL and the company has to pay out bonuses to keep their employees, including you."
+        "You discover that the AAL is a terrorist group...you appreciate their efforts but best to stay away. You decide to make efforts to move into management. Your boss sees your efforts offers you a promotion!",
+        "You tell your coworker no thanks. A few weeks later, you see a news report that the AAL has bombed a robotics company. Your company's robotic workers are now at least three years delayed thanks to the AAL. The company has to pay out bonuses to keep their employees, including you."
       ],
       "effects": [
         {
@@ -60,23 +74,32 @@
           "health": -40
         },
         {
-          "money": 50000
+          "money": 60000,
+          "health": 5
+        },
+        {
+          "money": 20000
         }
       ]
     },
     {
       "prompt": "You visit your local library and see a flyer for a free beginner's Spanish course. You have always wanted to learn a new language but haven't had the time.",
       "options": [
-        "take course",
-        "no thanks"
+        "Take course",
+        "Take flyer down",
+        "No thanks"
       ],
       "outcomes": [
         "With a new hobby, you are making new friends and have created a comfortable group of friends. Your stress levels go down. Life is good.",
-        "You decide that you want to kepe you free time. One day at work, your boss says that there is a promotion for someone who is able to do the job in Spanish. Sigh. You have missed out on a great opportunity."
+        "You want to take the course but don't have the time. 'If I can't learn Spanish, NO ONE CAN!', you say to yourself. The librarian catches you on camera and gets security to escort you out of the building. You sprain your wrist in the process",
+        "You decide that you want to keep you free time. One day at work, your boss says that there is a promotion for someone who is able to do the job in Spanish. Sigh. You have missed out on a great opportunity."
       ],
       "effects": [
         {
           "health": 5
+        },
+        {
+          "health": -15
         },
         {
           "health": 5,

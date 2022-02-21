@@ -26,5 +26,4 @@ public class BackstoryOption {
         return outcome;
     }
 
-
 }

@@ -11,7 +11,7 @@ public class EffectsTranslatorTest {
         Person player = new Person();
         SceneContainer sceneContainer = new SceneContainer();
         Scene scene = sceneContainer.getRandomScene(player);
-        EffectsTranslator.doEffects(player, scene.getEffects().get(0));
+//        EffectsTranslator.doEffects(player, scene.getEffects().get(0));
     }
 
 }

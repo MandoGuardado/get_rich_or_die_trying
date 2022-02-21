@@ -27,29 +27,29 @@ class PersonTest {
 
     @Test
     void testGetHealthPointsGetter_shouldReturnDefaultValueOfOneHundred () {
-        assertEquals(100, player.getHealthPoints());
+        assertEquals(100, player.getHealth());
     }
 
     @Test
     void testHealthPointValueAfterRemovingTenByEnteringNegativeValueFromDefaultOneHundred_shouldReturnValueOfHealthPointAtNinety() {
         player.adjustHealth(-10);
-        assertEquals(player.getHealthPoints(), 90);
+        assertEquals(player.getHealth(), 90);
     }
     @Test
     void testHealthPointValueAfterSubtractingMoreThanOneHundredFromAValueOfOneHundred_shouldReturnValueOfZero() {
         player.adjustHealth(-165);
-        assertEquals(player.getHealthPoints(), 0);
+        assertEquals(player.getHealth(), 0);
     }
     @Test
     void testHealthPointValueThatItDoesNotReturnValueHigherThanOneHundredWhenAddingMoreThanOneHundred_shouldReturnValueOfOneHundred() {
         player.adjustHealth(165);
-        assertEquals(player.getHealthPoints(), 100);
+        assertEquals(player.getHealth(), 100);
     }
     @Test
     void testHealthPointValueAfterRemovingSixtyFiveAndAddingTenByEnteringNegativeValueFromDefaultOneHundred_healthPointsValueShouldBeNinety() {
         player.adjustHealth(-65);
         player.adjustHealth(10);
-        assertEquals(player.getHealthPoints(), 45);
+        assertEquals(player.getHealth(), 45);
     }
 
     @Test
@@ -106,7 +106,7 @@ class PersonTest {
     void testPlayerCurrentInfoStatus_shouldReturnNameAndInitialParameterValuesPlusDefaultValues() {
         Person player = new Person("mando", 1500);
         assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500.00\t Current Age: 18\t Health Status: 100 \n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 100 \n" +
                 "******************************************************************************************\n" ,player.getPlayerInformation() );
     }
 
@@ -115,7 +115,7 @@ class PersonTest {
         Person player = new Person("mando", 1500);
         player.addAge(5);
         assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500.00\t Current Age: 23\t Health Status: 100 \n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 23\t Health Status: 100 \n" +
                 "******************************************************************************************\n" ,player.getPlayerInformation());
     }
 
@@ -124,7 +124,7 @@ class PersonTest {
         Person player = new Person("mando", 1500);
         player.adjustHealth(-10);
         assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500.00\t Current Age: 18\t Health Status: 90 \n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 90 \n" +
                 "******************************************************************************************\n" ,player.getPlayerInformation());
     }
 
@@ -134,7 +134,7 @@ class PersonTest {
         player.addAge(7);
         player.adjustHealth(-10);
         assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500.00\t Current Age: 25\t Health Status: 90 \n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 25\t Health Status: 90 \n" +
                 "******************************************************************************************\n" ,player.getPlayerInformation());
     }
 }

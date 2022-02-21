@@ -1,59 +1,57 @@
 package controller;
 
 import models.Person;
+
 import java.util.Map;
 
 public class EffectsTranslator {
 
     /**
-     * No Return value method completes a player action based on effects in Scene instance.
-     * @param player Person instance
-     * @param effect Scene instance 'effects' field Map values.
+     * Method that completes player action based on effects in Scene instance.
+     *
+     * @param player Person instance that action will affect.
+     * @param action action that that will be completed.
+     * @param value  value of the action being taken.
      */
-    public static void doEffects(Person player, Map<String, Object> effect) {
+    public static String doEffects(Person player, String action, int value) {
 
-        for (String action : effect.keySet()) {
-            String message="";
-            action = action.trim();
-            int value = (int) effect.get(action);
+        String message = "";
+        switch (action) {
+            case "money":
+                message = player.adjustNetWorth(value);
+                break;
+            case "health":
+                message = player.adjustHealth(value);
+                break;
+            case "dating":
+                message = player.addPartner(value);
+                break;
+            case "breakup":
+                message = player.breakUp();
+                break;
+            case "marry":
+                message = player.marryPartner();
+                break;
+            case "divorce":
+                message = player.addDivorce();
+                break;
+            case "addchild":
+                message = player.addChild(value);
+                break;
+            case "career":
+                message = player.changeCareer(value);
+                break;
+            default:
+                message = "There is no valid action for the following effect: " + action + " with value " + value;
 
-            switch (action) {
-                case "money":
-                    message = player.adjustNetWorth(value);
-                    break;
-                case "health":
-                    message = player.adjustHealth(value);
-                    break;
-                case "dating":
-                    message = player.addPartner(value);
-                    break;
-                case "breakup":
-                    message = player.breakUp();
-                    break;
-                case "marry":
-                    message = player.marryPartner();
-                    break;
-                case "divorce":
-                    message = player.addDivorce();
-                    break;
-                case "addchild":
-                    message = player.addChild(value);
-                    break;
-                case "career":
-                    message = player.changeCareer(value);
-                    break;
-                default:
-                    System.out.println("There is no valid action for the following effect: " + action + " with value " + value);
-
-            }
-            System.out.println(message);
         }
-
+        return message;
     }
 
     /**
      * Parameter (attribute) determine which field in the Person instance is incremented.
-     * @param player parameter(Player Object)
+     *
+     * @param player    parameter(Player Object)
      * @param attribute parameter(String) Options: 'strength', 'intellect', 'creativity'
      */
     public static void getAttribute(Person player, String attribute) {
