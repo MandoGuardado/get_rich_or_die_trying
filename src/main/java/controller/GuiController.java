@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class GuiController {
     private static Person player;
-    private static SceneContainer scenes = new SceneContainer();
+    private static final SceneContainer scenes = new SceneContainer();
     private boolean doesPlayerExist = false;
 
 
@@ -37,7 +37,7 @@ public class GuiController {
     private TextField ngName;
 
     @FXML
-    void newGameNextPressed(ActionEvent event) {
+    private void newGameNextPressed(ActionEvent event) {
         player = new Person();
         String name = ngName.getText();
         RadioButton selected = (RadioButton) difficulty.getSelectedToggle();
@@ -54,13 +54,13 @@ public class GuiController {
     }
 
     @FXML
-    void playAgainPressed(ActionEvent event) {
+    private void playAgainPressed(ActionEvent event) {
         player = new Person();
         loadScene(event,"newGame");
     }
 
     @FXML
-    void loadSubmitPressed(ActionEvent event) {
+    private void loadSubmitPressed() {
         String resp = loadText.getText();
         if (scenes.getUsers().containsKey(resp)){
             loadLabel.setText("Player Found! You will continue where you left off...");
@@ -71,14 +71,13 @@ public class GuiController {
         }
     }
 
-
     @FXML
-    public void switchToNewGameScene(ActionEvent event) {
+    private void switchToNewGameScene(ActionEvent event) {
         loadScene(event,"newGame");
     }
 
     @FXML
-    public void switchToLoadGameScene(ActionEvent event) {
+    private void switchToLoadGameScene(ActionEvent event) {
         loadScene(event,"loadGame");
     }
 
@@ -103,15 +102,12 @@ public class GuiController {
     }
 
     @FXML
-    void quitPressed(ActionEvent event) {
+    private void quitPressed() {
         System.exit(1);
     }
 
-    public static Person getPlayer() {
-        return player;
-    }
-
-    public void loadNextPressed(ActionEvent event) {
+    @FXML
+    private void loadNextPressed(ActionEvent event) {
         if (doesPlayerExist){
             loadScene(event, "mainstory");
         } else {
@@ -119,7 +115,11 @@ public class GuiController {
         }
     }
 
-    public static SceneContainer getScenes() {
+    static Person getPlayer() {
+        return player;
+    }
+
+    static SceneContainer getScenes() {
         return scenes;
     }
 }

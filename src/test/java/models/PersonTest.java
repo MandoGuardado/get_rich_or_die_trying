@@ -105,27 +105,27 @@ class PersonTest {
     @Test
     void testPlayerCurrentInfoStatus_shouldReturnNameAndInitialParameterValuesPlusDefaultValues() {
         Person player = new Person("mando", 1500);
-        assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 100 \n" +
-                "******************************************************************************************\n" ,player.getPlayerInformation() );
+        assertEquals("**********************************************************************************************************\n\n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 100 \n\n" +
+                "**********************************************************************************************************\n" ,player.getPlayerInformation() );
     }
 
     @Test
     void testPlayerCurrentInfoStatus_shouldReturnNameAndInitialParameterValuesPlusAdjustedAge() {
         Person player = new Person("mando", 1500);
         player.addAge(5);
-        assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 23\t Health Status: 100 \n" +
-                "******************************************************************************************\n" ,player.getPlayerInformation());
+        assertEquals("**********************************************************************************************************\n\n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 23\t Health Status: 100 \n\n" +
+                "**********************************************************************************************************\n" ,player.getPlayerInformation());
     }
 
     @Test
     void testPlayerCurrentInfoStatus_shouldReturnNameAndInitialParameterValuesPlusHealthAdjustment() {
         Person player = new Person("mando", 1500);
         player.adjustHealth(-10);
-        assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 90 \n" +
-                "******************************************************************************************\n" ,player.getPlayerInformation());
+        assertEquals("**********************************************************************************************************\n\n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 18\t Health Status: 90 \n\n" +
+                "**********************************************************************************************************\n" ,player.getPlayerInformation());
     }
 
     @Test
@@ -133,8 +133,8 @@ class PersonTest {
         Person player = new Person("mando", 1500);
         player.addAge(7);
         player.adjustHealth(-10);
-        assertEquals("******************************************************************************************\n" +
-                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 25\t Health Status: 90 \n" +
-                "******************************************************************************************\n" ,player.getPlayerInformation());
+        assertEquals("**********************************************************************************************************\n\n" +
+                "\tPlayer name: mando\t NetWorth: $1,500\t Current Age: 25\t Health Status: 90 \n\n" +
+                "**********************************************************************************************************\n" ,player.getPlayerInformation());
     }
 }

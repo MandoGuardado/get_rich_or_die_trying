@@ -3,6 +3,8 @@ package controller;
 import models.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import javax.xml.transform.Source;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -29,8 +31,10 @@ public class Game {
         scenes = new SceneContainer();
         listPlayer = scenes.getUsers();
         //Prints Welcome ASCII art banner
-        welcome();
-        //Prompt user for name.
+        clearScreen();
+        System.out.println(welcomeBanner());
+        getInput();
+        clearScreen();
         System.out.println("Enter your Name: ");
         String playerName = getInput();
 
@@ -48,19 +52,20 @@ public class Game {
             getPlayerBasicData(playerName);
             clearScreen();
             //Runs through Career scene
-            System.out.println( runSceneOneCareer(player));
+            System.out.println(runSceneOneCareer(player));
         }
 
         getPlayer().setFinishedInitialization(true);
         while (shouldPlay()) {
             clearScreen();
             Random random = new Random();
-            int randomInt = random.nextInt(2);
+            int randomInt = random.nextInt(5);
             if (randomInt == 1 && getPlayer().isCurrentlyInvesting()){
                 System.out.println(Art.getArt("investing"));
                 handleInvestmentResult();
                 System.out.println("Press Enter to continue:");
                 getInput();
+                clearScreen();
             }
 
             //Checks to see if player is going through midlife crisis, it has already happened, if two are not true,
@@ -71,12 +76,15 @@ public class Game {
             System.out.println("\n+++++++ 5 years later +++++++");
             //For every scene the user goes through age is increased by 5
             System.out.println(player.addAge(5));
+            System.out.println();
             System.out.println(player.getPlayerInformation());
             // handles the individual scene prompting, handling user response and returning index of response.
             int input = prompt(currentScene);
             clearScreen();
             if (input != -1) {
                 System.out.println(player.getPlayerInformation());
+                System.out.println("Outcome:");
+                System.out.println();
                 // display outcome of scene based on user response.
                 displayOutcome(input, currentScene);
                 // applies effect based on user response
@@ -85,6 +93,7 @@ public class Game {
                 String salaryReport = player.addSalary();
                 System.out.println("\nEnter any key to see your 5-year summary");
                 getInput();
+                clearScreen();
                 //Display's value of salaryReport
                 displaySceneSummary(salaryReport);
                 //prompts user to determine if user want to continue game, save game, or quit game
@@ -99,25 +108,9 @@ public class Game {
      *
      * @return Empty String
      */
-    private String welcome() {
-        String art = "\n" +
-                "  /$$$$$$              /$$           /$$$$$$$  /$$           /$$              /$$$$$$                  /$$$$$$$  /$$                 /$$$$$$$$                  /$$                    \n" +
-                " /$$__  $$            | $$          | $$__  $$|__/          | $$             /$$__  $$                | $$__  $$|__/                |__  $$__/                 |__/                    \n" +
-                "| $$  \\__/  /$$$$$$  /$$$$$$        | $$  \\ $$ /$$  /$$$$$$$| $$$$$$$       | $$  \\ $$  /$$$$$$       | $$  \\ $$ /$$  /$$$$$$          | $$  /$$$$$$  /$$   /$$ /$$ /$$$$$$$   /$$$$$$ \n" +
-                "| $$ /$$$$ /$$__  $$|_  $$_/        | $$$$$$$/| $$ /$$_____/| $$__  $$      | $$  | $$ /$$__  $$      | $$  | $$| $$ /$$__  $$         | $$ /$$__  $$| $$  | $$| $$| $$__  $$ /$$__  $$\n" +
-                "| $$|_  $$| $$$$$$$$  | $$          | $$__  $$| $$| $$      | $$  \\ $$      | $$  | $$| $$  \\__/      | $$  | $$| $$| $$$$$$$$         | $$| $$  \\__/| $$  | $$| $$| $$  \\ $$| $$  \\ $$\n" +
-                "| $$  \\ $$| $$_____/  | $$ /$$      | $$  \\ $$| $$| $$      | $$  | $$      | $$  | $$| $$            | $$  | $$| $$| $$_____/         | $$| $$      | $$  | $$| $$| $$  | $$| $$  | $$\n" +
-                "|  $$$$$$/|  $$$$$$$  |  $$$$/      | $$  | $$| $$|  $$$$$$$| $$  | $$      |  $$$$$$/| $$            | $$$$$$$/| $$|  $$$$$$$         | $$| $$      |  $$$$$$$| $$| $$  | $$|  $$$$$$$\n" +
-                " \\______/  \\_______/   \\___/        |__/  |__/|__/ \\_______/|__/  |__/       \\______/ |__/            |_______/ |__/ \\_______/         |__/|__/       \\____  $$|__/|__/  |__/ \\____  $$\n" +
-                "                                                                                                                                                      /$$  | $$               /$$  \\ $$\n" +
-                "                                                                                                                                                     |  $$$$$$/              |  $$$$$$/\n" +
-                "                                                                                                                                                      \\______/                \\______/ \n";
-        System.out.println(art);
-        System.out.println("Welcome to Get Rich Or Die Trying.\nAt a young age you realize that you want to be a millionaire.\nYour mission is to make $1 million before all your health points run out.\nEach choice you make will affect your net worth and health levels.");
-        System.out.println("\nPress any key to continue.");
-        getInput();
-        clearScreen();
-        return "";
+    private String welcomeBanner() {
+
+        return Art.getArt("welcome");
     }
 
     /**
@@ -173,8 +166,8 @@ public class Game {
                         }
                         else {
                             System.out.println("Your should wait until you hear back on your current investment. The best approach is to focus on one investment at a time.");
+                            System.out.println();
                         }
-
                     }
                     else {
                         System.out.println("You don't have any money to invest.");
@@ -195,8 +188,13 @@ public class Game {
             //Scenario five: User input does not match parameter array values, parameter value are printed to provide
             //user with valid options.
             System.out.println("\nInvalid input. Valid options are:\n");
-            for (String selection : selections)
+            int counter = 1;
+            for (String selection : selections){
+                System.out.print(counter + ". ");
                 System.out.println(selection);
+                counter++;
+            }
+
         }
     }
 
@@ -211,13 +209,16 @@ public class Game {
             System.out.println("Great!\n");
             setUpInvestment();
             System.out.println(player.getCurrentInvestment().get("prompt"));
+            System.out.println("Do you want to invest or pass?");
             String response = getInput("invest", "pass");
+            System.out.println();
             setInvestmentDecision(response);
             //handle the investment amount
             Scanner scanner = new Scanner(System.in);
             int investmentAmt = 0;
             if (response.equalsIgnoreCase("invest")){
-                System.out.println("How much do you want to invest. Please keep in mind that you need invest only up to your current net worth. ");
+                System.out.println();
+                System.out.println("How much do you want to invest?. Please keep in mind that you need invest only up to your current net worth. ");
                 boolean validInput;
                 do {
                     validInput = true;
@@ -292,10 +293,10 @@ public class Game {
             investmentResult = Math.negateExact(playerInvestment);
             lostInvestment = true;
         }
-        System.out.println(getPlayer().getPrettyNetWorth());
-        System.out.println(getPlayer().getInvestmentAmount());
+        System.out.println();
+        System.out.println("Outcome:");
         System.out.println(getPlayer().adjustNetWorth(investmentResult, lostInvestment));
-        System.out.println(getPlayer().getPrettyNetWorth());
+
 
     }
 
@@ -307,12 +308,12 @@ public class Game {
     public static String retrievePreviousSession(String playerSavedName) {
         String resultString;
         if (listPlayer.containsKey(playerSavedName)) {
-            resultString = "Player Found! You will continue where you left off...";
+            resultString = "\n\nPlayer Found! You will continue where you left off...\n";
             player = listPlayer.get(playerSavedName);
             //Sets the boolean variable to true, so that player can continue with previous session.
             doesPlayerExist = true;
         } else {
-            resultString = "Player name was not found! New player record will be created.";
+            resultString = "\n\nPlayer name was not found! New player record will be created.\n";
         }
         return resultString;
     }
@@ -425,24 +426,34 @@ public class Game {
         for (Backstory backstory : backstories) {
             //Print out the ASCII art for 'backstory'.
             System.out.println(Art.getArt("backstory"));
+            System.out.println("Situation:");
             //Print prompt field in Backstory instance
             System.out.println(backstory.getPrompt());
             System.out.println();
+            System.out.println("Options:");
+            int counter = 1;
             //Print out every option available for backstory scene.
-            for (BackstoryOption option : backstory.getOptions())
+            for (BackstoryOption option : backstory.getOptions()){
+                System.out.print(counter + ". ");
                 System.out.println(option.getText());
+                counter++;
+            }
 
+            System.out.println();
+            System.out.println("Your answer:");
             //prompt user to type in one of the selections and returns value of the typed in input
             String resp = getInput(backstory.getBackstoryOptionsText());
             BackstoryOption selectedBackstoryOption = null;
             // checks the List of BackstoryOption instance to see if user response matches text field in instance.
             for (BackstoryOption option : backstory.getOptions()) {
-                if (option.getText().contains(resp)) {
+                if (option.getText().toLowerCase().contains(resp)) {
                     //if match is found then BackstoryOption instance is assigned to selectedBackstoryObject variable
                     selectedBackstoryOption = option;
                     break;
                 }
             }
+            System.out.println();
+            System.out.println("Outcome:");
             System.out.println();
             //Prints out the value in the 'outcome' field inside selectedBackstoryOption (BackstoryOption instance) variable.
             if (selectedBackstoryOption != null) {
@@ -474,18 +485,21 @@ public class Game {
         //Using hasEduction field in player (Player Object) to determine which Enum Map from Careers will be returned and assigned to available careers
         Map<Careers, List<String>> availCareers = player.hasEducation() ? Careers.getCollegeCareers() : Careers.getNonCollegeCareers();
         String collegeSummary = player.hasEducation() ? "Congratulations!\nYou finished college." : "You decided to skip the college route.";
+        System.out.println();
         System.out.println(collegeSummary);
         System.out.println("What career do you want?");
-
+        int counter = 1;
         //Cycles through one of the Map fields in Careers class based on hadEducation field in player (Person Object).
         List<String> allValidCareers = new ArrayList<>();
         for (Careers career : availCareers.keySet()) {
             for (String specialty : availCareers.get(career)) {
+                System.out.print(counter + ". ");
                 System.out.println(specialty);
                 allValidCareers.add(specialty);
+                counter++;
             }
         }
-
+        System.out.println("Enter your answer:");
         String selectedCareer = getInput(allValidCareers);
         //Setts the ENUM (DANGER, KNOWLEDGE, PASSION) value based on user input
         topLoop:
@@ -509,10 +523,21 @@ public class Game {
      */
     private int prompt(Scene currentScene) {
         System.out.println();
+        System.out.println("Situation:");
+        System.out.println();
         System.out.println(currentScene.getPrompt());
         System.out.println();
-        for (String option : currentScene.getOptions())
+        System.out.println("Options:");
+        System.out.println();
+        int counter = 1;
+        for (String option : currentScene.getOptions()){
+            System.out.print(counter + ". ");
             System.out.println(option);
+            counter++;
+        }
+
+        System.out.println();
+        System.out.println("Your answer:");
         //Using overloading to first pass in List<String> of option and then converting to
         //array to use alternative getInput(varargs)
         String input = getInput(currentScene.getOptions());

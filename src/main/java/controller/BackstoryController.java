@@ -15,10 +15,11 @@ import static controller.Game.getBackStoryScenes;
 
 public class BackstoryController {
     private final List<Backstory> backstories = getBackStoryScenes();
+    private int backstoryRound = 0;
 
     public BackstoryController() {
-
     }
+
     @FXML
     private BorderPane careerPaneCollege;
 
@@ -62,7 +63,7 @@ public class BackstoryController {
     private Button backstoryNext;
 
     @FXML
-    void backstoryNextPressed(ActionEvent event) {
+    private void backstoryNextPressed(ActionEvent event) {
         if (backstoryRound < 4){
             backstoryLabel1.setText(backstories.get(backstoryRound).getPrompt());
             backstoryButton1.setText(backstories.get(backstoryRound).getOptions().get(0).getText());
@@ -80,14 +81,7 @@ public class BackstoryController {
     }
 
     @FXML
-    void buttonPressed(ActionEvent event) {
-        backstorySubmit.setDisable(false);
-    }
-
-    int backstoryRound = 0;
-
-    @FXML
-    private void BSSubmitPressed(ActionEvent event) {
+    private void BSSubmitPressed() {
         ToggleButton selected = (ToggleButton) backstoryChoice.getSelectedToggle();
         String resp = selected.getText();
         BackstoryOption optionSelected = null;
@@ -97,6 +91,7 @@ public class BackstoryController {
                     break;
                 }
             }
+        assert optionSelected != null;
         backstoryLabel2.setText(optionSelected.getOutcome());
         EffectsTranslator.getAttribute(GuiController.getPlayer(), optionSelected.getAttribute());
         backstoryRound++;
@@ -109,7 +104,7 @@ public class BackstoryController {
     }
 
     @FXML
-    void CCNextPressed(ActionEvent event) {
+    private void CCNextPressed(ActionEvent event) {
         RadioButton selected = (RadioButton) collegeCareer.getSelectedToggle();
         String resp = selected.getText();
         Map<Careers, List<String>> availCareers = Careers.getCollegeCareers();
@@ -126,7 +121,7 @@ public class BackstoryController {
     }
 
     @FXML
-    void NCNextPressed(ActionEvent event) {
+    private void NCNextPressed(ActionEvent event) {
         RadioButton selected = (RadioButton) nonCollegeCareer.getSelectedToggle();
         String resp = selected.getText();
         Map<Careers, List<String>> availCareers = Careers.getNonCollegeCareers();
@@ -139,12 +134,11 @@ public class BackstoryController {
                 }
             }
         }
-
         GuiController.loadScene(event, "mainstory");
     }
 
     @FXML
-    void collegeNextPressed(ActionEvent event) {
+    private void collegeNextPressed() {
         RadioButton selected = (RadioButton) collegeSelected.getSelectedToggle();
         String resp = selected.getText();
         collegePane.setVisible(false);
@@ -156,11 +150,15 @@ public class BackstoryController {
             careerPaneNon.setVisible(true);
             GuiController.getPlayer().setEducation(false);
         }
-
     }
 
     @FXML
-    void quitPressed(ActionEvent event) {
+    private void buttonPressed() {
+        backstorySubmit.setDisable(false);
+    }
+
+    @FXML
+    private void quitPressed() {
         System.exit(1);
     }
 
