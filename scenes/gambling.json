@@ -1,6 +1,6 @@
 [
   {
-    "prompt" : "News outlets have been reporting that Amazon shares are expected to rise within the next few weeks. This you opportunity to make some money. Do you believe what the news is reporting and invest or do you keep your money in your savings account?",
+    "prompt" : "News outlets have been reporting that Amazon shares are expected to rise within the next few weeks. This your opportunity to make some money. Do you believe what the news is reporting and invest or do you keep your money in your savings account?",
     "invest": "After several weeks of monitoring you investment you have discovered that ",
     "pass": [
       "Several weeks later you discovered that Amazon shares did in fact double and if you had invested your return value would have been substantial",
@@ -25,6 +25,62 @@
       "The investment was not at successful as the man was promoting it and your investment only grew by a 10%",
       "This was probably one your worst investment an you ended loosing 50% of your investment",
       "This investment was a total scam, you never hear from the man again.  "
+    ]
+  },
+  {
+    "prompt" : "A local artist is selling NFTs of some of their work. You aren't really sure what it is but you enjoy the images and it seems like a good investment.",
+    "invest": "You purchase a gif of sad llama smoking a cigar. You really enjoy the feeling of owning digital art. After a few months... ",
+    "pass": [
+      "NFTs have blown up and the artist is on fire! Buyers that got in early are doubling and tripling their investments on sales. Should have listened to those NFT bros.",
+      "The artist wasn't legit and was just sending random gifs he found on the internet. Glad you dodged that bullet."
+    ],
+    "outcomes": [
+      "The artist has become wildly popular and you are able to resell your NFT for nearly double your investment.",
+      "You decide that the image is kinda tacky and offload it to a young NFT enthusiast. Your investment only grew by a 10%",
+      "You need some cash and try to sell your NFT. Your only buyer is some crypto punk that isn't budging on the price. You lose 50% of your investment",
+      "The original artist gets exposed for some very *controversial tweets*. The value has completely tanked. But hey, the llama still makes you chuckle."
+    ]
+  },
+  {
+    "prompt" : "You're at a local bar when a well known boxer and his entourage walk in. They must be in town for that huge fight this weekend. You go to the bathroom when the boxer walks in. You think you hear him whispering to someone on the phone that he's going to 'throw the match'",
+    "invest": "You place a huge bet on the other fighter. The attendant says 'Really? No way this guy wins!'. You go all in and watch the fight.  ",
+    "pass": [
+      "You watch the fight from home and OMG, the champ really lost. No one saw it coming. If only you placed a bet on the underdog, you would have earned a significant wad of cash",
+      "You watch the fight from home and OMG, the champ CRUSHED the underdog. You don't know what you heard on that call, but are glad you didn't place a bet based on that."
+    ],
+    "outcomes": [
+      "No one but you could see this coming! The champ loses to the underdog and you nearly double your investment.",
+      "You can tell the champ is pulling his punches. After 9 rounds, the match ends in a draw. Your investment only grew by a 10%",
+      "You see the champ is hurting by round 3 and it looks like you're going to win big but then the other boxer bites the champ in the ear and gets disqualified. You lose 50% of your investment",
+      "The champ steps in the ring... and totally annihilates the poor underdog. It's possible that you misheard the champ...it had been a long night at the bar. You lose your entire bet but what an exciting match! "
+    ]
+  },
+  {
+    "prompt" : "There's a lot of talk in your favorite forum of buying dollar stocks of your favorite childhood toy store. Some are saying it's the next big meme stock. Should you buy in early? ",
+    "invest": "'Why not?' you think to yourself. After several weeks  ",
+    "pass": [
+      "You check in with the forum and see that the dollar stock is now worth 50 times that! Even a small investment would have earned big. Darn. ",
+      "You check in with the forum and see that the stock is almost worthless. Apparently, everyone thought it was just a fun joke and sold shortly after. You're glad you didn't let FOMO convince you to make a bad financial decision."
+    ],
+    "outcomes": [
+      "You see the value of the stock climb and climb! This meme stock is all over social media! You know the bubble is soon to burst so you sell and are able to nearly double your investment.",
+      "The stock becomes a minor trending topic on twitter for a bit but doesn't really take off. Your investment only grew by a 10%",
+      "It seems like some big investors dumped their stock and with the value decreasing, you decide to hedge your bets and sell. You lose 50% of your investment ",
+      "Turns out the whole thing was a scam. A big name investor wanted to profit off a dying stock and started the rumor in the forum. Once everyone bought in, they dumped all of their stock for a profit and then the company filed for bankruptcy leaving all the meme investors broke. "
+    ]
+  },
+  {
+    "prompt" : "A friend tells you about a new cryptocurrency that all the insiders are raving about. They are suggesting you buy now. Word on the street is a small island country will be making this cryptocurrency it's national currency. Do you buy in? ",
+    "invest": "'Crypto is the future!' you think to yourself. After several weeks  ",
+    "pass": [
+      "The small island nation buys 1 billion dollars worth of the cryptocurrecy and the value skyrockets! You missed out on a great investment opportunity. ",
+      "Turns out that small island nation was a country with an unsavory dictator at the helm known for horrific crimes against humanity. Everyone has been mass selling in protest. Sounds like you dodged a bullet."
+    ],
+    "outcomes": [
+      "The island nation makes their purchase and everyone is scrambling to get in. Luckily you purchased big and early and nearly double your investment.",
+      "The island nation quietly transitions their legal tender and slightly increases the value of the crytocoin. Your investment only grew by a 10%",
+      "The country transitioned their legal tender but a natural disaster devastates the country leaving their economy in shambles. The coin tanks in value and you lose 50% of your investment ",
+      "A last minute change has the country investing in an entirely different crypto currency. Your investment is wasted. "
     ]
   }
 ]
