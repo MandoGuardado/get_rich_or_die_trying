@@ -29,8 +29,10 @@ public class Game {
         scenes = new SceneContainer();
         listPlayer = scenes.getUsers();
         //Prints Welcome ASCII art banner
-        welcome();
-        //Prompt user for name.
+        clearScreen();
+        System.out.println(welcomeBanner());
+        getInput();
+        clearScreen();
         System.out.println("Enter your Name: ");
         String playerName = getInput();
 
@@ -48,7 +50,7 @@ public class Game {
             getPlayerBasicData(playerName);
             clearScreen();
             //Runs through Career scene
-            System.out.println( runSceneOneCareer(player));
+            System.out.println(runSceneOneCareer(player));
         }
 
         getPlayer().setFinishedInitialization(true);
@@ -99,25 +101,9 @@ public class Game {
      *
      * @return Empty String
      */
-    private String welcome() {
-        String art = "\n" +
-                "  /$$$$$$              /$$           /$$$$$$$  /$$           /$$              /$$$$$$                  /$$$$$$$  /$$                 /$$$$$$$$                  /$$                    \n" +
-                " /$$__  $$            | $$          | $$__  $$|__/          | $$             /$$__  $$                | $$__  $$|__/                |__  $$__/                 |__/                    \n" +
-                "| $$  \\__/  /$$$$$$  /$$$$$$        | $$  \\ $$ /$$  /$$$$$$$| $$$$$$$       | $$  \\ $$  /$$$$$$       | $$  \\ $$ /$$  /$$$$$$          | $$  /$$$$$$  /$$   /$$ /$$ /$$$$$$$   /$$$$$$ \n" +
-                "| $$ /$$$$ /$$__  $$|_  $$_/        | $$$$$$$/| $$ /$$_____/| $$__  $$      | $$  | $$ /$$__  $$      | $$  | $$| $$ /$$__  $$         | $$ /$$__  $$| $$  | $$| $$| $$__  $$ /$$__  $$\n" +
-                "| $$|_  $$| $$$$$$$$  | $$          | $$__  $$| $$| $$      | $$  \\ $$      | $$  | $$| $$  \\__/      | $$  | $$| $$| $$$$$$$$         | $$| $$  \\__/| $$  | $$| $$| $$  \\ $$| $$  \\ $$\n" +
-                "| $$  \\ $$| $$_____/  | $$ /$$      | $$  \\ $$| $$| $$      | $$  | $$      | $$  | $$| $$            | $$  | $$| $$| $$_____/         | $$| $$      | $$  | $$| $$| $$  | $$| $$  | $$\n" +
-                "|  $$$$$$/|  $$$$$$$  |  $$$$/      | $$  | $$| $$|  $$$$$$$| $$  | $$      |  $$$$$$/| $$            | $$$$$$$/| $$|  $$$$$$$         | $$| $$      |  $$$$$$$| $$| $$  | $$|  $$$$$$$\n" +
-                " \\______/  \\_______/   \\___/        |__/  |__/|__/ \\_______/|__/  |__/       \\______/ |__/            |_______/ |__/ \\_______/         |__/|__/       \\____  $$|__/|__/  |__/ \\____  $$\n" +
-                "                                                                                                                                                      /$$  | $$               /$$  \\ $$\n" +
-                "                                                                                                                                                     |  $$$$$$/              |  $$$$$$/\n" +
-                "                                                                                                                                                      \\______/                \\______/ \n";
-        System.out.println(art);
-        System.out.println("Welcome to Get Rich Or Die Trying.\nAt a young age you realize that you want to be a millionaire.\nYour mission is to make $1 million before all your health points run out.\nEach choice you make will affect your net worth and health levels.");
-        System.out.println("\nPress any key to continue.");
-        getInput();
-        clearScreen();
-        return "";
+    private String welcomeBanner() {
+
+        return Art.getArt("welcome");
     }
 
     /**
@@ -307,12 +293,12 @@ public class Game {
     public static String retrievePreviousSession(String playerSavedName) {
         String resultString;
         if (listPlayer.containsKey(playerSavedName)) {
-            resultString = "Player Found! You will continue where you left off...";
+            resultString = "\n\nPlayer Found! You will continue where you left off...\n";
             player = listPlayer.get(playerSavedName);
             //Sets the boolean variable to true, so that player can continue with previous session.
             doesPlayerExist = true;
         } else {
-            resultString = "Player name was not found! New player record will be created.";
+            resultString = "\n\nPlayer name was not found! New player record will be created.\n";
         }
         return resultString;
     }
@@ -437,7 +423,7 @@ public class Game {
             BackstoryOption selectedBackstoryOption = null;
             // checks the List of BackstoryOption instance to see if user response matches text field in instance.
             for (BackstoryOption option : backstory.getOptions()) {
-                if (option.getText().contains(resp)) {
+                if (option.getText().toLowerCase().contains(resp)) {
                     //if match is found then BackstoryOption instance is assigned to selectedBackstoryObject variable
                     selectedBackstoryOption = option;
                     break;

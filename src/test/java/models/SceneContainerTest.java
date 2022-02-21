@@ -19,21 +19,22 @@ class SceneContainerTest {
     @Test
     void testSceneContainerLoadUsersWhenExternalDoesNotContainAnyPreviousUsers_ShouldHaveAnEmptyMap() {
         SceneContainer otherContainer = new SceneContainer();
-        otherContainer.loadUsers("testingEmpty.json");
-        assertTrue(otherContainer.getUsers().isEmpty());
+        otherContainer.setUsers(otherContainer.loadUsers("testingEmpty.json"));
+
+        assertEquals(0, otherContainer.getUsers().size());
     }
 
     @Test
     void testSceneContainerLoadUserWhenExistingFileContainsTwoPreviousUsers_shouldReturnTwoAsSizeOfMap(){
-        container.loadUsers("testing.json");
-        assertEquals(2, container.getUsers().size());
-
+        SceneContainer testingContainer = new SceneContainer();
+        testingContainer.setUsers(testingContainer.loadUsers("testing.json"));
+        assertEquals(2, testingContainer.getUsers().size());
     }
 
     @Test
     void testSceneContainerUserMapSizeAfterLoadingExternalFileWithExistingFilesAndAddingAnotherUser_shouldReturnSizeOfThree() {
-        container.loadUsers("testing.json");
 
+        container.setUsers(container.loadUsers("testing.json"));
         container.saveUsers(new Person("Armando", 1500));
         assertEquals(3,container.getUsers().size());
     }
@@ -45,7 +46,7 @@ class SceneContainerTest {
 
     @Test
     void testGetMidLifeCrisisWhenPlayerMeetsCriteria_shouldReturnFalseSceneOptions() {
-        String [] options = {"seek help", "handle it yourself"};
+        String [] options = {"Seek help", "Handle it yourself"};
         ArrayList<String> midlifeCrisisOptions = new ArrayList<>(List.of(options));
         assertEquals(midlifeCrisisOptions, container.getMidLifeCrisisScene("false").getOptions());
     }
@@ -67,7 +68,7 @@ class SceneContainerTest {
 
     @Test
     void testGetMidLifeCrisisWhenPlayerMeetsCriteria_shouldReturnTrueSceneOptions() {
-        String [] options = {"proactive", "reactive"};
+        String [] options = {"Proactive", "Reactive"};
         ArrayList<String> midlifeCrisisOptions = new ArrayList<>(List.of(options));
         assertEquals(midlifeCrisisOptions, container.getMidLifeCrisisScene("true").getOptions());
     }

@@ -66,12 +66,5 @@ public enum Careers {
     public String getDescription() {
         return description;
     }
-
-    public static void main(String[] args) {
-//        Careers careers = Careers.valueOf("Danger");
-        System.out.println(Careers.valueOf("DANGER").getCareerName());
-
-    }
-
 }
 
