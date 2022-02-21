@@ -48,7 +48,7 @@ public class Game {
             getPlayerBasicData(playerName);
             clearScreen();
             //Runs through Career scene
-            runSceneOneCareer(player);
+            System.out.println( runSceneOneCareer(player));
         }
 
         getPlayer().setFinishedInitialization(true);
@@ -318,43 +318,6 @@ public class Game {
     }
 
     /**
-     * Method used to validate if saveFile.txt exits in local machine.
-     */
-    public void checkSaveFile() {
-        File checkFile = new File("saveFile.txt");
-        try {
-            if (checkFile.exists()) {
-                System.out.println("Enter name of player...");
-                String playerSavedName = getInput();
-                System.out.println(playerSavedName);
-                ReadFile read = new ReadFile("saveFile.txt");
-                StringBuilder info = new StringBuilder();
-                for (String str : read.getStringArray()) {
-                    int i = 0;
-                    if (str.toUpperCase().contains(playerSavedName.toUpperCase())) {
-                        System.out.println("Found name");
-                        for (String str1 : read.getStringArray()) {
-                            info.append(str1);
-                            info.append("\n");
-                            if (str.contains("+") && i > 0) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-                String[] infoArray = info.toString().split("\n");
-                for (String s : infoArray) {
-                    System.out.println(s);
-                }
-                //System.out.println(read.toString());
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    /**
      * Method is used to prompt user for name, privilege status, and if they want to go to college.
      * Values are set to the Person Object.
      */
@@ -507,7 +470,7 @@ public class Game {
      *
      * @param player Person instance.
      */
-    private void runSceneOneCareer(Person player) {
+    private String runSceneOneCareer(Person player) {
         //Using hasEduction field in player (Player Object) to determine which Enum Map from Careers will be returned and assigned to available careers
         Map<Careers, List<String>> availCareers = player.hasEducation() ? Careers.getCollegeCareers() : Careers.getNonCollegeCareers();
         String collegeSummary = player.hasEducation() ? "Congratulations!\nYou finished college." : "You decided to skip the college route.";
@@ -534,8 +497,7 @@ public class Game {
                 }
             }
         }
-
-        System.out.println("\nYou chose a " + player.getCareer() + " job");
+        return "\nYou chose a " + player.getCareer().getCareerName() + " based job that is often described as: " + player.getCareer().getDescription();
     }
 
     /**

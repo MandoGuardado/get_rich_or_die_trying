@@ -33,7 +33,7 @@ public class Person {
         setNetWorth(initialWorth);
     }
 
-    public Person(int netWorth, int health, int age, int children, int strength, int intellect, int creativity, Boolean education, Boolean isMarried, Boolean hasPrivilege, Careers career, String name) {
+    public Person(int netWorth, int health, int age, int children, int strength, int intellect, int creativity, Boolean education, Boolean isMarried, Boolean hasPrivilege, Careers career, Person partner, String name, JSONObject currentInvestment, boolean midLifeCrisis, boolean finishedInitialization, boolean isCurrentlyInvesting, int investmentAmount) {
         this(name, netWorth);
         setHealth(health);
         setAge(age);
@@ -45,11 +45,12 @@ public class Person {
         setMarried(isMarried);
         setPrivilege(hasPrivilege);
         setCareer(career);
-    }
-
-    public Person(int netWorth, int health, int age, int children, int strength, int intellect, int creativity, Boolean education, Boolean isMarried, Boolean hasPrivilege, Careers career, Person partner, String name) {
-        this(netWorth, health, age, children, strength, intellect, creativity, education, isMarried, hasPrivilege, career, name);
         setPartner(partner);
+        setCurrentInvestment(currentInvestment);
+        setMidLifeCrisis(midLifeCrisis);
+        setFinishedInitialization(finishedInitialization);
+        setCurrentlyInvesting(isCurrentlyInvesting);
+        setInvestmentAmount(investmentAmount);
     }
 
     //Business Methods
@@ -453,10 +454,6 @@ public class Person {
 
     public void setEducation(boolean b) {
         this.education = b;
-    }
-
-    public Boolean getMarried() {
-        return isMarried;
     }
 
     public boolean isMarried() {
