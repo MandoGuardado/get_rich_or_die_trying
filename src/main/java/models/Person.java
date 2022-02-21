@@ -78,9 +78,9 @@ public class Person {
      * @return Formatted String
      */
     public String getPlayerInformation() {
-        return "******************************************************************************************\n" +
-                "\t" + "Player name: " + getName() + "\t NetWorth: " + getPrettyNetWorth() + "\t Current Age: " + getAge() + "\t Health Status: " + getHealth() + " \n" +
-                "******************************************************************************************\n";
+        return "**********************************************************************************************************\n\n" +
+                "\t" + "Player name: " + getName() + "\t NetWorth: " + getPrettyNetWorth() + "\t Current Age: " + getAge() + "\t Health Status: " + getHealth() + " \n\n" +
+                "**********************************************************************************************************\n";
     }
 
     /**
