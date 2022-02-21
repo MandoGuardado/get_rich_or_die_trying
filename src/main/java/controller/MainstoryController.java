@@ -7,8 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import models.Person;
 import models.Scene;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +80,7 @@ public class MainstoryController {
     private Label catLabel;
 
     @FXML
-    void introNextPressed(ActionEvent event) {
+    private void introNextPressed() {
         currentScene = GuiController.getScenes().getRandomScene(GuiController.getPlayer());
         catLabel.setText(currentScene.getCategory().toUpperCase());
         mainLabel1.setText(currentScene.getPrompt());
@@ -98,12 +98,7 @@ public class MainstoryController {
     }
 
     @FXML
-    void mainButtonPressed(ActionEvent event) {
-        submitButton.setDisable(false);
-    }
-
-    @FXML
-    void mainSubmitPressed(ActionEvent event) {
+    private void mainSubmitPressed() {
         ToggleButton selected = (ToggleButton) mainChoice.getSelectedToggle();
         String resp = selected.getText();
         int index = currentScene.getOptions().indexOf(resp);
@@ -126,7 +121,7 @@ public class MainstoryController {
     }
 
     @FXML
-    void mainNextPressed(ActionEvent event) {
+    private void mainNextPressed(ActionEvent event) {
         GuiController.getPlayer().addAge(5);
         GuiController.getPlayer().addSalary();
         currentScene = GuiController.getScenes().getNewScene(GuiController.getPlayer());
@@ -166,13 +161,18 @@ public class MainstoryController {
     }
 
     @FXML
-    void quitPressed(ActionEvent event) {
+    private void mainButtonPressed() {
+        submitButton.setDisable(false);
+    }
+
+    @FXML
+    private void quitPressed() {
         GuiController.getScenes().saveUsers(GuiController.getPlayer());
         System.exit(1);
     }
 
     @FXML
-    void resetPressed(ActionEvent event) {
+    private void resetPressed(ActionEvent event) {
         GuiController.loadScene(event, "newGame");
     }
 
