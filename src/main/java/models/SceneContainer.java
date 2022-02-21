@@ -13,7 +13,7 @@ public class SceneContainer {
     //Fields
     private final Random random = new Random();
     private List<Map<String, List<Scene>>> categories;
-    private Map<String, List<Scene>> midLifCrisis;
+    private Map<String, List<Scene>> midLifeCrisis;
     private Map<String, Person> users;
     private List<JSONObject> investingScenes;
 
@@ -21,7 +21,7 @@ public class SceneContainer {
     public SceneContainer() {
         setCategories(loadCategories());
         setUsers(loadUsers(getDataBasePath()));
-        setMidLifCrisis(loadScenes("midlifeCrisis", "true", "false"));
+        setMidLifeCrisis(loadScenes("midlifeCrisis", "true", "false"));
         setInvestingScenes(loadInvestmentScenes());
     }
 
@@ -38,8 +38,8 @@ public class SceneContainer {
         categoryHolder.add(loadScenes("education", "true", "false"));
         categoryHolder.add(loadScenes("partner", "married", "single", "partner"));
         categoryHolder.add(loadScenes("privilege", "true", "false"));
-        categoryHolder.add(loadScenes("children", "true", "false"));
         categoryHolder.add(loadScenes("health", "true", "false"));
+        categoryHolder.add(loadScenes("children", "true", "false"));
 
         return categoryHolder;
     }
@@ -329,7 +329,7 @@ public class SceneContainer {
      * @return Scene object of true or false scene (scene is based on Person's midlifeCrisis field)
      */
     public Scene getMidLifeCrisisScene(String key) {
-        return getMidLifCrisis().get(key).get(0);
+        return getMidLifeCrisis().get(key).get(0);
     }
 
     /**
@@ -365,12 +365,12 @@ public class SceneContainer {
         return "userStorage.json";
     }
 
-    public Map<String, List<Scene>> getMidLifCrisis() {
-        return midLifCrisis;
+    public Map<String, List<Scene>> getMidLifeCrisis() {
+        return midLifeCrisis;
     }
 
-    public void setMidLifCrisis(Map<String, List<Scene>> midLifCrisis) {
-        this.midLifCrisis = midLifCrisis;
+    public void setMidLifeCrisis(Map<String, List<Scene>> midLifeCrisis) {
+        this.midLifeCrisis = midLifeCrisis;
     }
 
     public List<JSONObject> getInvestingScenes() {
